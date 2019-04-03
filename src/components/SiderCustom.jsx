@@ -56,6 +56,7 @@ class SiderCustom extends Component {
         popoverHide && popoverHide();
     };
     openMenu = v => {
+        console.log("openMenu()",v);
         this.setState({
             openKey: v[v.length - 1],
             firstHide: false,
@@ -73,11 +74,11 @@ class SiderCustom extends Component {
                 <div className="logo" />
                 <SiderMenu
                     menus={routes.menus}
-                    onClick={this.menuClick}
                     mode="inline"
+                    onClick={this.menuClick}
                     selectedKeys={[selectedKey]}
-                    openKeys={firstHide ? null : [openKey]}
-                    onOpenChange={this.openMenu}
+                    // openKeys={firstHide ? null : [openKey]}
+                     onOpenChange={this.openMenu}
                 />
                 <style>
                     {`

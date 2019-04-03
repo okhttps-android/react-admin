@@ -19,11 +19,11 @@ const renderSubMenu = item => (
         title={
             <span>
                 {item.icon && <Icon type={item.icon} />}
-                <span className="nav-text">{item.title}</span>
+                <span style={{color:"#ffffff"}}>{item.title}</span>
             </span>
         }
     >
-        {item.subs.map(item => renderMenuItem(item))}
+        {item.subs.map(item => item.subs ? renderSubMenu(item) : renderMenuItem(item))}
     </Menu.SubMenu>
 );
 

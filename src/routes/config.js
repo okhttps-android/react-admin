@@ -55,8 +55,19 @@ export default {
         {
             key: '/app/auth', title: '权限管理', icon: 'safety',
             subs: [
-                { key: '/app/auth/basic', title: '基础演示', component: 'AuthBasic' },
+                {
+                    key: '/app/auth/basic', title: '基础演示', component: 'AuthBasic' ,
+                    subs:[
+                        {
+                            key:'/app/auth/actionEnterA',title:'验证权限'
+                        }
+                    ]
+
+                },
                 { key: '/app/auth/routerEnter', title: '路由拦截', component: 'RouterEnter', auth: 'auth/testPage' },
+                {
+                    key:'/app/auth/actionEnter',title:'Action拦截',component:'ActionEnter'
+                }
             ],
         },
         {
