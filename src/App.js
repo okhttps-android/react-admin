@@ -14,11 +14,14 @@ class App extends Component {
         collapsed: false,
         title: ''
     };
+
     componentWillMount() {
         const { setAlitaState } = this.props;
         const user = JSON.parse(localStorage.getItem('user'));
         // user && receiveData(user, 'auth');
         user && setAlitaState({ stateName: 'auth', data: user });
+        //noinspection JSAnnotator
+        setAlitaState({stateName:'userInfo',data:{'name':'liujie','sex':'男'}});
         // receiveData({a: 213}, 'auth');
         // fetchData({funcName: 'admin', stateName: 'auth'});
         this.getClientWidth();
@@ -63,8 +66,10 @@ class App extends Component {
     };
     render() {
         const { title } = this.state;
-        const { auth = { data: {} }, responsive = { data: {} } } = this.props;
-        console.log(auth);
+        const { auth = { data: {} }, responsive = { data: {} },userInfo={data:{}} } = this.props;
+        console.log("render() title:",title);
+        console.log("render() auth:",auth);
+        console.log("render() userInfo:",userInfo);
         return (
             <DocumentTitle title={title}>
                 <Layout>
@@ -85,4 +90,4 @@ class App extends Component {
     }
 }
 
-export default connectAlita(['auth', 'responsive'])(App);
+export default connectAlita(['auth', 'responsive','userInfo'])(App);

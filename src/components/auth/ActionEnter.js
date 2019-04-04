@@ -9,6 +9,10 @@ const SubMenu = Menu.SubMenu;
 
 
 class ActionEnter extends React.Component{
+
+    constructor(props){
+        super(props);
+    }
     state = {
         collapsed: false,
     }
@@ -18,6 +22,23 @@ class ActionEnter extends React.Component{
             collapsed: !this.state.collapsed,
         });
     }
+
+    componentWillMount(){
+        console.log("componentWillMount()");
+        //获取问号参数
+        const reg = /\?\S*/g;
+        const queryParams = window.location.hash.match(reg);
+        console.log("componentWillMount()  问号参数：",queryParams);
+
+
+    }
+
+    componentDidMount=()=>{
+        console.log("componentDidMount()");
+        console.log("componentWillMount() props参数 name：",this.props.match.params.name);
+        console.log("componentWillMount() props参数：age：",this.props.match.params.age);
+    }
+    
 
     render() {
         return (

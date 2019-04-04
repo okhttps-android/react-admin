@@ -28,15 +28,18 @@ export default class CRouter extends Component {
         return (
             <Switch>
                 {
-                    Object.keys(routesConfig).map(key =>
-                        routesConfig[key].map(r => {
+                    Object.keys(routesConfig).map(key =>{
+                 //遍历对象下第一次数组对象:menus[],others[]
+                        return routesConfig[key].map(r => {
+
+
                             const route = r => {
                                 const Component = AllComponents[r.component];
                                 return (
                                     <Route
                                         key={r.route || r.key}
                                         exact
-                                        path={r.route || r.key}
+                                        path={(r.route || r.key)+(r.paramPath||'')}
                                         render={props => {
                                             const reg = /\?\S*/g;
                                             // 匹配?及其以后字符串
@@ -63,6 +66,11 @@ export default class CRouter extends Component {
                             }
                             return r.component ? route(r) : r.subs.map(r => route(r));
                         })
+
+
+                        }
+
+
                     )
                 }
 
