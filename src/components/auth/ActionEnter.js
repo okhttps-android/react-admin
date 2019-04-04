@@ -43,6 +43,11 @@ class ActionEnter extends React.Component{
     render() {
         return (
             <div style={{ width: 256 }}>
+                <Button type="primary" style={{marginTop:"20px"}} onClick={()=>{
+                    this.setState({
+                        collapsed: !this.state.collapsed,
+                    })
+                }}>刷新</Button>
                 <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
                     <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
                 </Button>
