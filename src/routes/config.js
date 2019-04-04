@@ -67,8 +67,7 @@ export default {
                 { key: '/app/auth/routerEnter', title: '路由拦截', component: 'RouterEnter', auth: 'auth/testPage' },
                 {
                     key:'/app/auth/actionEnter',title:'Action拦截',component:'ActionEnter',
-                    paramPath:'/:name/:age',
-                    query: '/liujie/27'
+                    param:'/:name/:age', query: '/liujie/27'
                 }
             ],
         },
