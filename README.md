@@ -1,27 +1,12 @@
-# react-admin
-react-admin system solution
+# lqdb-agent-web
 
-<img src="https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/logo.png" alt="logo" width="150" height="53" />
-
-![travis-ci](https://travis-ci.org/yezihaohao/react-admin.svg?branch=master)
-
-### 文档地址：[wiki](https://github.com/yezihaohao/react-admin/wiki)
-
-### 问题和方案汇总：[issue](https://github.com/yezihaohao/react-admin/issues/12)
-
-### 更新日志迁移至[CHANGELOG.md](https://github.com/yezihaohao/react-admin/blob/master/CHANGELOG.md)😁(重要！对于了解项目部分功能和代码很有用！)
 
 ### 前言
-> 网上react后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到GitHub
-  启动和打包的时间都稍长，请耐心等待两分钟
-
-- [GitHub地址](https://github.com/yezihaohao/react-admin)
-- [预览地址](https://admiring-dijkstra-34cb29.netlify.com)(已增加响应式，可手机预览😄)
-
+代理后台管理系统。本项目核心技术栈是React+Redux+Antd+React-Router
 ### 依赖模块
-<span style="color: rgb(184,49,47);">项目是用create-react-app创建的，主要还是列出新加的功能依赖包</span>
 
-<span style="color: rgb(184,49,47);">点击名称可跳转相关网站😄😄</span>
+项目是用create-react-app创建的，主要还是列出新加的功能依赖包
+点击名称可跳转相关网站
 
 - [react](https://facebook.github.io/react/)
 - [react-router](https://react-guide.github.io/react-router-cn/)(<span style="color: rgb(243,121,52);">react路由，4.x的版本，如果还使用3.x的版本，请切换分支（ps:分支不再维护）</span>)
@@ -77,29 +62,6 @@ react-admin system solution
     - 登录页面(包括GitHub第三方登录)
     - 404页面
 
-### 功能截图
-#### 首页
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd1.gif)
-#### 按钮图标等
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd2.gif)
-#### 轮播图
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd3.gif)
-#### 富文本
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd4.gif)
-#### 拖拽
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd5.gif)
-#### 画廊
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd6.gif)
-#### 动画
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd7.gif)
-#### 表格
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd8.gif)
-#### 表单
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd9.gif)
-#### 图表
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd10.gif)
-#### 页面
-![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd11.gif)
 
 ### 代码目录
 ```js
@@ -158,16 +120,10 @@ yarn start or npm start
 yarn build or npm run build
 ```
 
-### 结尾
-该项目会不定时更新，后续时间会添加更多的模块
+### 更新日志
 
-欢迎和感谢大家PR~~👏👏
+4-4
 
-若有问题，可加QQ群与我交流
+- 修改左侧菜单栏支持三级甚至多级菜单展示。
+- 左侧菜单栏点击URL设置和支持参数传参（问号形式和匹配符形式）
 
-- 1群：264591039（已满）
-- 2群：592688854（已满）
-- 3群：743490497 (已满)
-- 4群：150131600 
-
-如果对你有帮助，给个star哟~~❤️❤️❤️❤️
