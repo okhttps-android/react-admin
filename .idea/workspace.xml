@@ -309,7 +309,7 @@
       <workItem from="1554262397241" duration="29569000" />
       <workItem from="1554882490813" duration="673000" />
       <workItem from="1555295825955" duration="1196000" />
-      <workItem from="1555297871799" duration="1842000" />
+      <workItem from="1555297871799" duration="1853000" />
     </task>
     <task id="LOCAL-00001" summary="添加三級菜單">
       <created>1554285967288</created>
@@ -360,11 +360,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555299657644</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="项目初始化...">
+      <created>1555299815179</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1555299815179</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33280000" />
+    <option name="totallyTimeSpent" value="33291000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
