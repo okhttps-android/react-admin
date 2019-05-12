@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import Page from './Page';
-import * as apis from './axios';
+import * as apis from './http';
 import { AppContainer } from 'react-hot-loader';
 import { AlitaProvider, setConfig } from 'redux-alita';
 import './style/lib/animate.css';

@@ -15,11 +15,17 @@ class Login extends React.Component {
     }
     componentDidUpdate(prevProps) { // React 16.3+弃用componentWillReceiveProps
         const { auth: nextAuth = {}, history } = this.props;
-        // const { history } = this.props;
-        if (nextAuth.data && nextAuth.data.uid) { // 判断是否登陆
-            localStorage.setItem('user', JSON.stringify(nextAuth.data));
-            history.push('/');
+        console.log("componentDidUpdate() nextAuth:",nextAuth);
+        console.log("componentDidUpdate() nextAuth: success:code:",nextAuth.success,nextAuth.code);
+        if (nextAuth!=null&&nextAuth.data!=null) {
+            if (nextAuth.data.success &&nextAuth.data.code==0) { // 判断是否登陆
+                localStorage.setItem('user', JSON.stringify(nextAuth.data));
+                history.push('/app/dashboard/index');
+            }
+
         }
+
+
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -27,8 +33,18 @@ class Login extends React.Component {
             if (!err) {
                 console.log('Received values of form: ', values);
                 const { setAlitaState } = this.props;
-                if (values.userName === 'admin' && values.password === 'admin') setAlitaState({ funcName: 'admin', stateName: 'auth' });
-                if (values.userName === 'guest' && values.password === 'guest') setAlitaState({ funcName: 'guest', stateName: 'auth' });
+                // if (values.userName === 'admin' && values.password === 'admin') {
+                //     setAlitaState({ funcName: 'admin', stateName: 'auth' });
+                // }else if (values.userName === 'guest' && values.password === 'guest'){
+                //     setAlitaState({ funcName: 'guest', stateName: 'auth' });
+                // } else {
+                //     setAlitaState({ funcName: 'guest', stateName: 'auth' });
+                // }
+
+                setAlitaState({funcName:'login',stateName:'auth',
+                    params:{username:values.userName,password:values.password}})
+
+
             }
         });
     };
@@ -82,4 +98,4 @@ class Login extends React.Component {
     }
 }
 
-export default connectAlita(['auth'])(Form.create()(Login));
+export default connectAlita(['auth','user_agent'])(Form.create()(Login));
