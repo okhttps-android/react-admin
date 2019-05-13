@@ -5,6 +5,7 @@ import React from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { PwaInstaller } from '../widget';
 import { connectAlita } from 'redux-alita';
+import { message} from 'antd';
 
 const FormItem = Form.Item;
 
@@ -17,13 +18,17 @@ class Login extends React.Component {
         const { auth: nextAuth = {}, history } = this.props;
         console.log("componentDidUpdate() nextAuth:",nextAuth);
         console.log("componentDidUpdate() nextAuth: success:code:",nextAuth.success,nextAuth.code);
-        if (nextAuth!=null&&nextAuth.data!=null) {
-            if (nextAuth.data.success &&nextAuth.data.code==0) { // 判断是否登陆
-                localStorage.setItem('user', JSON.stringify(nextAuth.data));
-                history.push('/app/dashboard/index');
-            }
+        if(nextAuth.isFetching!=true){
+                if (nextAuth!=null&&nextAuth.data!=null) {
+                    if (nextAuth.data.success &&nextAuth.data.code==0) { // 判断是否登陆
+                        localStorage.setItem('user', JSON.stringify(nextAuth.data));
+                        history.push('/app/dashboard/index');
+                    }
+                }
+
 
         }
+
 
 
     }
