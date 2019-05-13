@@ -67,16 +67,13 @@ class App extends Component {
     render() {
         const { title } = this.state;
         const { auth = { data: {} }, responsive = { data: {} },userInfo={data:{}} } = this.props;
-        console.log("render() title:",title);
-        console.log("render() auth:",auth);
-        console.log("render() userInfo:",userInfo);
         return (
             <DocumentTitle title={title}>
                 <Layout>
                     {!responsive.data.isMobile && <SiderCustom collapsed={this.state.collapsed} />}
                     <ThemePicker />
                     <Layout style={{flexDirection: 'column'}}>
-                        <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
+                        <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data.data || {}} />
                         <Content style={{ margin: '0 16px', overflow: 'initial', flex: '1 1 0' }}>
                             <Routes auth={auth} />
                         </Content>

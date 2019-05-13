@@ -7,22 +7,39 @@ import DocumentTitle from 'react-document-title';
 import AllComponents from '../components';
 import routesConfig from './config';
 import queryString from 'query-string';
+import NotFound from "../components/pages/NotFound";
 
 export default class CRouter extends Component {
     requireAuth = (permission, component) => {
         const { auth } = this.props;
         const { permissions } = auth.data;
-        // const { auth } = store.getState().httpData;
         if (!permissions || !permissions.includes(permission)) return <Redirect to={'404'} />;
         return component;
     };
     requireLogin = (component, permission) => {
-        const { auth } = this.props;
-        const { permissions } = auth.data;
-        if (process.env.NODE_ENV === 'production' && !permissions) { // 线上环境判断是否登录
-            return <Redirect to={'/login'} />;
-        }
-        return permission ? this.requireAuth(permission, component) : component;
+        let user=  localStorage.getItem("user");
+        let isLogin=false;
+        console.log("login user:",user);
+        if (user!=null){
+              isLogin=true;
+         }
+
+         if(isLogin){
+             return permission ? this.requireAuth(permission, component) : component;
+         }else{
+             return <Redirect to={'/login'} />;
+         }
+
+        // const { auth } = this.props;
+        // if (auth!=null&&auth.data) {//来自redux的状态
+        //     const { permissions } = auth.data;
+        //     if (process.env.NODE_ENV === 'development' && !permissions) { // 线上环境判断是否登录
+        //         return <Redirect to={'/login'} />;
+        //     }
+        // }else{
+        //     return <Redirect to={'/login'} />;
+        // }
+        // return permission ? this.requireAuth(permission, component) : component;
     };
     render() {
         return (
@@ -57,7 +74,12 @@ export default class CRouter extends Component {
                                                     <Component {...merge} />
                                                 </DocumentTitle>
                                             )
-                                            return r.login
+
+                                            console.log("r.ley="+r.key+" r.auth:"+r.auth+" r.login:",r.login);
+
+
+
+                                            return false
                                                 ? wrappedComponent
                                                 : this.requireLogin(wrappedComponent, r.auth)
                                         }}
@@ -73,9 +95,9 @@ export default class CRouter extends Component {
 
                     )
                 }
-
-                <Route render={() => <Redirect to="/404" />} />
-            </Switch>
+                <Route component={NotFound} />
+                <Route render={() => <Redirect to="/app/404" />} />
+    </Switch>
         )
     }
 }

@@ -1,3 +1,5 @@
+import NotFound from "../components/pages/NotFound";
+
 export default {
     menus: [ // 菜单相关路由
         { key: '/app/dashboard/index', title: '首页', icon: 'mobile', component: 'Dashboard' },
@@ -67,7 +69,7 @@ export default {
                 { key: '/app/auth/routerEnter', title: '路由拦截', component: 'RouterEnter', auth: 'auth/testPage' },
                 {
                     key:'/app/auth/actionEnter',title:'Action拦截',component:'ActionEnter',
-                    param:'/:name/:age', query: '/liujie/27'
+                    param:'/:name/:age', query: '/liujie/27',auth:'auth/authPage'
                 }
             ],
         },
@@ -79,7 +81,8 @@ export default {
             subs: [
                 { key: '/app/extension/queryParams', title: '问号形式参数', component: 'QueryParams', query: '?param1=1&param2=2' },
             ],
-        },
+        }
+
     ],
     others: [] // 非菜单相关路由
 }
