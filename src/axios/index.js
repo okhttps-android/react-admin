@@ -30,3 +30,12 @@ export const gitOauthInfo = access_token => get({ url: `${config.GIT_USER}access
 export const admin = () => get({ url: config.MOCK_AUTH_ADMIN });
 // 访问权限获取
 export const guest = () => get({ url: config.MOCK_AUTH_VISITOR });
+
+
+export const signInfo=()=>get({url:"https://www.yundashi168.com/wxService/sign/13266699268/aa111111/2019-04-19"})
+
+export const signMock=()=>{
+    setTimeout(()=>{
+        console.log("signMock模拟异步获取数据()");
+    },3000)
+}

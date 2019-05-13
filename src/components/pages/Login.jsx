@@ -10,33 +10,50 @@ const FormItem = Form.Item;
 
 class Login extends React.Component {
     componentDidMount() {
+        console.log("componentDidMount()");
         const { setAlitaState } = this.props;
         setAlitaState({ stateName: 'auth', data: null });
     }
     componentDidUpdate(prevProps) { // React 16.3+弃用componentWillReceiveProps
         const { auth: nextAuth = {}, history } = this.props;
+        console.log("componentDidUpdate()",this.props);
         // const { history } = this.props;
         if (nextAuth.data && nextAuth.data.uid) { // 判断是否登陆
-            localStorage.setItem('user', JSON.stringify(nextAuth.data));
-            history.push('/');
+            // localStorage.setItem('user', JSON.stringify(nextAuth.data));
+            // history.push('/');
         }
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
-                const { setAlitaState } = this.props;
-                if (values.userName === 'admin' && values.password === 'admin') setAlitaState({ funcName: 'admin', stateName: 'auth' });
-                if (values.userName === 'guest' && values.password === 'guest') setAlitaState({ funcName: 'guest', stateName: 'auth' });
+        console.log("handleSubmit()");
+        this.props.form.validateFields((err, values) =>{
+            console.log("form.validateFields ()");
+            if(!err){
+                if(values.userName=== 'admin'&&values.password==='admin'){
+                    this.props.setAlitaState({funcName:'signMock',stateName:'signInfo'});
+                }
+
             }
-        });
+        })
+        // this.props.form.validateFields((err, values) => {
+        //     if (!err) {
+        //         console.log('Received values of form: ', values);
+        //         const { setAlitaState } = this.props;
+        //         // if (values.userName === 'admin' && values.password === 'admin') {
+        //         //     setAlitaState({ funcName: 'admin', stateName: 'auth' });
+        //         // }
+        //         // if (values.userName === 'guest' && values.password === 'guest') {
+        //         //     setAlitaState({ funcName: 'guest', stateName: 'auth' });
+        //         // }
+        //     }
+        // });
     };
     gitHub = () => {
         window.location.href = 'https://github.com/login/oauth/authorize?client_id=792cdcd244e98dcd2dee&redirect_uri=http://localhost:3006/&scope=user&state=reactAdmin';
     };
     render() {
         const { getFieldDecorator } = this.props.form;
+        console.log("render()");
         return (
             <div className="login">
                 <div className="login-form" >
@@ -82,4 +99,4 @@ class Login extends React.Component {
     }
 }
 
-export default connectAlita(['auth'])(Form.create()(Login));
+export default connectAlita(['auth','signInfo'])(Form.create()(Login));
