@@ -3,6 +3,8 @@
  */
 import React from 'react';
 import { Table } from 'antd';
+import {get_account_list,limit} from '../../http/index'
+import {Toast} from "antd-mobile";
 
 const columns = [{
     title: 'Name',
@@ -28,11 +30,28 @@ for (let i = 0; i < 46; i++) {
 class SelectTable extends React.Component {
     state = {
         selectedRowKeys: [], // Check here to configure the default column
+        pageSize:0
     };
     onSelectChange = (selectedRowKeys) => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({ selectedRowKeys });
     };
+
+
+    componentDidMount(){
+        Toast.loading("")
+        this.state.pageSize=0;
+        get_account_list({limit:limit,offset:this.state.pageSize})
+            .then(res=>{
+                Toast.hide()
+              console.log("result:",res.data);
+        }).catch(err => {
+            Toast.hide()
+            console.log("err:",err);
+        })
+    }
+
+
     render() {
         const { selectedRowKeys } = this.state;
         const rowSelection = {

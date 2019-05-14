@@ -71,7 +71,16 @@ class SiderCustom extends Component {
                 collapsed={collapsed}
                 style={{ overflowY: 'auto' }}
             >
-                <div className="logo" />
+             {/*   <div className="logo" />*/}
+                <div  style={
+                    {display:"flex",
+                        margin:'15px',
+                        justifyContent:'center',
+                        alignItems:'center',
+                        fontSize:'18px',
+                        color:'white',
+                        fontWeight:'600'}
+    }>代理后台管理系统</div>
                 <SiderMenu
                     menus={routes.menus}
                     mode="inline"

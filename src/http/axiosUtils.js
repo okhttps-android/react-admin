@@ -1,18 +1,31 @@
 import api from './interApi'
 import React from 'react';
 import { message} from 'antd';
-
+import { Toast } from 'antd-mobile';
 
 export const sendGet = ({url, params, headers}) => { // get 请求
-
-    return api.creatAxios1.get(url, params, headers)
+    let user=localStorage.getItem("user");
+    console.log("sendGet() user:",user);
+    if(user!=null){
+        user=JSON.parse(user);
+        console.log("sendGet() token:",user.data.access_token);
+        headers={
+           headers:{
+               "agent-id":user.data.agent.id,
+               "agent-token": user.data.access_token.token,
+           },
+            params:params
+        }
+    }
+    console.log("sendGet() headers:",headers);
+    return api.creatAxios1.get(url, headers)
         .then(res =>{
             if(res.code==0){
 
             }else if(0<res.code<1000){
-                   message.error(res.message)
+                   message.error(res.data.message)
             }else{
-                message.error(res.message)
+                message.error(res.data.message)
             }
           return res.data
         })
@@ -22,8 +35,10 @@ export const sendGet = ({url, params, headers}) => { // get 请求
 }
 
 export const sendPost = ({url, params, headers}) => { // post 请求
+      Toast.loading("")
     return api.creatAxios1.post(url, params, headers)
         .then(res => {
+            Toast.hide();
             console.log("sendPost():",res);
         if(res.data.code==0){
 
@@ -34,6 +49,7 @@ export const sendPost = ({url, params, headers}) => { // post 请求
         }
         return res.data
     }).catch(err => {
+         Toast.hide();
         console.log(err);
         message.error(JSON.stringify(err));
         if(err.code==500){
