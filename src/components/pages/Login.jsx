@@ -5,25 +5,30 @@ import React from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { PwaInstaller } from '../widget';
 import { connectAlita } from 'redux-alita';
+import { message} from 'antd';
+
 
 const FormItem = Form.Item;
 
 class Login extends React.Component {
     componentDidMount() {
+        document.title ="登录";
         const { setAlitaState } = this.props;
         setAlitaState({ stateName: 'auth', data: null });
+
     }
     componentDidUpdate(prevProps) { // React 16.3+弃用componentWillReceiveProps
         const { auth: nextAuth = {}, history } = this.props;
         console.log("componentDidUpdate() nextAuth:",nextAuth);
-        console.log("componentDidUpdate() nextAuth: success:code:",nextAuth.success,nextAuth.code);
-        if (nextAuth!=null&&nextAuth.data!=null) {
-            if (nextAuth.data.success &&nextAuth.data.code==0) { // 判断是否登陆
-                localStorage.setItem('user', JSON.stringify(nextAuth.data));
-                history.push('/app/dashboard/index');
-            }
-
+        if(nextAuth.isFetching!=true){
+                if (nextAuth!=null&&nextAuth.data!=null) {
+                    if (nextAuth.data.success &&nextAuth.data.code==0) { // 判断是否登陆
+                        localStorage.setItem('user', JSON.stringify(nextAuth.data));
+                        history.push('/app/dashboard/index');
+                    }
+                }
         }
+
 
 
     }
@@ -57,7 +62,7 @@ class Login extends React.Component {
             <div className="login">
                 <div className="login-form" >
                     <div className="login-logo">
-                        <span>React Admin</span>
+                        <span>代理管理系统</span>
                         <PwaInstaller />
                     </div>
                     <Form onSubmit={this.handleSubmit} style={{maxWidth: '300px'}}>
@@ -86,10 +91,10 @@ class Login extends React.Component {
                             <Button type="primary" htmlType="submit" className="login-form-button" style={{width: '100%'}}>
                                 登录
                             </Button>
-                            <p style={{display: 'flex', justifyContent: 'space-between'}}>
+                         {/*   <p style={{display: 'flex', justifyContent: 'space-between'}}>
                                 <span >或 现在就去注册!</span>
                                 <span onClick={this.gitHub} ><Icon type="github" />(第三方登录)</span>
-                            </p>
+                            </p>*/}
                         </FormItem>
                     </Form>
                 </div>

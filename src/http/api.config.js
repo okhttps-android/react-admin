@@ -23,8 +23,22 @@ const SERVER_URL_LIST = {
 export const SERVER_URL = SERVER_URL_LIST[env].SERVER_URL1;
 
 export const API = {
-   APP_LOGIN: SERVER_URL+"lqdb-agent-api/user/login/"
-
+   APP_LOGIN: SERVER_URL+"lqdb-agent-api/user/login/",
+    //绑定账号列表
+    ///lqdb-agent-api/user/app-account/list/
+    APP_ACCOUNT_LIST:SERVER_URL+"lqdb-agent-api/user/app-account/list/",
+    //用户列表
+    ///lqdb-agent-api/agent/my-friend/list/
+    APP_CLIENT_LIST:SERVER_URL+"lqdb-agent-api/agent/my-friend/list/",
+    //代理信息
+    ///lqdb-agent-api/agent/subordinate/list/
+    APP_AGENT_LIST:SERVER_URL+"lqdb-agent-api/agent/subordinate/list/",
+    //收益统计
+     ///lqdb-agent-api/fund/profit/list/
+    APP_PROFIT_LIST:SERVER_URL+"lqdb-agent-api/fund/profit/list/",
+    //收益统计-明细
+    ///lqdb-agent-api/fund/profit/history/list/?create_date=2019-03-15
+    APP_PROFIT_DETAIL_LIST:SERVER_URL+"lqdb-agent-api/fund/profit/history/list/"
 
 
 }

@@ -3,7 +3,7 @@
  * http通用工具函数
  */
 import axios from 'axios';
-import { message } from 'antd';
+import {message} from 'antd';
 
 /**
  * 公用get请求
@@ -13,8 +13,8 @@ import { message } from 'antd';
  */
 export const get = ({url, msg = '接口异常', headers}) =>
     axios.get(url, headers).then(res => res.data).catch(err => {
-       console.log(err);
-       message.warn(msg);
+        console.log(err);
+        message.warn(msg);
     });
 
 /**
