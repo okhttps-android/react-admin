@@ -1,12 +1,12 @@
 import React from 'react';
 import {Toast} from "antd-mobile";
-import {get_client_list, limit} from "../../http";
+import {get_agent_list, limit} from "../../http";
 import {Card, Col, Row, Table} from "antd";
 import BreadcrumbCustom from "../BreadcrumbCustom";
-import SelectTable from "./SelectTable";
 
 
-class MyUserListTable extends React.Component {
+
+class MyAgentListTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,10 +15,10 @@ class MyUserListTable extends React.Component {
             pageSize: 0,
             data: [],
             columns: [{
-                title: 'APP账号ID',
+                title: '代理账号ID',
                 dataIndex: 'id',
             }, {
-                title: '昵称',
+                title: '用户名',
                 dataIndex: 'nick_name',
             }, {
                 title: '余额',
@@ -32,12 +32,15 @@ class MyUserListTable extends React.Component {
                 dataIndex: 'profit_amount_all',
             }
             , {
-                title: '当前代理分成(%)',
-                dataIndex: 'profit_rate_remain',
+                title: '代理分成%（相对自己的占比）',
+                dataIndex: 'profit_rate_present_for_parent',
             }, {
-                title: '注册时间',
-                dataIndex: 'create_time',
-            }
+                title: '代理分成%（绝对占比）',
+                dataIndex: 'profit_rate',
+            }, {
+                    title: '创建时间',
+                    dataIndex: 'create_time',
+                }
             ]
         };
     }
@@ -50,20 +53,23 @@ class MyUserListTable extends React.Component {
 
     componentDidMount() {
         Toast.loading("")
-        this.state.pageSize = 1;
-        get_client_list({limit: limit, offset: this.state.pageSize})
+        this.state.pageSize = 0;
+        get_agent_list({limit: limit, offset: this.state.pageSize})
             .then(res => {
                 Toast.hide()
                 console.log("result:", res.data, res.data.data.length);
                 for (let i = 0; i < res.data.data.length; i++) {
                     let model = {
-                        id: res.data.data[i].user.id + "",
-                        nick_name: res.data.data[i].user.nick_name,
-                        create_time: res.data.data[i].user.create_time,
-                        user_money:res.data.data[i].user.user_money,
+                        id: res.data.data[i].subordinate_agent.id + "",
+                        nick_name: res.data.data[i].subordinate_agent.username,
+                        create_time: res.data.data[i].subordinate_agent.create_time,
+                        user_money:res.data.data[i].subordinate_agent.user_money,
                         recharge_amount_all:res.data.data[i].recharge_amount_all,
                         profit_amount_all:res.data.data[i]. profit_amount_all,
-                        profit_rate_remain:res.data.data[i].profit_rate_remain
+                        // profit_rate_remain:res.data.data[i].profit_rate_remain,
+                        profit_rate_present_for_parent:res.data.data[i].subordinate_agent.profit_rate_present_for_parent,
+                        profit_rate:res.data.data[i].subordinate_agent.profit_rate
+
                     }
                     this.state.data.push(model);
                 }
@@ -115,11 +121,11 @@ class MyUserListTable extends React.Component {
         };
         return (
             <div className="gutter-example">
-                <BreadcrumbCustom first="用户管理" second="用户列表" />
+                <BreadcrumbCustom first="用户管理" second="代理信息" />
                 <Row gutter={16}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
-                            <Card title="用户列表" bordered={false}>
+                            <Card title="代理信息" bordered={false}>
                                 <Table rowSelection={rowSelection} columns={this.state.columns} dataSource={this.state.data}/>
                             </Card>
                         </div>
@@ -132,4 +138,4 @@ class MyUserListTable extends React.Component {
 }
 
 
-export default MyUserListTable;
+export default MyAgentListTable;

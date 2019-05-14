@@ -28,6 +28,10 @@ import Cssmodule from './cssmodule';
 import MapUi from './ui/map';
 import QueryParams from './extension/QueryParams';
 import ActionEnter from "./auth/ActionEnter";
+import MyUserListTable from "./tables/MyUserListTable";
+import MyAgentListTable from "./tables/MyAgentListTable";
+import ProfitDetailTable from "./tables/ProfitDetailTable";
+import ProfitListTable from "./tables/ProfitListTable";
 
 const WysiwygBundle = Loadable({ // 按需加载富文本配置
     loader: () => import('./ui/Wysiwyg'),
@@ -35,6 +39,10 @@ const WysiwygBundle = Loadable({ // 按需加载富文本配置
 });
 
 export default {
+    ProfitDetailTable,
+    ProfitListTable,
+    MyAgentListTable,
+    MyUserListTable,
     BasicForm, BasicTable, AdvancedTable, AsynchronousTable,
     Echarts, Recharts, Icons, Buttons, Spins, Modals, Notifications,
     Tabs, Banners, Drags, Dashboard, Gallery, BasicAnimations,

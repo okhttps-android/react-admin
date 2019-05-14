@@ -20,7 +20,7 @@ export const sendGet = ({url, params, headers}) => { // get 请求
     console.log("sendGet() headers:",headers);
     return api.creatAxios1.get(url, headers)
         .then(res =>{
-            if(res.code==0){
+            if(res.data.code==0){
 
             }else if(0<res.code<1000){
                    message.error(res.data.message)

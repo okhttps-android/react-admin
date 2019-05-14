@@ -35,7 +35,7 @@ export const API = {
     APP_AGENT_LIST:SERVER_URL+"lqdb-agent-api/agent/subordinate/list/",
     //收益统计
      ///lqdb-agent-api/fund/profit/list/
-    APP_PROFIT_LIST:SERVER_URL+"lqdb-agent-api/fund/profit/list/",
+    APP_PROFIT_LIST:SERVER_URL+"lqdb-agent-api/fund/profit/summary/by-date/",
     //收益统计-明细
     ///lqdb-agent-api/fund/profit/history/list/?create_date=2019-03-15
     APP_PROFIT_DETAIL_LIST:SERVER_URL+"lqdb-agent-api/fund/profit/history/list/"
