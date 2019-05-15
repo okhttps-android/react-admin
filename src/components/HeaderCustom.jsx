@@ -95,7 +95,7 @@ class HeaderCustom extends Component {
                             <Icon type="notification" />
                         </Badge>
                     </Menu.Item>*/}
-                    <SubMenu title={<span className="avatar"><img src="http://img2.imgtn.bdimg.com/it/u=1909514923,2963605589&fm=26&gp=0.jpg" alt="头像" /><i className="on bottom b-white" /></span>}>
+                    <SubMenu title={<span className="avatar"><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1361467273,3482588863&fm=27&gp=0.jpg" alt="头像" /><i className="on bottom b-white" /></span>}>
                         <MenuItemGroup title="用户中心">
                             <Menu.Item key="setting:1">你好 - {agent.username}</Menu.Item>
                             <Menu.Item key="setting:2">个人信息</Menu.Item>
