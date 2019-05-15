@@ -375,7 +375,7 @@
       <workItem from="1556184617367" duration="621000" />
       <workItem from="1557746938142" duration="656000" />
       <workItem from="1557747646620" duration="4276000" />
-      <workItem from="1557826036781" duration="12706000" />
+      <workItem from="1557826036781" duration="12851000" />
     </task>
     <task id="LOCAL-00001" summary="添加三級菜單">
       <created>1554285967288</created>
@@ -496,11 +496,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557881141334</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="完成token验证问题">
+      <created>1557881158085</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1557881158085</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81629000" />
+    <option name="totallyTimeSpent" value="81774000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -556,7 +563,8 @@
     <MESSAGE value="解决好左侧菜单路径传参问题！" />
     <MESSAGE value="项目初始化..." />
     <MESSAGE value="完成token验证问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成token验证问题" />
+    <MESSAGE value="干掉workspace.xml文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="干掉workspace.xml文件" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
