@@ -22,13 +22,13 @@ class ProfitDetailTable extends React.Component{
                 dataIndex: 'create_date',
             }, {
                 title: '佣金',
-                dataIndex: 'recharge_amount',
+                dataIndex: 'profit_amount',
             }, {
                 title: '佣金比例（%）',
                 dataIndex: 'profit_rate_remain',
             }, {
                 title: '充值金额',
-                dataIndex: 'profit_amount',
+                dataIndex: 'recharge_amount',
             }
             , {
                 title: '充值玩家APP ID',
