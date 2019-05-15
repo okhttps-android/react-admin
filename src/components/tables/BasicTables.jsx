@@ -11,11 +11,11 @@ import BreadcrumbCustom from '../BreadcrumbCustom';
 
 const BasicTables = () => (
     <div className="gutter-example">
-        <BreadcrumbCustom first="表格" second="基础表格" />
+        <BreadcrumbCustom first="用户管理" second="APP账号列表" />
         <Row gutter={16}>
             <Col className="gutter-row" md={24}>
                 <div className="gutter-box">
-                    <Card title="基础表格" bordered={false}>
+                    <Card title="APP账号列表" bordered={false}>
                         <SelectTable />
                     </Card>
                 </div>

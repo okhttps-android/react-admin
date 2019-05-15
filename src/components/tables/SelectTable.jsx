@@ -7,30 +7,26 @@ import {get_account_list,limit} from '../../http/index'
 import {Toast} from "antd-mobile";
 
 const columns = [{
-    title: 'Name',
-    dataIndex: 'name',
+    title: 'APP账号ID',
+    dataIndex: 'id',
 }, {
-    title: 'Age',
-    dataIndex: 'age',
+    title: '昵称',
+    dataIndex: 'nick_name',
 }, {
-    title: 'Address',
-    dataIndex: 'address',
-}];
-
-const data = [];
-for (let i = 0; i < 46; i++) {
-    data.push({
-        key: i,
-        name: `Edward King ${i}`,
-        age: 32,
-        address: `London, Park Lane no. ${i}`,
-    });
+    title: 'APP账号手机号',
+    dataIndex: 'user_tel',
+},{
+    title: '绑定时间',
+    dataIndex: 'create_time',
 }
+];
+
 
 class SelectTable extends React.Component {
     state = {
-        selectedRowKeys: [], // Check here to configure the default column
-        pageSize:0
+        selectedRowKeys: [],
+        pageSize:0,
+        data:[]
     };
     onSelectChange = (selectedRowKeys) => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
@@ -44,7 +40,22 @@ class SelectTable extends React.Component {
         get_account_list({limit:limit,offset:this.state.pageSize})
             .then(res=>{
                 Toast.hide()
-              console.log("result:",res.data);
+              console.log("result:",res.data,res.data.data.length);
+                for (let i=0;i<res.data.data.length;i++){
+                    let model={
+                        id:res.data.data[i].user.id+"",
+                        nick_name:res.data.data[i].user.nick_name,
+                        user_tel:res.data.data[i].user.user_tel,
+                        create_time:res.data.data[i].user.create_time,
+
+                    }
+                    this.state.data.push(model);
+                }
+                console.log("state data：",this.state.data);
+                this.setState({
+                    data: this.state.data
+                })
+
         }).catch(err => {
             Toast.hide()
             console.log("err:",err);
@@ -87,7 +98,7 @@ class SelectTable extends React.Component {
             onSelection: this.onSelection,
         };
         return (
-            <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+            <Table rowSelection={rowSelection} columns={columns} dataSource={this.state.data} />
         );
     }
 }

@@ -6,6 +6,7 @@ import HeaderCustom from './components/HeaderCustom';
 import { Layout, notification, Icon } from 'antd';
 import { ThemePicker } from './components/widget';
 import { connectAlita } from 'redux-alita';
+import {Redirect} from "react-router-dom";
 
 const { Content, Footer } = Layout;
 
@@ -67,6 +68,12 @@ class App extends Component {
     render() {
         const { title } = this.state;
         const { auth = { data: {} }, responsive = { data: {} },userInfo={data:{}} } = this.props;
+        if (auth==null){
+            return <Redirect to={'/login'} />;
+        }
+        if (auth.data==null){
+            return <Redirect to={'/login'} />;
+        }
         return (
             <DocumentTitle title={title}>
                 <Layout>
@@ -78,7 +85,7 @@ class App extends Component {
                             <Routes auth={auth} />
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>
-                        React-Admin ©{new Date().getFullYear()} Created by 865470087@qq.com
+                        代理后台管理系统©{new Date().getFullYear()} Created by React
                         </Footer>
                     </Layout>
                 </Layout>
