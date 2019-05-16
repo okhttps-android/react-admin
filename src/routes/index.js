@@ -3,13 +3,27 @@
  */
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
+import {message} from  'antd'
 import DocumentTitle from 'react-document-title';
 import AllComponents from '../components';
 import routesConfig from './config';
 import queryString from 'query-string';
 import NotFound from "../components/pages/NotFound";
+function getNowFormatDate() {//获取当前时间
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1<10? "0"+(date.getMonth() + 1):date.getMonth() + 1;
+    var strDate = date.getDate()<10? "0" + date.getDate():date.getDate();
+    var currentdate = date.getFullYear() + seperator1  + month  + seperator1  + strDate
+        + " "  + date.getHours()  + seperator2  + date.getMinutes()
+        + seperator2 + date.getSeconds();
+    return currentdate;
+}
 
 export default class CRouter extends Component {
+
+
     requireAuth = (permission, component) => {
         const { auth } = this.props;
         const { permissions } = auth.data;
@@ -20,10 +34,20 @@ export default class CRouter extends Component {
         let user=  localStorage.getItem("user");
         let isLogin=false;
         console.log("login user:",user);
+        //这里需要判断token是否失效
+        //access_token.expire_time
+        let expire_time=JSON.parse(user).data.access_token.expire_time;
+        console.log("expire_time:",expire_time," time:",getNowFormatDate());
+
+        if(expire_time>getNowFormatDate()){
+           // message.info("token")
+        }else{
+             message.info("会话断开！")
+            return <Redirect to={'/login'} />;
+        }
         if (user!=null){
               isLogin=true;
          }
-
          if(isLogin){
              return permission ? this.requireAuth(permission, component) : component;
          }else{
