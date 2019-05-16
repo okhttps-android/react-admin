@@ -36,17 +36,16 @@ export default class CRouter extends Component {
         console.log("login user:",user);
         //这里需要判断token是否失效
         //access_token.expire_time
-        let expire_time=JSON.parse(user).data.access_token.expire_time;
-        console.log("expire_time:",expire_time," time:",getNowFormatDate());
-
-        if(expire_time>getNowFormatDate()){
-           // message.info("token")
-        }else{
-             message.info("会话断开！")
-            return <Redirect to={'/login'} />;
-        }
         if (user!=null){
               isLogin=true;
+            let expire_time=JSON.parse(user).data.access_token.expire_time;
+            console.log("expire_time:",expire_time," time:",getNowFormatDate());
+            if(expire_time>getNowFormatDate()){
+                // message.info("token")
+            }else{
+                message.info("会话断开！")
+                return <Redirect to={'/login'} />;
+            }
          }
          if(isLogin){
              return permission ? this.requireAuth(permission, component) : component;
