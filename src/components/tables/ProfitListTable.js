@@ -11,7 +11,7 @@ class ProfitListTable extends React.Component {
         this.state = {
             selectedRowKeys: [],
             data: [],
-            pagination: {},
+            pagination: {showQuickJumper:true},
             columns: [{
                 title: '日期',
                 dataIndex: 'create_date',
