@@ -10,8 +10,8 @@ class ProfitListTable extends React.Component {
         super(props);
         this.state = {
             selectedRowKeys: [],
-            pageSize: 0,
             data: [],
+            pagination: {showQuickJumper:true},
             columns: [{
                 title: '日期',
                 dataIndex: 'create_date',
@@ -39,18 +39,29 @@ class ProfitListTable extends React.Component {
 
 
     onSelectChange = (selectedRowKeys) => {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({selectedRowKeys});
     };
 
+    handleTableChange = (pagination, filters, sorter) => {
+        const pager = { ...this.state.pagination };
+        pager.current = pagination.current;
+        this.setState({pagination: pager,});
+        this.loadData({page: pagination.current-1,});
+    };
 
     componentDidMount() {
+        this.loadData({page: 0});
+    }
+
+    loadData=(params={})=> {
         Toast.loading("")
-        this.state.pageSize =0;
-        get_profit_list({limit: limit, offset: this.state.pageSize})
+        console.log("loadData() current:"+params.page+" offset:"+params.page*limit);
+        get_profit_list({limit: limit, offset: params.page*limit})
             .then(res => {
+                const pagination = {...this.state.pagination};
+                pagination.total = res.data.count;
                 Toast.hide()
-                console.log("result:", res.data, res.data.data.length);
+                this.state.data=[];
                 for (let i = 0; i < res.data.data.length; i++) {
                     let model = {
                         create_date: res.data.data[i].create_date + "",
@@ -62,9 +73,9 @@ class ProfitListTable extends React.Component {
                     }
                     this.state.data.push(model);
                 }
-                console.log("state data：", this.state.data);
                 this.setState({
-                    data: this.state.data
+                    data: this.state.data,
+                    pagination
                 })
 
             }).catch(err => {
@@ -115,8 +126,12 @@ class ProfitListTable extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="收益统计" bordered={false}>
-                                <Table rowSelection={rowSelection} columns={this.state.columns}
-                                       dataSource={this.state.data}/>
+                                <Table rowSelection={rowSelection}
+                                       columns={this.state.columns}
+                                       dataSource={this.state.data}
+                                       pagination={this.state.pagination}
+                                       onChange={this.handleTableChange}
+                                />
                             </Card>
                         </div>
                     </Col>

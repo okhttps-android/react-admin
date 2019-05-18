@@ -1,7 +1,7 @@
 import {sendGet, sendPost} from './axiosUtils'
 import {API} from './api.config'
 
-export const limit=10000
+export const limit=10
 //limit=10&offset=10
 //代理接口
 export const login = ({username,password}) => sendPost({

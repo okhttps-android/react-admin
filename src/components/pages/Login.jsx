@@ -5,7 +5,7 @@ import React from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { PwaInstaller } from '../widget';
 import { connectAlita } from 'redux-alita';
-import { message} from 'antd';
+
 
 
 const FormItem = Form.Item;
@@ -38,14 +38,6 @@ class Login extends React.Component {
             if (!err) {
                 console.log('Received values of form: ', values);
                 const { setAlitaState } = this.props;
-                // if (values.userName === 'admin' && values.password === 'admin') {
-                //     setAlitaState({ funcName: 'admin', stateName: 'auth' });
-                // }else if (values.userName === 'guest' && values.password === 'guest'){
-                //     setAlitaState({ funcName: 'guest', stateName: 'auth' });
-                // } else {
-                //     setAlitaState({ funcName: 'guest', stateName: 'auth' });
-                // }
-
                 setAlitaState({funcName:'login',stateName:'auth',
                     params:{username:values.userName,password:values.password}})
 

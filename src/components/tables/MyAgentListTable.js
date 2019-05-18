@@ -12,7 +12,7 @@ class MyAgentListTable extends React.Component {
         this.state = {
             name: 'MyUserListTable',
             selectedRowKeys: [],
-            pageSize: 0,
+            pagination: {},
             data: [],
             columns: [{
                 title: '代理账号ID',
@@ -49,15 +49,22 @@ class MyAgentListTable extends React.Component {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({selectedRowKeys});
     };
+    handleTableChange = (pagination, filters, sorter) => {
+        const pager = { ...this.state.pagination };
+        pager.current = pagination.current;
+        this.setState({pagination: pager,});
+        this.loadData({page: pagination.current-1
+        });
+    };
 
-
-    componentDidMount() {
+    loadData=(params={})=> {
         Toast.loading("")
-        this.state.pageSize = 0;
-        get_agent_list({limit: limit, offset: this.state.pageSize})
+        get_agent_list({limit: limit, offset: params.page})
             .then(res => {
+                const pagination = {...this.state.pagination};
+                pagination.total = res.data.count;
                 Toast.hide()
-                console.log("result:", res.data, res.data.data.length);
+                this.state.data=[];
                 for (let i = 0; i < res.data.data.length; i++) {
                     let model = {
                         id: res.data.data[i].subordinate_agent.id + "",
@@ -75,13 +82,20 @@ class MyAgentListTable extends React.Component {
                 }
                 console.log("state data：", this.state.data);
                 this.setState({
-                    data: this.state.data
+                    data: this.state.data,
+                    pagination
                 })
 
             }).catch(err => {
             Toast.hide()
             console.log("err:", err);
         })
+    }
+
+    componentDidMount() {
+
+     this.loadData({page:0});
+
     }
 
 
@@ -126,7 +140,12 @@ class MyAgentListTable extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="代理信息" bordered={false}>
-                                <Table rowSelection={rowSelection} columns={this.state.columns} dataSource={this.state.data}/>
+                                <Table rowSelection={rowSelection}
+                                       columns={this.state.columns}
+                                       dataSource={this.state.data}
+                                       pagination={this.state.pagination}
+                                       onChange={this.handleTableChange}
+                                />
                             </Card>
                         </div>
                     </Col>

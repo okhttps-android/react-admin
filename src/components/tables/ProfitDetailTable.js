@@ -12,7 +12,7 @@ class ProfitDetailTable extends React.Component{
         super(props);
         this.state = {
             selectedRowKeys: [],
-            pageSize: 0,
+            pagination: {},
             data: [],
             columns: [{
                 title: 'ID',
@@ -22,13 +22,13 @@ class ProfitDetailTable extends React.Component{
                 dataIndex: 'create_date',
             }, {
                 title: '佣金',
-                dataIndex: 'recharge_amount',
+                dataIndex: 'profit_amount',
             }, {
                 title: '佣金比例（%）',
                 dataIndex: 'profit_rate_remain',
             }, {
                 title: '充值金额',
-                dataIndex: 'profit_amount',
+                dataIndex: 'recharge_amount',
             }
             , {
                 title: '充值玩家APP ID',
@@ -44,20 +44,25 @@ class ProfitDetailTable extends React.Component{
 
 
     onSelectChange = (selectedRowKeys) => {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({selectedRowKeys});
     };
 
-
-    componentDidMount() {
+    handleTableChange = (pagination, filters, sorter) => {
+        const pager = { ...this.state.pagination };
         const { query } = this.props;
+        pager.current = pagination.current;
+        this.setState({pagination: pager,});
+        this.loadData({page: pagination.current-1,query:query});
+    };
+
+    loadData=(params={})=> {
         Toast.loading("")
-        this.state.pageSize =0;
-       console.log("componentDidMount() query.day:",query.day);
-        get_profit_detail_list({limit: limit, offset: this.state.pageSize,create_date:query.day})
+        get_profit_detail_list({limit: limit, offset: params.page,create_date:params.query.day})
             .then(res => {
+                const pagination = {...this.state.pagination};
+                pagination.total = res.data.count;
                 Toast.hide()
-                console.log("result:", res.data, res.data.data.length);
+                this.state.data=[];
                 for (let i = 0; i < res.data.data.length; i++) {
                     let model = {
                         id: res.data.data[i].id + "",
@@ -72,13 +77,20 @@ class ProfitDetailTable extends React.Component{
                 }
                 console.log("state data：", this.state.data);
                 this.setState({
-                    data: this.state.data
+                    data: this.state.data,
+                    pagination
                 })
 
             }).catch(err => {
             Toast.hide()
             console.log("err:", err);
         })
+    }
+
+    componentDidMount() {
+        const { query } = this.props;
+        this.state.pageSize =0;
+        this.loadData({query:query,page: 0});
     }
 
 
@@ -124,8 +136,11 @@ class ProfitDetailTable extends React.Component{
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="收益统计-明细" bordered={false}>
-                                <Table rowSelection={rowSelection} columns={this.state.columns}
-                                       dataSource={this.state.data}/>
+                                <Table rowSelection={rowSelection}
+                                       columns={this.state.columns}
+                                       dataSource={this.state.data}
+                                       pagination={this.state.pagination}
+                                       onChange={this.handleTableChange}/>
                             </Card>
                         </div>
                     </Col>

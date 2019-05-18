@@ -6,41 +6,49 @@ import { Table } from 'antd';
 import {get_account_list,limit} from '../../http/index'
 import {Toast} from "antd-mobile";
 
-const columns = [{
-    title: 'APP账号ID',
-    dataIndex: 'id',
-}, {
-    title: '昵称',
-    dataIndex: 'nick_name',
-}, {
-    title: 'APP账号手机号',
-    dataIndex: 'user_tel',
-},{
-    title: '绑定时间',
-    dataIndex: 'create_time',
-}
-];
-
 
 class SelectTable extends React.Component {
     state = {
         selectedRowKeys: [],
         pageSize:0,
+        pagination: {},
+        columns : [{
+            title: 'APP账号ID',
+            dataIndex: 'id',
+        }, {
+            title: '昵称',
+            dataIndex: 'nick_name',
+        }, {
+            title: 'APP账号手机号',
+            dataIndex: 'user_tel',
+        },{
+            title: '绑定时间',
+            dataIndex: 'create_time',
+        }
+        ],
         data:[]
     };
     onSelectChange = (selectedRowKeys) => {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
+
         this.setState({ selectedRowKeys });
     };
 
+    handleTableChange = (pagination, filters, sorter) => {
+        const pager = { ...this.state.pagination };
+        pager.current = pagination.current;
+        this.setState({pagination: pager,});
+        this.loadData({page: pagination.current-1
+        });
+    };
 
-    componentDidMount(){
+    loadData=(params={})=> {
         Toast.loading("")
-        this.state.pageSize=0;
-        get_account_list({limit:limit,offset:this.state.pageSize})
+        get_account_list({limit:limit,offset:params.pages})
             .then(res=>{
+                const pagination = {...this.state.pagination};
+                pagination.total = res.data.count;
                 Toast.hide()
-              console.log("result:",res.data,res.data.data.length);
+                this.state.data=[];
                 for (let i=0;i<res.data.data.length;i++){
                     let model={
                         id:res.data.data[i].user.id+"",
@@ -53,13 +61,20 @@ class SelectTable extends React.Component {
                 }
                 console.log("state data：",this.state.data);
                 this.setState({
-                    data: this.state.data
+                    data: this.state.data,
+                    pagination
                 })
 
-        }).catch(err => {
+            }).catch(err => {
             Toast.hide()
             console.log("err:",err);
         })
+    }
+
+    componentDidMount(){
+
+        this.loadData({page:0});
+
     }
 
 
@@ -98,7 +113,12 @@ class SelectTable extends React.Component {
             onSelection: this.onSelection,
         };
         return (
-            <Table rowSelection={rowSelection} columns={columns} dataSource={this.state.data} />
+            <Table rowSelection={rowSelection}
+                   columns={this.state.columns}
+                   dataSource={this.state.data}
+                   pagination={this.state.pagination}
+                   onChange={this.handleTableChange}
+            />
         );
     }
 }
