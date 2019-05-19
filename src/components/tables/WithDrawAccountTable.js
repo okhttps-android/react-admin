@@ -52,8 +52,32 @@ class WithDrawAccountTable extends React.Component{
             .then(res => {
                 console.log("result:"+JSON.stringify(res.data));
                 setAlitaState({ stateName: 'moneyAccount', data: res.data.data });
+                this.state.data=[];
+                let accountBank;
+                let accountAlipay;
+                let accountWechat;
+
+                for(let i=0;i<res.data.data.length;i++){
+                    let model=res.data.data[i];
+                    if (model.type==3) {
+                         // this.state.data.splice(0,0,model);
+                        accountBank=model;
+                    }
+                    if (model.type==2) {
+                       // this.state.data.splice(1,0,model);
+                        accountAlipay=model;
+                    }
+                    if (model.type==1) {
+                       // this.state.data.splice(2,0,model);
+                        accountWechat=model;
+                    }
+                }
+
+                this.state.data.push(accountBank);
+                this.state.data.push(accountAlipay);
+                this.state.data.push(accountWechat);
                 this.setState({
-                    data: res.data.data
+                    data: this.state.data
                 })
 
             }).catch(err => {
