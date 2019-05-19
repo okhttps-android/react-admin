@@ -5,11 +5,10 @@ import {Row, Col, Button, Card, Select, Form, message, Input, Modal} from 'antd'
 import {connectAlita} from "redux-alita";
 import BreadcrumbCustom from "../BreadcrumbCustom";
 import '../../style/css/app-gloal.css'
-const FormItem = Form.Item;
-const formItemLayout = {
-    labelCol: { span: 6 },
-    wrapperCol: { span: 16 },
-};
+import UpdateBankForm from "../forms/UpdateBankForm";
+import UpdateAlipayForm from "../forms/UpdateAlipayForm";
+import UpdateWechatForm from "../forms/UpdateWechatForm";
+
 const Option = Select.Option;
 
 class WithDrawAccountTable extends React.Component{
@@ -49,7 +48,6 @@ class WithDrawAccountTable extends React.Component{
 
     loadData=(params={})=> {
         const { setAlitaState } = this.props;
-        Toast.loading("")
         get_withdaw_list({limit: limit, offset: params.page*limit})
             .then(res => {
                 console.log("result:"+JSON.stringify(res.data));
@@ -59,7 +57,6 @@ class WithDrawAccountTable extends React.Component{
                 })
 
             }).catch(err => {
-            Toast.hide()
             console.log("err:", err);
         })
     }
@@ -79,7 +76,7 @@ class WithDrawAccountTable extends React.Component{
 
     updateBank = (e) => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        this.formRefBank.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log("values() cardName:",values.cardName);
                 console.log("values() cardNo:",values.cardNo);
@@ -87,12 +84,12 @@ class WithDrawAccountTable extends React.Component{
                 this.setModalVisibleBank(false);
                 update_bank({bank_name:values.cardName,bank_no:values.cardNo,real_name:values.username})
                     .then(res => {
-                    console.log("result:"+JSON.stringify(res.data));
-                      if(res.data.message=='success'&&res.data.code==0){
+                    console.log("result:",res);
+                      if(res.message=='success'&&res.code==0){
                            message.success("银行账号修改成功！");
                           this.loadData({page: 0});
                       }else{
-                          message.errors("修改失败！"+res.data.message);
+                          message.error("修改失败！"+res.data.message);
                       }
                 }).catch(err => {
                     Toast.hide()
@@ -105,18 +102,18 @@ class WithDrawAccountTable extends React.Component{
 
     updateAlipay = (e) => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        this.formRefAlipay.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log("values() cardNo:",values.cardNo);
                 console.log("values() username:",values.username);
                 this.setModalVisibleAlipay(false);
                 update_alipay({third_part_account:values.cardNo,real_name:values.username}).then(res => {
-                    console.log("result:"+JSON.stringify(res.data));
-                    if(res.data.message=='success'&&res.data.code==0){
+                    console.log("result:"+JSON.stringify(res));
+                    if(res.message=='success'&&res.code==0){
                         message.success("支付宝账号修改成功！");
                         this.loadData({page: 0});
                     }else{
-                        message.errors("修改失败！"+res.data.message);
+                        message.error("修改失败！"+res.data.message);
                     }
                 }).catch(err => {
                     Toast.hide()
@@ -129,18 +126,19 @@ class WithDrawAccountTable extends React.Component{
 
     updateWechat = (e) => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+
+        this.formRefWechat.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log("values() cardNo:",values.cardNo);
                 console.log("values() username:",values.username);
                 this.setModalVisibleWechat(false);
               update_wechat({third_part_account:values.cardNo,real_name:values.username}).then(res => {
-                  console.log("result:"+JSON.stringify(res.data));
-                  if(res.data.message=='success'&&res.data.code==0){
+                  console.log("result:"+JSON.stringify(res));
+                  if(res.message=='success'&&res.code==0){
                       message.success("微信账号修改成功！");
                       this.loadData({page: 0});
                   }else{
-                      message.errors("修改失败！"+res.data.message);
+                      message.error("修改失败！"+res.data.message);
                   }
               }).catch(err => {
                   Toast.hide()
@@ -149,6 +147,18 @@ class WithDrawAccountTable extends React.Component{
 
             }
         });
+    };
+
+    saveFormRefBank = formRef => {
+        this.formRefBank = formRef;
+    };
+
+    saveFormRefAlipay = formRef => {
+        this.formRefAlipay = formRef;
+    };
+
+    saveFormRefWechat = formRef => {
+        this.formRefWechat = formRef;
     };
 
     render(){
@@ -206,85 +216,24 @@ class WithDrawAccountTable extends React.Component{
             </Row>
 
             {/*修改银行*/}
-            <Modal
-                title="修改银行账户信息"
-                centered
+            <UpdateBankForm
+                wrappedComponentRef={this.saveFormRefBank}
                 visible={this.state.modalVisibleByBank}
-                onOk={ this.updateBank}
-                onCancel={() =>this.setModalVisibleBank(false) }
-            >
-                <Form >
-                    <FormItem label="银行名称" {...formItemLayout} >
-                        {getFieldDecorator('cardName', {
-                            rules: [{ required: true, message: '请输入银行名称(省市区及支行名称)!' }],
-                        })(
-                            <Input    placeholder="省市区及支行名称" />
-                        )}
-                    </FormItem>
-
-                    <FormItem label="银卡卡号" {...formItemLayout}>
-                        {getFieldDecorator('cardNo', {
-                            rules: [{ required: true, message: '请输入银行卡号!' }],
-                        })(
-                            <Input    placeholder="请输入银行卡号" />
-                        )}
-                    </FormItem>
-                    <FormItem label="姓名" {...formItemLayout}>
-                        {getFieldDecorator('username', {
-                            rules: [{ required: true, message: '请输入姓名!' }],
-                        })(
-                            <Input    placeholder="请输入姓名" />
-                        )}
-                    </FormItem>
-
-                </Form>
-            </Modal>
+                onCancel={this.setModalVisibleBank.bind(this,false)}
+                onCreate={this.updateBank}/>
             {/*修改支付宝*/}
-            <Modal
-                title="修改支付宝账户信息"
-                centered
-                visible={this.state.modalVisibleByAlipay}
-                onOk={ this.updateAlipay}
-                onCancel={() =>this.setModalVisibleAlipay(false) }
-            >
-                <FormItem label="支付宝账户" {...formItemLayout}>
-                    {getFieldDecorator('cardNo', {
-                        rules: [{ required: true, message: '请输入支付宝账号!' }],
-                    })(
-                        <Input    placeholder="请输入支付宝账号" />
-                    )}
-                </FormItem>
-                <FormItem label="姓名" {...formItemLayout}>
-                    {getFieldDecorator('username', {
-                        rules: [{ required: true, message: '请输入姓名!' }],
-                    })(
-                        <Input    placeholder="请输入姓名" />
-                    )}
-                </FormItem>
-            </Modal>
+             <UpdateAlipayForm
+                 wrappedComponentRef={this.saveFormRefAlipay}
+                 visible={this.state.modalVisibleByAlipay}
+                 onCancel={this.setModalVisibleAlipay.bind(this,false)}
+                 onCreate={this.updateAlipay}
+             />
             {/*修改微信*/}
-            <Modal
-                title="修改微信账户信息"
-                centered
-                visible={this.state.modalVisibleByWechat}
-                onOk={ this.updateWechat}
-                onCancel={() =>this.setModalVisibleWechat(false) }
-            >
-                <FormItem label="微信账号" {...formItemLayout}>
-                    {getFieldDecorator('cardNo', {
-                        rules: [{ required: true, message: '请输入微信账号!' }],
-                    })(
-                        <Input    placeholder="请输入微信账号" />
-                    )}
-                </FormItem>
-                <FormItem label="姓名" {...formItemLayout}>
-                    {getFieldDecorator('username', {
-                        rules: [{ required: true, message: '请输入姓名!' }],
-                    })(
-                        <Input    placeholder="请输入姓名" />
-                    )}
-                </FormItem>
-            </Modal>
+             <UpdateWechatForm
+                 wrappedComponentRef={this.saveFormRefWechat}
+                 visible={this.state.modalVisibleByWechat}
+                 onCancel={this.setModalVisibleWechat.bind(this,false)}
+                 onCreate={this.updateWechat}/>
         </div>
     }
 }

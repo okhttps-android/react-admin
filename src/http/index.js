@@ -59,12 +59,12 @@ export const get_withdraw_request_add = ({amount,withdraw_account_id,withdraw_pa
 
 //提现账号-更新微信
 export const update_wechat = ({third_part_account,real_name}) => sendPost({
-    url: API.APP_WITHDRAW_REQUEST_ADD,
+    url: API.APP_WITHDRAW_ACCOUNT_UPDATE_WECHAT,
     params: {third_part_account: third_part_account, real_name: real_name}
 })
 //提现账号-更新支付宝
 export const update_alipay = ({third_part_account,real_name}) => sendPost({
-    url: API.APP_WITHDRAW_REQUEST_ADD,
+    url: API.APP_WITHDRAW_ACCOUNT_UPDATE_ALIPAY,
     params: {third_part_account: third_part_account, real_name: real_name}
 })
 //提现账号-更新银行

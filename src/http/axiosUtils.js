@@ -37,10 +37,8 @@ export const sendGet = ({url, params, headers}) => { // get 请求
 export const sendPost = ({url, params, headers}) => { // post 请求
     Toast.loading("")
     let user=localStorage.getItem("user");
-    console.log("sendGet() user:",user);
     if(user!=null){
         user=JSON.parse(user);
-        console.log("sendGet() token:",user.data.access_token);
         headers={
             headers:{
                 "agent-id":user.data.agent.id,
@@ -53,7 +51,6 @@ export const sendPost = ({url, params, headers}) => { // post 请求
             Toast.hide();
             console.log("sendPost():",res);
         if(res.data.code==0){
-
         }else if(0<res.data.code<1000){
             message.error(JSON.stringify(res.data.message))
         }else{
