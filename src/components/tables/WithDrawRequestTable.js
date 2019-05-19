@@ -12,10 +12,6 @@ const formItemLayout = {
 };
 const Option = Select.Option;
 
-
-
-
-
 class WithDrawRequestTable extends React.Component{
     constructor(props){
         super(props);
@@ -147,7 +143,7 @@ class WithDrawRequestTable extends React.Component{
     };
 
     render(){
-        const { visible, onCancel, onCreate, form } = this.props;
+        const {  form } = this.props;
         const { getFieldDecorator } = form;
         const {selectedRowKeys} = this.state;
         const rowSelection = {
