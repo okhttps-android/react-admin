@@ -1,9 +1,11 @@
 import React from 'react';
 import {Toast} from "antd-mobile";
-import {get_withdaw_list,get_withdraw_request_add, get_withdraw_request_list, limit} from "../../http";
+import {get_sms_code,get_withdaw_list,get_withdraw_request_add, get_withdraw_request_list, update_withdraw_password,limit} from "../../http";
 import BreadcrumbCustom from "../BreadcrumbCustom";
-import {Button, Card, Col, Row, Table, Modal, Form, Input, Icon,Select,InputNumber} from "antd";
+import {Button, Card, Col, Row, Table, Modal, Form, Input, Icon, Select, InputNumber, message} from "antd";
 import {connectAlita} from "redux-alita";
+import UpdateWithDrawPasswordForm from "../forms/UpdateWithDrawPasswordForm";
+
 const FormItem = Form.Item;
 
 const formItemLayout = {
@@ -18,6 +20,7 @@ class WithDrawRequestTable extends React.Component{
         this.state={
             name:'提现记录',
             modalVisible: false,
+            modalVisibleByWithDrawPassword:false,
             selectedRowKeys: [],
             children : [],
             data: [],
@@ -103,6 +106,13 @@ class WithDrawRequestTable extends React.Component{
             Toast.hide()
             console.log("err:", err);
         })
+
+        // get_sms_code({user_tel: 22222222222, auth_type: 3}).
+        // then(res=>{
+        //     console.log("get_sms_code result()",res.data);
+        // }).catch(err=>{
+        //     console.log(err)
+        // })
     }
 
     setModalVisible(modalVisible) {
@@ -141,6 +151,38 @@ class WithDrawRequestTable extends React.Component{
             }
         });
     };
+
+    saveFormRefWithDrawPassword = formRef => {
+        this.formRefWithDrawPassword = formRef;
+    };
+
+    setModalVisibleWithDrawPassword(modalVisibleByWithDrawPassword) {
+        this.setState({ modalVisibleByWithDrawPassword });
+    }
+
+
+    updateWithDrawPassword= (e) => {
+        e.preventDefault();
+        this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log("tel ()",values.user_tel);
+                console.log("tel ()",values.password);
+                console.log("tel ()",values.code);
+
+
+                update_withdraw_password({user_tel: values.user_tel, password: values.password,code:values.code})
+                    .then(res=>{
+                     console.log("result()",res);
+                        if(res.message=='success'&&res.code==0){
+                            message.success("提现密码修改成功！");
+                        }else{
+                            message.error("修改失败！"+res.data.message);
+                        }
+                }).catch(err=>{
+                    console.log(err)
+                })
+            }})
+    }
 
     render(){
         const {  form } = this.props;
@@ -190,6 +232,13 @@ class WithDrawRequestTable extends React.Component{
                                 }
                                 }>
                                    新增
+                                </Button>
+
+                                <Button type="primary"  onClick={()=>{
+                                    this.setModalVisibleWithDrawPassword(true)
+                                }
+                                }>
+                                    修改提现密码
                                 </Button>
                             </div>
                             <Table rowSelection={rowSelection}
@@ -245,6 +294,13 @@ class WithDrawRequestTable extends React.Component{
 
                 </Form>
             </Modal>
+
+            <UpdateWithDrawPasswordForm
+                wrappedComponentRef={this.saveFormRefWithDrawPassword}
+                visible={this.state.modalVisibleByWithDrawPassword}
+                onCancel={this.setModalVisibleWithDrawPassword.bind(this,false)}
+                onCreate={this.updateWithDrawPassword}
+            />
         </div>
     }
 }

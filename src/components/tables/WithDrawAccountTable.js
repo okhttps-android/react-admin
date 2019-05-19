@@ -56,7 +56,6 @@ class WithDrawAccountTable extends React.Component{
                 let accountBank;
                 let accountAlipay;
                 let accountWechat;
-
                 for(let i=0;i<res.data.data.length;i++){
                     let model=res.data.data[i];
                     if (model.type==3) {
@@ -72,7 +71,6 @@ class WithDrawAccountTable extends React.Component{
                         accountWechat=model;
                     }
                 }
-
                 this.state.data.push(accountBank);
                 this.state.data.push(accountAlipay);
                 this.state.data.push(accountWechat);

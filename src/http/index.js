@@ -74,3 +74,15 @@ export const update_bank = ({bank_name,bank_no,real_name}) => sendPost({
 })
 
 //修改提现密码
+
+export const update_withdraw_password = ({user_tel,password,code}) => sendPost({
+    url: API.APP_WITHDRAW_UPDATE_PASSWORD,
+    params: {user_tel: user_tel, password: password,code:code}
+})
+
+//验证码
+
+export const get_sms_code= ({user_tel,auth_type}) => sendPost({
+    url: API.APP_SMS_CODE,
+    params: {user_tel: user_tel, auth_type: auth_type}
+})
