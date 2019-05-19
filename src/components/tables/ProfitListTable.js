@@ -55,7 +55,6 @@ class ProfitListTable extends React.Component {
 
     loadData=(params={})=> {
         Toast.loading("")
-        console.log("loadData() current:"+params.page+" offset:"+params.page*limit);
         get_profit_list({limit: limit, offset: params.page*limit})
             .then(res => {
                 const pagination = {...this.state.pagination};

@@ -3,7 +3,7 @@ import {API} from './api.config'
 
 export const limit=10
 //limit=10&offset=10
-//代理接口
+//登录
 export const login = ({username,password}) => sendPost({
     url: API.APP_LOGIN,
     params: {username: username, password: password}
@@ -40,3 +40,28 @@ export const get_profit_detail_list = ({limit,offset,create_date}) => sendGet({
     params: {limit: limit, offset: offset,create_date:create_date}
 })
 
+//提现账号-列表
+export const get_withdaw_list = ({limit,offset}) => sendGet({
+    url: API.APP_WITHDRAW_ACCOUNT,
+    params: {limit: limit, offset: offset}
+})
+//提现请求-列表
+export const get_withdraw_request_list = ({limit,offset}) => sendGet({
+    url: API.APP_WITHDRAW_REQUEST,
+    params: {limit: limit, offset: offset}
+})
+
+//提现请求-新增
+export const get_withdraw_request_add = ({amount,withdraw_account_id,withdraw_password}) => sendPost({
+    url: API.APP_WITHDRAW_REQUEST_ADD,
+    params: {amount: amount, withdraw_account_id: withdraw_account_id,withdraw_password:withdraw_password}
+})
+
+//提现账号-更新微信
+
+//提现账号-更新支付宝
+
+//提现账号-更新银行
+
+
+//修改提现密码

@@ -32,6 +32,8 @@ import MyUserListTable from "./tables/MyUserListTable";
 import MyAgentListTable from "./tables/MyAgentListTable";
 import ProfitDetailTable from "./tables/ProfitDetailTable";
 import ProfitListTable from "./tables/ProfitListTable";
+import WithDrawRequestTable from "./tables/WithDrawRequestTable";
+import WithDrawAccountTable from "./tables/WithDrawAccountTable";
 
 const WysiwygBundle = Loadable({ // 按需加载富文本配置
     loader: () => import('./ui/Wysiwyg'),
@@ -39,6 +41,8 @@ const WysiwygBundle = Loadable({ // 按需加载富文本配置
 });
 
 export default {
+    WithDrawAccountTable,
+    WithDrawRequestTable,
     ProfitDetailTable,
     ProfitListTable,
     MyAgentListTable,
