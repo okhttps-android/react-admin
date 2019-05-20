@@ -28,6 +28,11 @@ export const get_account_list = ({limit,offset}) => sendGet({
     params: {limit: limit, offset: offset}
 })
 
+//绑定APP账号
+export const account_bind = ({tel,code}) => sendPost({
+    url: API.APP_ACCOUNT_BIND,
+    params: {tel: tel, code: code}
+})
 //用户列表
 export const get_client_list = ({limit,offset}) => sendGet({
     url: API.APP_CLIENT_LIST,

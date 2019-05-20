@@ -5,13 +5,15 @@ import React, { Component } from 'react';
 import screenfull from 'screenfull';
 import avater from '../style/imgs/b1.jpg';
 import SiderCustom from './SiderCustom';
-import { Menu, Icon, Layout, Badge, Popover } from 'antd';
+import {Menu, Icon, Layout, Badge, Popover, message} from 'antd';
 import { gitOauthToken, gitOauthInfo } from '../axios';
 import { queryString } from '../utils';
 import { withRouter } from 'react-router-dom';
 import { PwaInstaller } from './widget';
 import { connectAlita } from 'redux-alita';
 import {user_logout} from "../http/index";
+import UpdateUserPasswordForm from "./forms/UpdateUserPasswordForm";
+import {get_sms_code, update_withdraw_password,update_user_password} from "../http";
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -20,6 +22,8 @@ class HeaderCustom extends Component {
     state = {
         user: '',
         visible: false,
+        user_tel:null,
+        modalVisibleByWithDrawPassword:false,
     };
     componentDidMount() {
         const QueryString = queryString();
@@ -39,6 +43,66 @@ class HeaderCustom extends Component {
             });
         }
     };
+
+    saveFormRefWithDrawPassword = formRef => {
+        this.formRefWithDrawPassword = formRef;
+    };
+
+
+    sendMsg=()=>{
+        this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
+            let user_tel=  values.user_tel;
+            console.log("user_tel:",user_tel);
+            if(user_tel!=null&&user_tel!=""&&user_tel!=" "){
+                this.child.countDown();
+                get_sms_code({user_tel: this.state.user_tel, auth_type: 1}).
+                then(res=>{
+                    console.log("get_sms_code result()",res.data);
+                }).catch(err=>{
+                    console.log(err)
+                })
+            }
+        });
+
+    }
+
+    onChangeInputByPhone=(e)=>{
+        console.log("onChangeInputByPhone():",e.target.value);
+        this.state.user_tel=e.target.value;
+        this.setState({user_tel:e.target.value})
+    }
+
+    onRefBindSMSCode=(ref)=>{
+        this.child = ref
+    }
+
+
+    setModalVisibleWithDrawPassword(modalVisibleByWithDrawPassword) {
+        this.setState({ modalVisibleByWithDrawPassword });
+    }
+
+    updateWithDrawPassword= (e) => {
+        e.preventDefault();
+        this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log("tel ()",values.user_tel);
+                console.log("tel ()",values.password);
+                console.log("tel ()",values.code);
+                update_user_password({user_tel: values.user_tel, password: values.password,code:values.code})
+                    .then(res=>{
+                        console.log("result()",res);
+                        if(res.message=='success'&&res.code==0){
+                            message.success("登录密码修改成功！");
+                            this.setModalVisibleWithDrawPassword(false);
+                        }else{
+                            message.error("修改失败！"+res.data.message);
+                        }
+                    }).catch(err=>{
+                    console.log(err)
+                })
+            }})
+    }
+
     screenFull = () => {
         if (screenfull.enabled) {
             screenfull.request();
@@ -111,11 +175,24 @@ class HeaderCustom extends Component {
                             <Menu.Item key="logout"><span onClick={this.logout}>退出登录</span></Menu.Item>
                         </MenuItemGroup>
                         <MenuItemGroup title="设置中心">
-                            <Menu.Item key="setting:3">个人设置</Menu.Item>
+                            <Menu.Item key="setting:3"><span onClick={()=>{
+                                this.setModalVisibleWithDrawPassword(true);
+                            }}>修改密码</span></Menu.Item>
                             <Menu.Item key="setting:4">系统设置</Menu.Item>
                         </MenuItemGroup>
                     </SubMenu>
                 </Menu>
+                {/**/}
+                <UpdateUserPasswordForm
+                    wrappedComponentRef={this.saveFormRefWithDrawPassword}
+                    visible={this.state.modalVisibleByWithDrawPassword}
+                    sendMsg={this.sendMsg}
+                    phone={this.state.user_tel}
+                    onChangeInputByPhone={this.onChangeInputByPhone}
+                    onRefBindSMSCode={this.onRefBindSMSCode}
+                    onCancel={this.setModalVisibleWithDrawPassword.bind(this,false)}
+                    onCreate={this.updateWithDrawPassword}
+                />
             </Header>
         )
     }

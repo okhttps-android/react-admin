@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Form, Input, Modal,message} from "antd";
 import VerificaCode from "../common/VerificaCode";
-import {get_sms_code} from "../../http/index";
+
 
 const FormItem = Form.Item;
 const formItemLayout = {

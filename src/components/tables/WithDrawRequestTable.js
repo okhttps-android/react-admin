@@ -317,6 +317,7 @@ class WithDrawRequestTable extends React.Component{
                 </Form>
             </Modal>
 
+
             <UpdateWithDrawPasswordForm
                 wrappedComponentRef={this.saveFormRefWithDrawPassword}
                 visible={this.state.modalVisibleByWithDrawPassword}

@@ -72,7 +72,7 @@ class SelectTable extends React.Component {
     }
 
     componentDidMount(){
-
+       this.props.onRef(this);
         this.loadData({page:0});
 
     }
