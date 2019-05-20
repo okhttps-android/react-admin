@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d62bbf8-76a0-4842-8c08-9db6413f073e" name="Default" comment="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。">
-      <change afterPath="$PROJECT_DIR$/src/components/forms/UpdateWithDrawPasswordForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tables/WithDrawAccountTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tables/WithDrawAccountTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tables/WithDrawRequestTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tables/WithDrawRequestTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/http/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="0d62bbf8-76a0-4842-8c08-9db6413f073e" name="Default" comment="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。&#10;开发修改提现密码对话框界面(短信验证码组件还未完成)支持测试验证码修改密码。" />
     <list id="056623c2-9574-43d1-98f6-e380f189ab3a" name="loadSelectData" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,7 +49,7 @@
           <entry key="js" value="4698" />
           <entry key="jsx" value="511" />
           <entry key="md" value="138" />
-          <entry key="txt" value="200" />
+          <entry key="txt" value="273" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -63,7 +57,7 @@
           <entry key="JSX Harmony" value="511" />
           <entry key="JavaScript" value="4698" />
           <entry key="Markdown" value="138" />
-          <entry key="PLAIN_TEXT" value="200" />
+          <entry key="PLAIN_TEXT" value="273" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -250,7 +244,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="411" />
+    <option name="x" value="410" />
     <option name="y" value="160" />
     <option name="width" value="1385" />
     <option name="height" value="1040" />
@@ -334,7 +328,7 @@
       <workItem from="1557844143967" duration="234000" />
       <workItem from="1557928701230" duration="602000" />
       <workItem from="1558157735443" duration="1042000" />
-      <workItem from="1558231443795" duration="24601000" />
+      <workItem from="1558231443795" duration="24978000" />
     </task>
     <task id="LOCAL-00001" summary="添加三級菜單">
       <created>1554285967288</created>
@@ -448,11 +442,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558276027088</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。&#10;开发修改提现密码对话框界面(短信验证码组件还未完成)支持测试验证码修改密码。">
+      <created>1558283063759</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1558283063759</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115844000" />
+    <option name="totallyTimeSpent" value="116221000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -514,7 +515,8 @@
     <MESSAGE value="完成提现记录列表以及分页，提现请求新增功能。" />
     <MESSAGE value="2019-05-19:13:06 完成提现账号列表和提现账号修改功能！" />
     <MESSAGE value="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。" />
+    <MESSAGE value="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。&#10;开发修改提现密码对话框界面(短信验证码组件还未完成)支持测试验证码修改密码。" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。&#10;开发修改提现密码对话框界面(短信验证码组件还未完成)支持测试验证码修改密码。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
