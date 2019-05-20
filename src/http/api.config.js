@@ -23,24 +23,45 @@ const SERVER_URL_LIST = {
 export const SERVER_URL = SERVER_URL_LIST[env].SERVER_URL1;
 
 export const API = {
-   APP_LOGIN: SERVER_URL+"lqdb-agent-api/user/login/",
+    //登录
+    APP_LOGIN: SERVER_URL + "lqdb-agent-api/user/login/",
+    //登出
+    APP_LOGOUT: SERVER_URL + "lqdb-agent-api/user/logout/",
+    //修改密码
+    APP_USER_UPDATE: SERVER_URL + "lqdb-api/user/user-info/",
+    ///请求验证码
+    APP_SMS_CODE: SERVER_URL + "lqdb-agent-api/user/sms-auth-code/",
     //绑定账号列表
-    ///lqdb-agent-api/user/app-account/list/
-    APP_ACCOUNT_LIST:SERVER_URL+"lqdb-agent-api/user/app-account/list/",
+    APP_ACCOUNT_LIST: SERVER_URL + "lqdb-agent-api/user/app-account/list/",
+    //APP账号-绑定
+    APP_ACCOUNT_BIND: SERVER_URL + "lqdb-agent-api/user/app-account/bind/",
+
     //用户列表
-    ///lqdb-agent-api/agent/my-friend/list/
-    APP_CLIENT_LIST:SERVER_URL+"lqdb-agent-api/agent/my-friend/list/",
-    //代理信息
-    ///lqdb-agent-api/agent/subordinate/list/
-    APP_AGENT_LIST:SERVER_URL+"lqdb-agent-api/agent/subordinate/list/",
+    APP_CLIENT_LIST: SERVER_URL + "lqdb-agent-api/agent/my-friend/list/",
+    //下级代理-列表
+    APP_AGENT_LIST:SERVER_URL + "lqdb-agent-api/agent/subordinate/list/",
+    //下级代理-新增
+    APP_AGENT_ADD:SERVER_URL + "lqdb-agent-api/agent/subordinate/add/",
     //收益统计
-     ///lqdb-agent-api/fund/profit/list/
-    APP_PROFIT_LIST:SERVER_URL+"lqdb-agent-api/fund/profit/summary/by-date/",
+    APP_PROFIT_LIST:SERVER_URL + "lqdb-agent-api/fund/profit/summary/by-date/",
     //收益统计-明细
-    ///lqdb-agent-api/fund/profit/history/list/?create_date=2019-03-15
-    APP_PROFIT_DETAIL_LIST:SERVER_URL+"lqdb-agent-api/fund/profit/history/list/"
+    APP_PROFIT_DETAIL_LIST:SERVER_URL + "lqdb-agent-api/fund/profit/history/list/",
 
 
+    //提现账号-列表
+    APP_WITHDRAW_ACCOUNT:SERVER_URL + "lqdb-agent-api/fund/withdraw/account/list/",
+    //提现请求-列表
+    APP_WITHDRAW_REQUEST:SERVER_URL + "lqdb-agent-api/fund/withdraw/request/list/",
+    //提现请求-新增
+    APP_WITHDRAW_REQUEST_ADD:SERVER_URL + "lqdb-agent-api/fund/withdraw/request/add/",
+    //提现账号-更新微信
+    APP_WITHDRAW_ACCOUNT_UPDATE_WECHAT:SERVER_URL + "lqdb-agent-api/fund/withdraw/account/wechat/update/",
+    //提现账号-更新支付宝
+    APP_WITHDRAW_ACCOUNT_UPDATE_ALIPAY:SERVER_URL + "lqdb-agent-api/fund/withdraw/account/alipay/update/",
+    //提现账号-更新银行
+    APP_WITHDRAW_ACCOUNT_UPDATE_BANK:SERVER_URL + "lqdb-agent-api/fund/withdraw/account/bank/update/",
+    //修改提现密码
+    APP_WITHDRAW_UPDATE_PASSWORD:SERVER_URL + "lqdb-agent-api/fund/withdraw/password/update/",
 }
 
 export default SERVER_URL_LIST[env]

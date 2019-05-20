@@ -1,3 +1,5 @@
+import WithDrawRequestTable from "../components/tables/WithDrawRequestTable";
+
 export default {
     menus: [
         { key: '/app/dashboard/index', title: '首页', icon: 'mobile', component: 'Dashboard' },
@@ -18,7 +20,19 @@ export default {
                    }
             ],
 
-        }
+        },
+        {
+            key:'/app/withdraw',title:'提现管理',icon:'copy',
+            subs:[
+                {
+                    key:'/app/withdraw/account',title:'提现账号',component:'WithDrawAccountTable',
+                },
+                {
+                    key:'/app/withdraw/record',title:'提现记录',component:'WithDrawRequestTable',
+
+                }
+            ]
+       }
 
     ],
     others: [] // 非菜单相关路由

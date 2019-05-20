@@ -89,7 +89,6 @@ class ProfitDetailTable extends React.Component{
 
     componentDidMount() {
         const { query } = this.props;
-        this.state.pageSize =0;
         this.loadData({query:query,page: 0});
     }
 

@@ -3,7 +3,7 @@ import {API} from './api.config'
 
 export const limit=10
 //limit=10&offset=10
-//代理接口
+//登录
 export const login = ({username,password}) => sendPost({
     url: API.APP_LOGIN,
     params: {username: username, password: password}
@@ -40,3 +40,49 @@ export const get_profit_detail_list = ({limit,offset,create_date}) => sendGet({
     params: {limit: limit, offset: offset,create_date:create_date}
 })
 
+//提现账号-列表
+export const get_withdaw_list = ({limit,offset}) => sendGet({
+    url: API.APP_WITHDRAW_ACCOUNT,
+    params: {limit: limit, offset: offset}
+})
+//提现请求-列表
+export const get_withdraw_request_list = ({limit,offset}) => sendGet({
+    url: API.APP_WITHDRAW_REQUEST,
+    params: {limit: limit, offset: offset}
+})
+
+//提现请求-新增
+export const get_withdraw_request_add = ({amount,withdraw_account_id,withdraw_password}) => sendPost({
+    url: API.APP_WITHDRAW_REQUEST_ADD,
+    params: {amount: amount, withdraw_account_id: withdraw_account_id,withdraw_password:withdraw_password}
+})
+
+//提现账号-更新微信
+export const update_wechat = ({third_part_account,real_name}) => sendPost({
+    url: API.APP_WITHDRAW_ACCOUNT_UPDATE_WECHAT,
+    params: {third_part_account: third_part_account, real_name: real_name}
+})
+//提现账号-更新支付宝
+export const update_alipay = ({third_part_account,real_name}) => sendPost({
+    url: API.APP_WITHDRAW_ACCOUNT_UPDATE_ALIPAY,
+    params: {third_part_account: third_part_account, real_name: real_name}
+})
+//提现账号-更新银行
+export const update_bank = ({bank_name,bank_no,real_name}) => sendPost({
+    url: API.APP_WITHDRAW_ACCOUNT_UPDATE_BANK,
+    params: {bank_name: bank_name, bank_no: bank_no,real_name:real_name}
+})
+
+//修改提现密码
+
+export const update_withdraw_password = ({user_tel,password,code}) => sendPost({
+    url: API.APP_WITHDRAW_UPDATE_PASSWORD,
+    params: {user_tel: user_tel, password: password,code:code}
+})
+
+//验证码
+
+export const get_sms_code= ({user_tel,auth_type}) => sendPost({
+    url: API.APP_SMS_CODE,
+    params: {user_tel: user_tel, auth_type: auth_type}
+})

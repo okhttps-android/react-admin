@@ -10,14 +10,17 @@ import routesConfig from './config';
 import queryString from 'query-string';
 import NotFound from "../components/pages/NotFound";
 function getNowFormatDate() {//获取当前时间
-    var date = new Date();
-    var seperator1 = "-";
-    var seperator2 = ":";
-    var month = date.getMonth() + 1<10? "0"+(date.getMonth() + 1):date.getMonth() + 1;
-    var strDate = date.getDate()<10? "0" + date.getDate():date.getDate();
-    var currentdate = date.getFullYear() + seperator1  + month  + seperator1  + strDate
-        + " "  + date.getHours()  + seperator2  + date.getMinutes()
-        + seperator2 + date.getSeconds();
+    let date = new Date();
+    let seperator1 = "-";
+    let seperator2 = ":";
+    let month = date.getMonth() + 1<10? "0"+(date.getMonth() + 1):date.getMonth() + 1;
+    let strDate = date.getDate()<10? "0" + date.getDate():date.getDate();
+    let hours=date.getHours()<10?"0" + date.getHours():date.getHours();
+    let minutes= date.getMinutes()<10?"0" + date.getMinutes():date.getMinutes();
+    let seconds=date.getSeconds()<10?"0"+date.getSeconds():date.getSeconds();
+    let currentdate = date.getFullYear() + seperator1  + month  + seperator1  + strDate
+        + " "  +  hours  + seperator2  + minutes
+        + seperator2 + seconds;
     return currentdate;
 }
 
@@ -34,14 +37,11 @@ export default class CRouter extends Component {
         let user=  localStorage.getItem("user");
         let isLogin=false;
         console.log("login user:",user);
-        //这里需要判断token是否失效
-        //access_token.expire_time
         if (user!=null){
-              isLogin=true;
+            isLogin=true;
             let expire_time=JSON.parse(user).data.access_token.expire_time;
             console.log("expire_time:",expire_time," time:",getNowFormatDate());
             if(expire_time>getNowFormatDate()){
-                // message.info("token")
             }else{
                 message.info("会话断开！")
                 return <Redirect to={'/login'} />;
@@ -52,17 +52,6 @@ export default class CRouter extends Component {
          }else{
              return <Redirect to={'/login'} />;
          }
-
-        // const { auth } = this.props;
-        // if (auth!=null&&auth.data) {//来自redux的状态
-        //     const { permissions } = auth.data;
-        //     if (process.env.NODE_ENV === 'development' && !permissions) { // 线上环境判断是否登录
-        //         return <Redirect to={'/login'} />;
-        //     }
-        // }else{
-        //     return <Redirect to={'/login'} />;
-        // }
-        // return permission ? this.requireAuth(permission, component) : component;
     };
     render() {
         return (

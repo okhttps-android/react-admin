@@ -35,13 +35,22 @@ export const sendGet = ({url, params, headers}) => { // get 请求
 }
 
 export const sendPost = ({url, params, headers}) => { // post 请求
-      Toast.loading("")
+    Toast.loading("")
+    let user=localStorage.getItem("user");
+    if(user!=null){
+        user=JSON.parse(user);
+        headers={
+            headers:{
+                "agent-id":user.data.agent.id,
+                "agent-token": user.data.access_token.token,
+            }
+        }
+    }
     return api.creatAxios1.post(url, params, headers)
         .then(res => {
             Toast.hide();
             console.log("sendPost():",res);
         if(res.data.code==0){
-
         }else if(0<res.data.code<1000){
             message.error(JSON.stringify(res.data.message))
         }else{
