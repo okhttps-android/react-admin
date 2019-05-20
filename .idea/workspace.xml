@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d62bbf8-76a0-4842-8c08-9db6413f073e" name="Default" comment="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。&#10;开发修改提现密码对话框界面(短信验证码组件还未完成)支持测试验证码修改密码。">
-      <change afterPath="$PROJECT_DIR$/src/components/common/VerificaCode.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/forms/UpdateUserPasswordForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/react-admin.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="0d62bbf8-76a0-4842-8c08-9db6413f073e" name="Default" comment="2019-05-20 23:56 完成短信验证码通用组件的封装和调用；完成提现密码修改；完成绑定app账号。完成用户密码修改功能（接口未验证成功）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeaderCustom.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeaderCustom.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forms/UpdateWithDrawPasswordForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forms/UpdateWithDrawPasswordForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/tables/WithDrawRequestTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/tables/WithDrawRequestTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/http/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/css/app-gloal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/css/app-gloal.css" afterDir="false" />
     </list>
     <list id="056623c2-9574-43d1-98f6-e380f189ab3a" name="loadSelectData" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -45,128 +30,50 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="gitignore" value="1" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="64" />
-          <entry key="jsx" value="15" />
+          <entry key="js" value="74" />
+          <entry key="jsx" value="20" />
           <entry key="md" value="1" />
           <entry key="png" value="1" />
-          <entry key="ts" value="1" />
+          <entry key="ts" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="2" />
-          <entry key="JSX Harmony" value="15" />
-          <entry key="JavaScript" value="64" />
+          <entry key="JSX Harmony" value="20" />
+          <entry key="JavaScript" value="74" />
           <entry key="Markdown" value="1" />
-          <entry key="TypeScript" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="TypeScript" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="4698" />
-          <entry key="jsx" value="511" />
+          <entry key="js" value="4743" />
+          <entry key="jsx" value="843" />
           <entry key="md" value="138" />
-          <entry key="txt" value="273" />
+          <entry key="txt" value="359" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSX Harmony" value="511" />
-          <entry key="JavaScript" value="4698" />
+          <entry key="JSX Harmony" value="843" />
+          <entry key="JavaScript" value="4743" />
           <entry key="Markdown" value="138" />
-          <entry key="PLAIN_TEXT" value="273" />
+          <entry key="PLAIN_TEXT" value="359" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="1" />
+          <entry key="TypeScriptServerServiceImpl" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/tables/WithDrawAccountTable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4312">
-              <caret line="163" column="19" selection-start-line="158" selection-start-column="18" selection-end-line="163" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/tables/WithDrawRequestTable.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="111" column="5" selection-end-line="333" selection-end-column="91" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/forms/UpdateWithDrawPasswordForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1064">
-              <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/forms/UpdateWechatForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="37" column="20" selection-start-line="14" selection-start-column="12" selection-end-line="37" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#388#1329#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/forms/UpdateAlipayForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1204">
-              <caret line="44" column="29" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/http/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2716">
-              <caret line="98" column="12" selection-start-line="98" selection-start-column="12" selection-end-line="98" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/http/api.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="896">
-              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -191,9 +98,16 @@
       <find>FormItem</find>
       <find>updateWechat</find>
       <find>saveFormRefWechat</find>
-      <find>modalVisibleByWithDrawPassword</find>
       <find>formRefWechat</find>
       <find>odalVisibleByWithDrawPassword</find>
+      <find>modalVisibleByWithDrawPassword</find>
+      <find>saveFormRefWithDrawPassword</find>
+      <find>sendMsg</find>
+      <find>onRefBindSMSCode</find>
+      <find>setModalVisibleWithDrawPassword</find>
+      <find>updateWithDrawPassword</find>
+      <find>onChangeInputByPhone</find>
+      <find>formRefWithDrawPassword</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -211,9 +125,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Page.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/components/HeaderCustom.jsx" />
-        <option value="$PROJECT_DIR$/src/components/tables/BasicTables.jsx" />
-        <option value="$PROJECT_DIR$/src/components/tables/SelectTable.jsx" />
         <option value="$PROJECT_DIR$/src/components/tables/MyUserListTable.js" />
         <option value="$PROJECT_DIR$/src/components/tables/MyAgentListTable.js" />
         <option value="$PROJECT_DIR$/src/components/dashboard/Dashboard.jsx" />
@@ -231,9 +142,13 @@
         <option value="$PROJECT_DIR$/src/http/axiosUtils.js" />
         <option value="$PROJECT_DIR$/src/components/forms/UpdateWechatForm.js" />
         <option value="$PROJECT_DIR$/src/components/tables/WithDrawAccountTable.js" />
-        <option value="$PROJECT_DIR$/src/http/index.js" />
         <option value="$PROJECT_DIR$/src/components/forms/UpdateWithDrawPasswordForm.js" />
         <option value="$PROJECT_DIR$/src/components/tables/WithDrawRequestTable.js" />
+        <option value="$PROJECT_DIR$/src/components/forms/UpdateUserPasswordForm.js" />
+        <option value="$PROJECT_DIR$/src/http/index.js" />
+        <option value="$PROJECT_DIR$/src/components/tables/BasicTables.jsx" />
+        <option value="$PROJECT_DIR$/src/components/tables/SelectTable.jsx" />
+        <option value="$PROJECT_DIR$/src/components/HeaderCustom.jsx" />
       </list>
     </option>
   </component>
@@ -348,7 +263,7 @@
       <workItem from="1558157735443" duration="1042000" />
       <workItem from="1558231443795" duration="24978000" />
       <workItem from="1558364575462" duration="198000" />
-      <workItem from="1558364796236" duration="250000" />
+      <workItem from="1558364796236" duration="5520000" />
     </task>
     <task id="LOCAL-00001" summary="添加三級菜單">
       <created>1554285967288</created>
@@ -476,11 +391,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558364623611</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。&#10;开发修改提现密码对话框界面(短信验证码组件还未完成)支持测试验证码修改密码。">
+      <created>1558365149254</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1558365149254</updated>
+    </task>
+    <task id="LOCAL-00020" summary="2019-05-20 23:56 完成短信验证码通用组件的封装和调用；完成提现密码修改；完成绑定app账号。完成用户密码修改功能（接口未验证成功）">
+      <created>1558370071583</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1558370071583</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116669000" />
+    <option name="totallyTimeSpent" value="121939000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -489,9 +418,9 @@
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info id="Structure" order="2" weight="0.24966975" />
       <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.21400264" />
-      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50264204" side_tool="true" visible="true" weight="0.3696884" />
+      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50264204" side_tool="true" visible="true" weight="0.08356941" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.16548797" />
-      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.497358" visible="true" weight="0.3696884" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.497358" visible="true" weight="0.08356941" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Run" order="5" />
@@ -534,6 +463,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="添加三級菜單" />
     <MESSAGE value="解决好左侧菜单路径传参问题！" />
     <MESSAGE value="项目初始化..." />
@@ -543,7 +474,8 @@
     <MESSAGE value="2019-05-19:13:06 完成提现账号列表和提现账号修改功能！" />
     <MESSAGE value="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。" />
     <MESSAGE value="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。&#10;开发修改提现密码对话框界面(短信验证码组件还未完成)支持测试验证码修改密码。" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019-05-19 22:26 支付宝，银行，微信账号。修复提现账号列表展示随机不固定的bug问题。&#10;开发修改提现密码对话框界面(短信验证码组件还未完成)支持测试验证码修改密码。" />
+    <MESSAGE value="2019-05-20 23:56 完成短信验证码通用组件的封装和调用；完成提现密码修改；完成绑定app账号。完成用户密码修改功能（接口未验证成功）" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019-05-20 23:56 完成短信验证码通用组件的封装和调用；完成提现密码修改；完成绑定app账号。完成用户密码修改功能（接口未验证成功）" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -557,24 +489,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/eslint/lib/config.js" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1988">
-          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ui/Buttons.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="42" column="71" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.test.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/recharts/umd/Recharts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -675,13 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/HeaderCustom.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="97" column="140" selection-start-line="97" selection-start-column="140" selection-end-line="97" selection-end-column="140" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/tables/BasicTable.jsx">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -696,34 +603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="13" column="37" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/tables/MyAgentListTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3444">
-          <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/tables/BasicTables.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="23" column="10" selection-start-line="12" selection-start-column="4" selection-end-line="23" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/tables/SelectTable.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="9" column="12" lean-forward="true" selection-start-line="8" selection-end-line="21" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -742,13 +621,6 @@
     <entry file="file://$PROJECT_DIR$/src/reducer/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-411" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/config.js">
@@ -786,16 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/tables/MyUserListTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3276">
-          <caret line="121" column="18" lean-forward="true" selection-start-line="121" selection-start-column="18" selection-end-line="121" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/tables/SearchTable.jsx">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/Login.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-884">
@@ -824,23 +686,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/tables/WithDrawAccountTable.js">
+    <entry file="file://$PROJECT_DIR$/src/components/forms/UpdateAlipayForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4312">
-          <caret line="163" column="19" selection-start-line="158" selection-start-column="18" selection-end-line="163" selection-end-column="19" />
+        <state relative-caret-position="1204">
+          <caret line="44" column="29" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="29" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/forms/UpdateWithDrawPasswordForm.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1064">
-          <caret line="41" column="46" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="252">
+          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -855,36 +714,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/forms/UpdateAlipayForm.js">
+    <entry file="file://$PROJECT_DIR$/src/components/forms/UpdateWithDrawPasswordForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1204">
-          <caret line="44" column="29" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="29" />
+        <state relative-caret-position="314">
+          <caret line="57" column="29" lean-forward="true" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="29" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/http/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/tables/MyUserListTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2716">
-          <caret line="98" column="12" selection-start-line="98" selection-start-column="12" selection-end-line="98" selection-end-column="54" />
+        <state relative-caret-position="2974">
+          <caret line="121" column="18" lean-forward="true" selection-start-line="121" selection-start-column="18" selection-end-line="121" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/tables/MyAgentListTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1962">
+          <caret line="127" column="25" lean-forward="true" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/forms/UpdateUserPasswordForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="29" column="92" lean-forward="true" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/http/api.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+        <state relative-caret-position="244">
+          <caret line="36" column="4" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/antd/lib/cascader/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/tables/WithDrawAccountTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="163" column="19" lean-forward="true" selection-start-line="158" selection-start-column="18" selection-end-line="163" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/tables/WithDrawRequestTable.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="111" column="5" selection-end-line="333" selection-end-column="91" />
+        <state relative-caret-position="179">
+          <caret line="158" column="3" lean-forward="true" selection-start-line="158" selection-start-column="3" selection-end-line="162" selection-end-column="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#10248#11673#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/tables/SearchTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2920" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/common/VerificaCode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/tables/SelectTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/tables/BasicTables.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="37" column="12" lean-forward="true" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+          <folding>
+            <element signature="e#46#72#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/http/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="77" column="29" lean-forward="true" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/HeaderCustom.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+          <folding>
+            <element signature="e#46#87#0" expanded="true" />
           </folding>
         </state>
       </provider>
