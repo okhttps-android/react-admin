@@ -11,6 +11,7 @@ import { queryString } from '../utils';
 import { withRouter } from 'react-router-dom';
 import { PwaInstaller } from './widget';
 import { connectAlita } from 'redux-alita';
+import {user_logout} from "../http/index";
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -48,10 +49,18 @@ class HeaderCustom extends Component {
         console.log(e);
         e.key === 'logout' && this.logout();
     };
+
     logout = () => {
+        user_logout().then(()=>{
+
+        }).catch(err=>{
+
+        })
+
         localStorage.removeItem('user');
         this.props.history.push('/login')
     };
+
     popoverHide = () => {
         this.setState({
             visible: false,

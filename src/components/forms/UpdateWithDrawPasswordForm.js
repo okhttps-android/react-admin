@@ -8,20 +8,8 @@ const formItemLayout = {
     labelCol: { span: 6 },
     wrapperCol: { span: 16 },
 };
+/*提现密码修改*/
 class UpdateWithDrawPasswordForm extends React.Component{
-
-    onRefBindVerificaCode=(ref)=>{
-        this.child = ref
-    }
-    // sendMsg = () =>{
-    //     message.info("正在发送验证码...")
-    //     get_sms_code({user_tel: 22222222222, auth_type: 3}).
-    //     then(res=>{
-    //         console.log("get_sms_code result()",res.data);
-    //     }).catch(err=>{
-    //         console.log(err)
-    //     })
-    // }
 
     render(){
         const { visible, onCancel, onCreate, form ,sendMsg,onRefBindSMSCode,phone,onChangeInputByPhone} = this.props;
@@ -46,7 +34,7 @@ class UpdateWithDrawPasswordForm extends React.Component{
                         {getFieldDecorator('password', {
                             rules: [{ required: true, message: '请输入提现密码!' }],
                         })(
-                            <Input    placeholder="请输入提现密码" />
+                            <Input type="password"   placeholder="请输入提现密码" />
                         )}
                     </FormItem>
                     <FormItem label="验证码" {...{

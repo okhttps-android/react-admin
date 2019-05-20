@@ -165,7 +165,8 @@ class WithDrawRequestTable extends React.Component{
     sendMsg=()=>{
         this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
               let user_tel=  values.user_tel;
-              if(user_tel!=null){
+              console.log("user_tel:",user_tel);
+              if(user_tel!=null&&user_tel!=""&&user_tel!=" "){
                   this.child.countDown();
                   get_sms_code({user_tel: this.state.user_tel, auth_type: 3}).
                   then(res=>{
