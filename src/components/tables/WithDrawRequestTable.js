@@ -19,6 +19,7 @@ class WithDrawRequestTable extends React.Component{
         super(props);
         this.state={
             name:'提现记录',
+            user_tel:null,
             modalVisible: false,
             modalVisibleByWithDrawPassword:false,
             selectedRowKeys: [],
@@ -107,12 +108,7 @@ class WithDrawRequestTable extends React.Component{
             console.log("err:", err);
         })
 
-        // get_sms_code({user_tel: 22222222222, auth_type: 3}).
-        // then(res=>{
-        //     console.log("get_sms_code result()",res.data);
-        // }).catch(err=>{
-        //     console.log(err)
-        // })
+
     }
 
     setModalVisible(modalVisible) {
@@ -160,6 +156,33 @@ class WithDrawRequestTable extends React.Component{
         this.setState({ modalVisibleByWithDrawPassword });
     }
 
+    onChangeInputByPhone=(e)=>{
+        console.log("onChangeInputByPhone():",e.target.value);
+        this.state.user_tel=e.target.value;
+        this.setState({user_tel:e.target.value})
+    }
+
+    sendMsg=()=>{
+        this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
+              let user_tel=  values.user_tel;
+              console.log("user_tel:",user_tel);
+              if(user_tel!=null&&user_tel!=""&&user_tel!=" "){
+                  this.child.countDown();
+                  get_sms_code({user_tel: this.state.user_tel, auth_type: 3}).
+                  then(res=>{
+                      console.log("get_sms_code result()",res.data);
+                  }).catch(err=>{
+                      console.log(err)
+                  })
+              }
+        });
+
+    }
+
+    onRefBindSMSCode=(ref)=>{
+        this.child = ref
+    }
+
 
     updateWithDrawPassword= (e) => {
         e.preventDefault();
@@ -168,13 +191,12 @@ class WithDrawRequestTable extends React.Component{
                 console.log("tel ()",values.user_tel);
                 console.log("tel ()",values.password);
                 console.log("tel ()",values.code);
-
-
                 update_withdraw_password({user_tel: values.user_tel, password: values.password,code:values.code})
                     .then(res=>{
                      console.log("result()",res);
                         if(res.message=='success'&&res.code==0){
                             message.success("提现密码修改成功！");
+                            this.setModalVisibleWithDrawPassword(false);
                         }else{
                             message.error("修改失败！"+res.data.message);
                         }
@@ -298,6 +320,10 @@ class WithDrawRequestTable extends React.Component{
             <UpdateWithDrawPasswordForm
                 wrappedComponentRef={this.saveFormRefWithDrawPassword}
                 visible={this.state.modalVisibleByWithDrawPassword}
+                sendMsg={this.sendMsg}
+                phone={this.state.user_tel}
+                onChangeInputByPhone={this.onChangeInputByPhone}
+                onRefBindSMSCode={this.onRefBindSMSCode}
                 onCancel={this.setModalVisibleWithDrawPassword.bind(this,false)}
                 onCreate={this.updateWithDrawPassword}
             />

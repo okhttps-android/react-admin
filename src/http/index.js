@@ -8,6 +8,19 @@ export const login = ({username,password}) => sendPost({
     url: API.APP_LOGIN,
     params: {username: username, password: password}
 })
+//登出
+export const user_logout = () => sendPost({
+    url: API.APP_LOGOUT,
+    params: {}
+})
+
+//修改用户登录密码
+export const update_user_password = ({user_tel,password,code}) => sendPost({
+    url: API.APP_USER_UPDATE,
+    params: {user_tel:user_tel,password:password,code:code}
+})
+
+
 
 //绑定账号列表
 export const get_account_list = ({limit,offset}) => sendGet({
@@ -74,7 +87,6 @@ export const update_bank = ({bank_name,bank_no,real_name}) => sendPost({
 })
 
 //修改提现密码
-
 export const update_withdraw_password = ({user_tel,password,code}) => sendPost({
     url: API.APP_WITHDRAW_UPDATE_PASSWORD,
     params: {user_tel: user_tel, password: password,code:code}

@@ -1,27 +1,18 @@
 import React from 'react';
-import {Button, Form, Input, Modal} from "antd";
+import {Button, Form, Input, Modal,message} from "antd";
+import VerificaCode from "../common/VerificaCode";
+import {get_sms_code} from "../../http/index";
 
 const FormItem = Form.Item;
 const formItemLayout = {
     labelCol: { span: 6 },
     wrapperCol: { span: 16 },
 };
+/*提现密码修改*/
 class UpdateWithDrawPasswordForm extends React.Component{
 
-    constructor(props){
-        super(props);
-        this.state={
-            name:'UpdateWithDrawPasswordForm'
-        };
-    }
-
-
-    componentDidMount(){
-
-    }
-
     render(){
-        const { visible, onCancel, onCreate, form } = this.props;
+        const { visible, onCancel, onCreate, form ,sendMsg,onRefBindSMSCode,phone,onChangeInputByPhone} = this.props;
         const { getFieldDecorator } = form;
         return <div>
             <Modal
@@ -36,14 +27,14 @@ class UpdateWithDrawPasswordForm extends React.Component{
                         {getFieldDecorator('user_tel', {
                             rules: [{ required: true, message: '请输入手机号!' }],
                         })(
-                            <Input    placeholder="请输入手机号" />
+                            <Input    placeholder="请输入手机号" onChange={onChangeInputByPhone}/>
                         )}
                     </FormItem>
                     <FormItem label="提现密码" {...formItemLayout}>
                         {getFieldDecorator('password', {
                             rules: [{ required: true, message: '请输入提现密码!' }],
                         })(
-                            <Input    placeholder="请输入提现密码" />
+                            <Input type="password"   placeholder="请输入提现密码" />
                         )}
                     </FormItem>
                     <FormItem label="验证码" {...{
@@ -53,8 +44,8 @@ class UpdateWithDrawPasswordForm extends React.Component{
                         {getFieldDecorator('code', {
                             rules: [{ required: true, message: '请输入短信验证码!' }],
                         })(
-                            <div className="flex"><Input    placeholder="请输入短信验证码" />
-                                <Button className="margin_left_10">发送验证码</Button>
+                            <div className="flex"><Input  className="margin_right_10"  placeholder="请输入短信验证码" />
+                                <VerificaCode  phone={phone} onRef={onRefBindSMSCode} sendMsg={sendMsg}></VerificaCode>
                             </div>
                         )}
                     </FormItem>
