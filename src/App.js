@@ -22,7 +22,6 @@ class App extends Component {
         // user && receiveData(user, 'auth');
         user && setAlitaState({ stateName: 'auth', data: user });
         //noinspection JSAnnotator
-        setAlitaState({stateName:'userInfo',data:{'name':'liujie','sex':'男'}});
         // receiveData({a: 213}, 'auth');
         // fetchData({funcName: 'admin', stateName: 'auth'});
         this.getClientWidth();

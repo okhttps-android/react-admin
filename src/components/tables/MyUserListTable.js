@@ -3,6 +3,7 @@ import {Toast} from "antd-mobile";
 import {get_client_list, limit} from "../../http";
 import {Card, Col, Row, Table} from "antd";
 import BreadcrumbCustom from "../BreadcrumbCustom";
+import {get_thousand_num} from "../../utils/index";
 
 class MyUserListTable extends React.Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class MyUserListTable extends React.Component {
         this.state = {
             name: 'MyUserListTable',
             selectedRowKeys: [],
-            pagination: {},
+            pagination: {showQuickJumper:true},
             data: [],
             columns: [{
                 title: 'APP账号ID',
@@ -65,9 +66,9 @@ class MyUserListTable extends React.Component {
                         id: res.data.data[i].user.id + "",
                         nick_name: res.data.data[i].user.nick_name,
                         create_time: res.data.data[i].user.create_time,
-                        user_money:res.data.data[i].user.user_money,
-                        recharge_amount_all:res.data.data[i].recharge_amount_all,
-                        profit_amount_all:res.data.data[i]. profit_amount_all,
+                        user_money:get_thousand_num(res.data.data[i].user.user_money),
+                        recharge_amount_all:get_thousand_num(res.data.data[i].recharge_amount_all),
+                        profit_amount_all:get_thousand_num(res.data.data[i]. profit_amount_all),
                         profit_rate_remain:res.data.data[i].profit_rate_remain
                     }
                     this.state.data.push(model);

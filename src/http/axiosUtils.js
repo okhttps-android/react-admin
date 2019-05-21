@@ -5,10 +5,8 @@ import { Toast } from 'antd-mobile';
 
 export const sendGet = ({url, params, headers}) => { // get 请求
     let user=localStorage.getItem("user");
-    console.log("sendGet() user:",user);
     if(user!=null){
         user=JSON.parse(user);
-        console.log("sendGet() token:",user.data.access_token);
         headers={
            headers:{
                "agent-id":user.data.agent.id,
@@ -17,13 +15,16 @@ export const sendGet = ({url, params, headers}) => { // get 请求
             params:params
         }
     }
-    console.log("sendGet() headers:",headers);
     return api.creatAxios1.get(url, headers)
         .then(res =>{
             if(res.data.code==0){
 
-            }else if(0<res.code<1000){
-                   message.error(res.data.message)
+            }else if(0<res.data.code<1000){
+                if(res.data.code==403){
+                    message.error("登陆已过期，请重新登陆")
+                }else{
+                    message.error(JSON.stringify(res.data.message))
+                }
             }else{
                 message.error(res.data.message)
             }
@@ -52,7 +53,11 @@ export const sendPost = ({url, params, headers}) => { // post 请求
             console.log("sendPost():",res);
         if(res.data.code==0){
         }else if(0<res.data.code<1000){
-            message.error(JSON.stringify(res.data.message))
+            if(res.data.code==403){
+                message.error("登陆已过期，请重新登陆55")
+            }else{
+                message.error(JSON.stringify(res.data.message))
+            }
         }else{
             message.error(JSON.stringify(res.data.message))
         }

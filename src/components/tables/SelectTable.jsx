@@ -11,7 +11,7 @@ class SelectTable extends React.Component {
     state = {
         selectedRowKeys: [],
         pageSize:0,
-        pagination: {},
+        pagination: {showQuickJumper:true},
         columns : [{
             title: 'APP账号ID',
             dataIndex: 'id',

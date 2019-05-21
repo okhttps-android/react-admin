@@ -3,6 +3,7 @@ import {Toast} from "antd-mobile";
 import {get_agent_list, limit} from "../../http";
 import {Card, Col, Row, Table} from "antd";
 import BreadcrumbCustom from "../BreadcrumbCustom";
+import {get_thousand_num} from "../../utils/index";
 
 
 
@@ -12,7 +13,7 @@ class MyAgentListTable extends React.Component {
         this.state = {
             name: 'MyUserListTable',
             selectedRowKeys: [],
-            pagination: {},
+            pagination: {showQuickJumper:true},
             data: [],
             columns: [{
                 title: '代理账号ID',
@@ -70,9 +71,9 @@ class MyAgentListTable extends React.Component {
                         id: res.data.data[i].subordinate_agent.id + "",
                         nick_name: res.data.data[i].subordinate_agent.username,
                         create_time: res.data.data[i].subordinate_agent.create_time,
-                        user_money:res.data.data[i].subordinate_agent.user_money,
-                        recharge_amount_all:res.data.data[i].recharge_amount_all,
-                        profit_amount_all:res.data.data[i]. profit_amount_all,
+                        user_money:get_thousand_num(res.data.data[i].subordinate_agent.user_money),
+                        recharge_amount_all:get_thousand_num(res.data.data[i].recharge_amount_all),
+                        profit_amount_all:get_thousand_num(res.data.data[i]. profit_amount_all),
                         // profit_rate_remain:res.data.data[i].profit_rate_remain,
                         profit_rate_present_for_parent:res.data.data[i].subordinate_agent.profit_rate_present_for_parent,
                         profit_rate:res.data.data[i].subordinate_agent.profit_rate
