@@ -98,8 +98,25 @@ export const update_withdraw_password = ({user_tel,password,code}) => sendPost({
 })
 
 //验证码
-
 export const get_sms_code= ({user_tel,auth_type}) => sendPost({
     url: API.APP_SMS_CODE,
     params: {user_tel: user_tel, auth_type: auth_type}
+})
+
+//添加下级代理
+export const agent_add= ({username,password,user_tel,profit_rate_present_for_parent,wechat_no,qq_no}) => sendPost({
+    url: API.APP_AGENT_ADD,
+    params: {
+        username: username,
+        password: password,
+        user_tel:user_tel,
+        profit_rate_present_for_parent:profit_rate_present_for_parent,
+        wechat_no:wechat_no,
+        qq_no:qq_no}
+})
+
+//修改分成比例
+export const update_agent_profit_rate= ({id,profit_rate_present_for_parent}) => sendPost({
+    url: API.APP_AGENT_UPDATE_PROFIT_RATE,
+    params: {id,profit_rate_present_for_parent}
 })

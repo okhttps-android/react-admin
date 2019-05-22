@@ -1,9 +1,11 @@
 import React from 'react';
 import {Toast} from "antd-mobile";
-import {get_agent_list, limit} from "../../http";
-import {Card, Col, Row, Table} from "antd";
+import {get_agent_list, agent_add,update_agent_profit_rate,limit} from "../../http";
+import {Button, Card, Col, Row, Table,message} from "antd";
 import BreadcrumbCustom from "../BreadcrumbCustom";
 import {get_thousand_num} from "../../utils/index";
+import UpdateProfitRateForm from "../forms/UpdateProfitRateForm";
+import AddAgentForm from "../forms/AddAgentForm";
 
 
 
@@ -13,6 +15,8 @@ class MyAgentListTable extends React.Component {
         this.state = {
             name: 'MyUserListTable',
             selectedRowKeys: [],
+            modalVisibleByProfitRate:false,
+            modalVisibleByAddAgent:false,
             pagination: {showQuickJumper:true},
             data: [],
             columns: [{
@@ -35,6 +39,19 @@ class MyAgentListTable extends React.Component {
             , {
                 title: '代理分成%（相对自己的占比）',
                 dataIndex: 'profit_rate_present_for_parent',
+                render: (text, record) =>{
+
+                    return (<div className="flex_center">
+                        {text}
+                        <a onClick={()=>{
+                            this.addProfitRef.props.form.setFieldsValue({
+                                profit_rate_present_for_parent: text,
+                            });
+                            this.setModalVisibleProfitRate(true)
+                        }}
+                            style={{marginLeft:"10px", color:"blue",textDecoration:"underline"}}> 修改</a>
+                    </div>);
+                 }
             }, {
                 title: '代理分成%（绝对占比）',
                 dataIndex: 'profit_rate',
@@ -94,9 +111,62 @@ class MyAgentListTable extends React.Component {
     }
 
     componentDidMount() {
-
      this.loadData({page:0});
+    }
 
+    saveFormRefAddAgent=(ref)=>{
+         this.addAgentRef=ref;
+    }
+
+    saveFormRefProfitRate=(ref)=>{
+        this.addProfitRef=ref;
+    }
+
+    setModalVisibleProfitRate=(modalVisibleByProfitRate)=>{
+        this.setState({modalVisibleByProfitRate})
+    }
+
+    setModalVisibleAddAgent=(modalVisibleByAddAgent)=>{
+         this.setState({modalVisibleByAddAgent})
+    }
+
+    addAgent=(e)=>{
+        e.preventDefault();
+        this.addAgentRef.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log("values:",values);
+                agent_add({
+                    username: values.username,
+                    password: values.password,
+                    user_tel:values.user_tel,
+                    profit_rate_present_for_parent:values.profit_rate_present_for_parent,
+                    wechat_no:values.wechat_no,
+                    qq_no:values.qq_no})
+                    .then(res=>{
+                    if(res.message=='success'&&res.code==0){
+                        message.success("下级代理添加成功！");
+                        this.setModalVisibleAddAgent(false);
+                        this.loadData({page: 0});
+                    }else{
+                        message.error("添加失败！"+res.data.message);
+                    }
+
+                }).catch(err=>{
+                    console.log("err:",err);
+                })
+            }
+        }
+        )
+    }
+
+    updateProfitRate=(e)=>{
+        e.preventDefault();
+        this.addProfitRef.props.form.validateFields((err, values) => {
+                if (!err) {
+                    console.log("values:",values);
+                }
+            }
+        )
     }
 
 
@@ -141,6 +211,19 @@ class MyAgentListTable extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="代理信息" bordered={false}>
+                                <Button type="primary" icon="plus" onClick={()=>{
+                                    this.setModalVisibleAddAgent(true)
+                                }
+                                }>
+                                    新增
+                                </Button>
+
+                                <Button type="primary" onClick={()=>{
+                                    this.setModalVisibleProfitRate(true)
+                                }
+                                }>
+                                    修改分成比例
+                                </Button>
                                 <Table rowSelection={rowSelection}
                                        columns={this.state.columns}
                                        dataSource={this.state.data}
@@ -151,6 +234,19 @@ class MyAgentListTable extends React.Component {
                         </div>
                     </Col>
                 </Row>
+
+                <UpdateProfitRateForm
+                    wrappedComponentRef={this.saveFormRefProfitRate}
+                    visible={this.state.modalVisibleByProfitRate}
+                    onCancel={this.setModalVisibleProfitRate.bind(this,false)}
+                    onCreate={this.updateProfitRate}
+                />
+                <AddAgentForm
+                    wrappedComponentRef={this.saveFormRefAddAgent}
+                    visible={this.state.modalVisibleByAddAgent}
+                    onCancel={this.setModalVisibleAddAgent.bind(this,false)}
+                    onCreate={this.addAgent}
+                />
             </div>
 
         );
