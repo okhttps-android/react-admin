@@ -15,6 +15,7 @@ class MyAgentListTable extends React.Component {
         this.state = {
             name: 'MyUserListTable',
             selectedRowKeys: [],
+            selectId:null,
             modalVisibleByProfitRate:false,
             modalVisibleByAddAgent:false,
             pagination: {showQuickJumper:true},
@@ -47,6 +48,7 @@ class MyAgentListTable extends React.Component {
                             this.addProfitRef.props.form.setFieldsValue({
                                 profit_rate_present_for_parent: text,
                             });
+                            this.setState({selectId:record.id});
                             this.setModalVisibleProfitRate(true)
                         }}
                             style={{marginLeft:"10px", color:"blue",textDecoration:"underline"}}> 修改</a>
@@ -164,6 +166,19 @@ class MyAgentListTable extends React.Component {
         this.addProfitRef.props.form.validateFields((err, values) => {
                 if (!err) {
                     console.log("values:",values);
+                    update_agent_profit_rate({id:this.state.selectId,
+                        profit_rate_present_for_parent:values.profit_rate_present_for_parent})
+                        .then(res=>{
+                            if(res.message=='success'&&res.code==0){
+                                message.success("修改成功！");
+                                this.setModalVisibleProfitRate(false);
+                                this.loadData({page: 0});
+                            }else{
+                                message.error("修改失败！"+res.data.message);
+                            }
+                    }).catch(err=>{
+
+                    })
                 }
             }
         )
@@ -212,6 +227,11 @@ class MyAgentListTable extends React.Component {
                         <div className="gutter-box">
                             <Card title="代理信息" bordered={false}>
                                 <Button type="primary" icon="plus" onClick={()=>{
+
+                                    this.addAgentRef.props.form.setFieldsValue({
+                                        username:"",
+                                        password:""
+                                    });
                                     this.setModalVisibleAddAgent(true)
                                 }
                                 }>
@@ -219,7 +239,23 @@ class MyAgentListTable extends React.Component {
                                 </Button>
 
                                 <Button type="primary" onClick={()=>{
-                                    this.setModalVisibleProfitRate(true)
+                                    this.addProfitRef.props.form.setFieldsValue({
+                                        profit_rate_present_for_parent: "",
+                                    });
+                                    if(this.state.selectedRowKeys.length==0){
+                                        message.info("请选择一名代理更改！")
+                                    }else if(this.state.selectedRowKeys.length==1){
+                                        this.setState({selectId:this.state.data[this.state.selectedRowKeys[0]].id
+                                        })
+                                        this.addProfitRef.props.form.setFieldsValue({
+                                            profit_rate_present_for_parent: this.state.data[this.state.selectedRowKeys[0]].profit_rate_present_for_parent,
+                                        });
+                                        this.setModalVisibleProfitRate(true)
+                                    }else{
+                                         message.info("请选择一名代理更改！")
+                                        this.setState({selectId:0})
+                                    }
+
                                 }
                                 }>
                                     修改分成比例

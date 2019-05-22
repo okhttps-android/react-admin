@@ -118,5 +118,5 @@ export const agent_add= ({username,password,user_tel,profit_rate_present_for_par
 //修改分成比例
 export const update_agent_profit_rate= ({id,profit_rate_present_for_parent}) => sendPost({
     url: API.APP_AGENT_UPDATE_PROFIT_RATE,
-    params: {id,profit_rate_present_for_parent}
+    params: {id:id,profit_rate_present_for_parent:profit_rate_present_for_parent}
 })

@@ -23,13 +23,13 @@ class UpdateProfitRateForm extends React.Component{
                 onCancel={ onCancel}
             >
                 <Form >
-                    <FormItem label="分成比例" {...formItemLayout}>
+                {/*    <FormItem label="分成比例" {...formItemLayout}>
                         {getFieldDecorator('id', {
                             rules: [{ required: true, message: '请输入分成比例!' }],
                         })(
-                            <Input    placeholder="请输入分成比例" />
+                            <Input  placeholder="请输入分成比例" />
                         )}
-                    </FormItem>
+                    </FormItem>*/}
                     <FormItem label="分成比例" {...formItemLayout}>
                         {getFieldDecorator('profit_rate_present_for_parent', {
                             rules: [{ required: true, message: '请输入分成比例!' }],
