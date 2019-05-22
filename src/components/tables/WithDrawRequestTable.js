@@ -5,6 +5,7 @@ import BreadcrumbCustom from "../BreadcrumbCustom";
 import {Button, Card, Col, Row, Table, Modal, Form, Input, Icon, Select, InputNumber, message} from "antd";
 import {connectAlita} from "redux-alita";
 import UpdateWithDrawPasswordForm from "../forms/UpdateWithDrawPasswordForm";
+import {get_thousand_num} from "../../utils/index";
 
 const FormItem = Form.Item;
 
@@ -91,7 +92,7 @@ class WithDrawRequestTable extends React.Component{
                     let model = {
                         id: res.data.data[i].id + "",
                         create_time: res.data.data[i].create_time,
-                        amount: res.data.data[i].amount,
+                        amount: get_thousand_num(res.data.data[i].amount),
                         withdraw_content_display: res.data.data[i]. withdraw_content_display,
                         status_display: res.data.data[i].status_display,
 

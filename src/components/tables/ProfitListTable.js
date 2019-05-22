@@ -4,6 +4,7 @@ import {get_profit_list, limit} from "../../http";
 import BreadcrumbCustom from "../BreadcrumbCustom";
 import {Card, Col, Row, Table} from "antd";
 import {withRouter } from 'react-router';
+import {get_thousand_num} from "../../utils/index";
 
 class ProfitListTable extends React.Component {
     constructor(props) {
@@ -64,10 +65,10 @@ class ProfitListTable extends React.Component {
                 for (let i = 0; i < res.data.data.length; i++) {
                     let model = {
                         create_date: res.data.data[i].create_date + "",
-                        profit_amount_all: res.data.data[i].profit_amount_all,
-                        profit_amount_from_friend: res.data.data[i].profit_amount_from_friends,
-                        profit_amount_from_subordinate_1: res.data.data[i].profit_amount_from_subordinate_1,
-                        profit_amount_from_subordinate_2: res.data.data[i].profit_amount_from_subordinate_2,
+                        profit_amount_all:  get_thousand_num(res.data.data[i].profit_amount_all),
+                        profit_amount_from_friend: get_thousand_num(res.data.data[i].profit_amount_from_friends) ,
+                        profit_amount_from_subordinate_1: get_thousand_num(res.data.data[i].profit_amount_from_subordinate_1),
+                        profit_amount_from_subordinate_2: get_thousand_num(res.data.data[i].profit_amount_from_subordinate_2)
 
                     }
                     this.state.data.push(model);

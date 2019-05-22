@@ -1,18 +1,19 @@
+/**
+ * Created by Arison on 1:05.
+ */
 import React from 'react';
 
 import {Toast} from "antd-mobile";
 import {get_profit_detail_list, limit} from "../../http";
 import BreadcrumbCustom from "../BreadcrumbCustom";
 import {Card, Col, Row, Table} from "antd";
-/**
- * Created by Arison on 1:05.
- */
+import {get_thousand_num} from "../../utils/index";
 class ProfitDetailTable extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
             selectedRowKeys: [],
-            pagination: {},
+            pagination: {showQuickJumper:true},
             data: [],
             columns: [{
                 title: 'ID',
@@ -67,9 +68,9 @@ class ProfitDetailTable extends React.Component{
                     let model = {
                         id: res.data.data[i].id + "",
                         create_date: res.data.data[i].create_time,
-                        recharge_amount: res.data.data[i].recharge_amount,
+                        recharge_amount:get_thousand_num(res.data.data[i].recharge_amount) ,
                         profit_rate_remain: res.data.data[i].profit_rate_remain,
-                        profit_amount: res.data.data[i].profit_amount,
+                        profit_amount:get_thousand_num(res.data.data[i].profit_amount) ,
                         user_id: res.data.data[i].user.id,
                         user_nick_name: res.data.data[i].user.nick_name
                     }

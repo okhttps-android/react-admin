@@ -42,6 +42,8 @@ export const API = {
     APP_AGENT_LIST:SERVER_URL + "lqdb-agent-api/agent/subordinate/list/",
     //下级代理-新增
     APP_AGENT_ADD:SERVER_URL + "lqdb-agent-api/agent/subordinate/add/",
+    //修改分成比例
+    APP_AGENT_UPDATE_PROFIT_RATE:SERVER_URL + "lqdb-agent-api/agent/subordinate/update-profit-rate/",
     //收益统计
     APP_PROFIT_LIST:SERVER_URL + "lqdb-agent-api/fund/profit/summary/by-date/",
     //收益统计-明细

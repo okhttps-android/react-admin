@@ -9,20 +9,7 @@ import AllComponents from '../components';
 import routesConfig from './config';
 import queryString from 'query-string';
 import NotFound from "../components/pages/NotFound";
-function getNowFormatDate() {//获取当前时间
-    let date = new Date();
-    let seperator1 = "-";
-    let seperator2 = ":";
-    let month = date.getMonth() + 1<10? "0"+(date.getMonth() + 1):date.getMonth() + 1;
-    let strDate = date.getDate()<10? "0" + date.getDate():date.getDate();
-    let hours=date.getHours()<10?"0" + date.getHours():date.getHours();
-    let minutes= date.getMinutes()<10?"0" + date.getMinutes():date.getMinutes();
-    let seconds=date.getSeconds()<10?"0"+date.getSeconds():date.getSeconds();
-    let currentdate = date.getFullYear() + seperator1  + month  + seperator1  + strDate
-        + " "  +  hours  + seperator2  + minutes
-        + seperator2 + seconds;
-    return currentdate;
-}
+import {getNowFormatDate} from "../utils/index";
 
 export default class CRouter extends Component {
 
@@ -36,7 +23,7 @@ export default class CRouter extends Component {
     requireLogin = (component, permission) => {
         let user=  localStorage.getItem("user");
         let isLogin=false;
-        console.log("login user:",user);
+        console.log("user:",user);
         if (user!=null){
             isLogin=true;
             let expire_time=JSON.parse(user).data.access_token.expire_time;
@@ -86,11 +73,6 @@ export default class CRouter extends Component {
                                                     <Component {...merge} />
                                                 </DocumentTitle>
                                             )
-
-                                            console.log("r.ley="+r.key+" r.auth:"+r.auth+" r.login:",r.login);
-
-
-
                                             return false
                                                 ? wrappedComponent
                                                 : this.requireLogin(wrappedComponent, r.auth)
