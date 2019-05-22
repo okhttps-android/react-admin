@@ -28,7 +28,7 @@ export const API = {
     //登出
     APP_LOGOUT: SERVER_URL + "lqdb-agent-api/user/logout/",
     //修改密码
-    APP_USER_UPDATE: SERVER_URL + "lqdb-api/user/user-info/",
+    APP_USER_UPDATE: SERVER_URL + "lqdb-agent-api/user/change-password/",
     ///请求验证码
     APP_SMS_CODE: SERVER_URL + "lqdb-agent-api/user/sms-auth-code/",
     //绑定账号列表
