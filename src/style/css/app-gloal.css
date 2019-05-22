@@ -381,7 +381,9 @@
 .padding_left {
     padding: 10px 5px 5px 5px;
 }
-
+.padding_top_10 {
+    padding: 10px 0px 0px 0px;
+}
 .padding_top_50 {
     padding: 50px 0px 0px 0px;
 }
