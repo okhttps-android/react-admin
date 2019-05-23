@@ -196,7 +196,7 @@ class WithDrawAccountTable extends React.Component{
                             <Button size={"small"} onClick={()=>{
                             this.setModalVisibleBank(true)}
                             }>修改</Button></div>
-                        {this.state.data.length!=0?(<div>
+                        {this.state.data[0]!=null?(<div>
                             <div>银行账户：{this.state.data[0].content_display}</div>
                         </div>):(<div>
                                 暂无银行账户信息
@@ -211,7 +211,7 @@ class WithDrawAccountTable extends React.Component{
                             <Button size={"small"} onClick={()=>{
                             this.setModalVisibleAlipay(true)}}>修改</Button>
                         </div>
-                        {this.state.data.length!=0?(<div>
+                        {this.state.data[1]!=null?(<div>
                             <div>支付宝账户：{this.state.data[1].content_display}</div>
                         </div>):(<div>
                             暂无支付宝账户信息
@@ -228,7 +228,7 @@ class WithDrawAccountTable extends React.Component{
                                         this.setModalVisibleWechat(true)}}
                             >修改</Button>
                         </div>
-                        {this.state.data.length!=0?(<div>
+                        {this.state.data[2]!=null?(<div>
                             <div>微信账户：{this.state.data[2].content_display}</div>
                         </div>):(<div>
                             暂无微信账户信息

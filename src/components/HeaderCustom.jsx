@@ -181,10 +181,10 @@ class HeaderCustom extends Component {
                             <Menu.Item key="logout"><span onClick={this.logout}>退出登录</span></Menu.Item>
                         </MenuItemGroup>
                         <MenuItemGroup title="设置中心">
-                            <Menu.Item key="setting:3"><span onClick={()=>{
+                            <Menu.Item key="setting:3" onClick={()=>{
                                 this.setModalVisibleWithDrawPassword(true);
-                            }}>修改密码</span></Menu.Item>
-                            <Menu.Item key="setting:4">系统设置</Menu.Item>
+                            }}><span >修改密码</span></Menu.Item>
+                          {/*  <Menu.Item key="setting:4">系统设置</Menu.Item>*/}
                         </MenuItemGroup>
                     </SubMenu>
                 </Menu>

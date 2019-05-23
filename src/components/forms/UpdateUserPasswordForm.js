@@ -30,11 +30,11 @@ class UpdateUserPasswordForm extends React.Component{
                             <Input    placeholder="请输入手机号" onChange={onChangeInputByPhone}/>
                         )}
                     </FormItem>
-                    <FormItem label="登录密码" {...formItemLayout}>
+                    <FormItem label="新登录密码" {...formItemLayout}>
                         {getFieldDecorator('password', {
-                            rules: [{ required: true, message: '请输入登录密码!' }],
+                            rules: [{ required: true, message: '请输入新登录密码!' }],
                         })(
-                            <Input type="password"   placeholder="请输入登录密码" />
+                            <Input type="password"   placeholder="请输入新登录密码" />
                         )}
                     </FormItem>
                     <FormItem label="验证码" {...{
