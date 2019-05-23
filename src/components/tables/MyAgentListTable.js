@@ -99,15 +99,15 @@ class MyAgentListTable extends React.Component {
                 this.state.data=[];
                 for (let i = 0; i < res.data.data.length; i++) {
                     let model = {
-                        id: res.data.data[i].subordinate_agent.id + "",
-                        nick_name: res.data.data[i].subordinate_agent.username,
-                        create_time: res.data.data[i].subordinate_agent.create_time,
-                        user_money:get_thousand_num(res.data.data[i].subordinate_agent.user_money),
-                        recharge_amount_all:get_thousand_num(res.data.data[i].recharge_amount_all),
-                        profit_amount_all:get_thousand_num(res.data.data[i]. profit_amount_all),
+                        id: res.data.data[i].id + "",
+                        nick_name: res.data.data[i].username,
+                        create_time: res.data.data[i].create_time,
+                        user_money:get_thousand_num(res.data.data[i].user_money),
+                        recharge_amount_all:get_thousand_num(res.data.data[i].summary_info.recharge_amount_all),
+                        profit_amount_all:get_thousand_num(res.data.data[i].summary_info. profit_amount_all),
                         // profit_rate_remain:res.data.data[i].profit_rate_remain,
-                        profit_rate_present_for_parent:res.data.data[i].subordinate_agent.profit_rate_present_for_parent,
-                        profit_rate:res.data.data[i].subordinate_agent.profit_rate
+                        profit_rate_present_for_parent:res.data.data[i].profit_rate_present_for_parent,
+                        profit_rate:res.data.data[i].profit_rate
 
                     }
                     this.state.data.push(model);
