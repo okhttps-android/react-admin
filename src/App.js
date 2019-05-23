@@ -7,6 +7,7 @@ import { Layout, notification, Icon } from 'antd';
 import { ThemePicker } from './components/widget';
 import { connectAlita } from 'redux-alita';
 import {Redirect} from "react-router-dom";
+import {get_withdaw_list} from "./http/index";
 
 const { Content, Footer } = Layout;
 
@@ -19,11 +20,7 @@ class App extends Component {
     componentWillMount() {
         const { setAlitaState } = this.props;
         const user = JSON.parse(localStorage.getItem('user'));
-        // user && receiveData(user, 'auth');
         user && setAlitaState({ stateName: 'auth', data: user });
-        //noinspection JSAnnotator
-        // receiveData({a: 213}, 'auth');
-        // fetchData({funcName: 'admin', stateName: 'auth'});
         this.getClientWidth();
         window.onresize = () => {
             console.log('屏幕变化了');
@@ -53,6 +50,7 @@ class App extends Component {
         console.log(clientWidth);
         setAlitaState({ stateName: 'responsive', data: { isMobile: clientWidth <= 992 } });
         // receiveData({isMobile: clientWidth <= 992}, 'responsive');
+
     };
     toggle = () => {
         this.setState({

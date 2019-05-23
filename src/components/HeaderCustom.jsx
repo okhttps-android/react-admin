@@ -88,7 +88,10 @@ class HeaderCustom extends Component {
                 console.log("tel ()",values.user_tel);
                 console.log("tel ()",values.password);
                 console.log("tel ()",values.code);
-                update_user_password({user_tel: values.user_tel, password: values.password,code:values.code})
+                update_user_password({
+                    user_tel: values.user_tel,
+                    password: values.password,
+                    code:values.code})
                     .then(res=>{
                         console.log("result()",res);
                         if(res.message=='success'&&res.code==0){
@@ -111,7 +114,7 @@ class HeaderCustom extends Component {
     };
     menuClick = e => {
         console.log(e);
-        e.key === 'logout' && this.logout();
+        // e.key === 'logout' && this.logout();
     };
 
     logout = () => {
@@ -122,7 +125,7 @@ class HeaderCustom extends Component {
         })
 
         localStorage.removeItem('user');
-        this.props.history.push('/login')
+       this.props.history.push('/login')
     };
 
     popoverHide = () => {
@@ -178,7 +181,7 @@ class HeaderCustom extends Component {
                         <MenuItemGroup title="用户中心">
                             <Menu.Item key="setting:1">你好 - {agent.username}</Menu.Item>
                             <Menu.Item key="setting:2">个人信息</Menu.Item>
-                            <Menu.Item key="logout"><span onClick={this.logout}>退出登录</span></Menu.Item>
+                            <Menu.Item key="logout" onClick={this.logout}><span >退出登录</span></Menu.Item>
                         </MenuItemGroup>
                         <MenuItemGroup title="设置中心">
                             <Menu.Item key="setting:3" onClick={()=>{
