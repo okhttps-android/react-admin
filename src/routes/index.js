@@ -78,8 +78,8 @@ export default class CRouter extends Component {
                     )
                 }
 
-                <Route exact
-                       path={"/app/userInfo"} component={AllComponents["UserInfoPage"]}/>
+             {/*   <Route exact
+                       path={"/app/userInfo"} component={AllComponents["UserInfoPage"]}/>*/}
                 <Route component={NotFound}/>
                 <Route render={() => <Redirect to="/app/404"/>}/>
             </Switch>

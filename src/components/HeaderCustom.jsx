@@ -14,6 +14,7 @@ import {connectAlita} from 'redux-alita';
 import {user_logout} from "../http/index";
 import UpdateUserPasswordForm from "./forms/UpdateUserPasswordForm";
 import {get_sms_code, update_withdraw_password, update_user_password} from "../http";
+import {get_thousand_num} from "../utils/index";
 const {Header} = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -166,6 +167,8 @@ class HeaderCustom extends Component {
 
                     <Menu.Item key="userInfo">
                         <div className=" flex">
+                            <span className="span_16 text_color_red">余额：￥ {get_thousand_num(agent.user_money_all)}
+                            &nbsp;&nbsp;&nbsp;&nbsp;</span>
                             <span className="span_16">【{agent.agent_level}级代理】</span>
                             <span className="span_14">{agent.username}</span>
                         </div>

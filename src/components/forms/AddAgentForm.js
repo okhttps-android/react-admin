@@ -58,7 +58,7 @@ class AddAgentForm extends React.Component{
                         )}
                     </FormItem>
 
-                    <FormItem label="分成比例" {...formItemLayout}>
+                    <FormItem label="分成比例%(相对自己)" {...formItemLayout}>
                         {getFieldDecorator('profit_rate_present_for_parent', {
                             rules: [{ required: true, message: '请输入分成比例!' }],
                         })(
