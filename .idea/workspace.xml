@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0d62bbf8-76a0-4842-8c08-9db6413f073e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HeaderCustom.jsx" afterPath="$PROJECT_DIR$/src/components/HeaderCustom.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/pages/Login.jsx" afterPath="$PROJECT_DIR$/src/components/pages/Login.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/http/axiosUtils.js" afterPath="$PROJECT_DIR$/src/http/axiosUtils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/index.js" afterPath="$PROJECT_DIR$/src/routes/index.js" />
     </list>
     <list id="056623c2-9574-43d1-98f6-e380f189ab3a" name="loadSelectData" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -106,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/src/http/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="185">
-              <caret line="17" column="70" lean-forward="false" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+              <caret line="17" column="72" lean-forward="true" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -115,8 +114,8 @@
       <file leaf-file-name="axiosUtils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/http/axiosUtils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1986">
-              <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="64" column="28" lean-forward="false" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -169,11 +168,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeaderCustom.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HeaderCustom.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/HeaderCustom.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="119" column="20" lean-forward="true" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="20" />
+            <state relative-caret-position="271">
+              <caret line="119" column="6" lean-forward="true" selection-start-line="119" selection-start-column="6" selection-end-line="119" selection-end-column="6" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#46#85#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/pages/Login.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="78" column="111" lean-forward="false" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="114" />
               <folding />
             </state>
           </provider>
@@ -243,7 +255,6 @@
         <option value="$PROJECT_DIR$/src/components/tables/WithdawAccountTable.js" />
         <option value="$PROJECT_DIR$/src/components/index.js" />
         <option value="$PROJECT_DIR$/src/routes/config.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/Login.jsx" />
         <option value="$PROJECT_DIR$/src/components/forms/UpdateAlipayForm.js" />
         <option value="$PROJECT_DIR$/src/components/forms/UpdateBankForm.js" />
         <option value="$PROJECT_DIR$/src/components/forms/UpdateWechatForm.js" />
@@ -263,10 +274,11 @@
         <option value="$PROJECT_DIR$/src/components/forms/UpdateUserPasswordForm.js" />
         <option value="$PROJECT_DIR$/src/components/tables/WithDrawAccountTable.js" />
         <option value="$PROJECT_DIR$/src/http/index.js" />
-        <option value="$PROJECT_DIR$/src/http/axiosUtils.js" />
         <option value="$PROJECT_DIR$/src/routes/index.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/http/axiosUtils.js" />
         <option value="$PROJECT_DIR$/src/components/HeaderCustom.jsx" />
+        <option value="$PROJECT_DIR$/src/components/pages/Login.jsx" />
       </list>
     </option>
   </component>
@@ -338,6 +350,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lqdb-agent-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lqdb-agent-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lqdb-agent-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lqdb-agent-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -735,11 +787,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558573978053</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="解决了根据网络接口请求判断token失效的问题。">
+      <created>1558581100376</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1558581100376</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153256000" />
+    <option name="totallyTimeSpent" value="154104000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -814,7 +873,8 @@
     <MESSAGE value="封装项目短信验证码通用组件" />
     <MESSAGE value="- 添加代理和修改分成比例" />
     <MESSAGE value="Merge branch 'developer' of https://github.com/idobao8/lqdb-agent-web&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'developer' of https://github.com/idobao8/lqdb-agent-web&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="解决了根据网络接口请求判断token失效的问题。" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决了根据网络接口请求判断token失效的问题。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -935,13 +995,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="37" column="21" lean-forward="false" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/Login.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-884">
-          <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1177,14 +1230,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/http/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="17" column="70" lean-forward="false" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -1204,10 +1249,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/http/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="17" column="72" lean-forward="true" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/http/axiosUtils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1986">
-          <caret line="87" column="0" lean-forward="true" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        <state relative-caret-position="374">
+          <caret line="64" column="28" lean-forward="false" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -1216,8 +1269,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/HeaderCustom.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="119" column="20" lean-forward="true" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="20" />
+        <state relative-caret-position="271">
+          <caret line="119" column="6" lean-forward="true" selection-start-line="119" selection-start-column="6" selection-end-line="119" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#46#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/Login.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="78" column="111" lean-forward="false" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="114" />
           <folding />
         </state>
       </provider>

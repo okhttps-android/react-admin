@@ -22,8 +22,10 @@ export const sendGet = ({url, params, headers}) => { // get 请求
             }else if(0<res.data.code<1000){
                 if(res.data.code==403){
                     message.error("登陆已过期，请重新登陆")
-                    localStorage.removeItem('user');
-                    window.location.href = '/login';
+                    setTimeout(()=>{
+                        localStorage.removeItem('user');
+                        window.location.href = '/login';
+                    },500);
                 }else{
                     message.error(JSON.stringify(res.data.message))
                 }
@@ -57,8 +59,10 @@ export const sendPost = ({url, params, headers}) => { // post 请求
         }else if(0<res.data.code<1000){
             if(res.data.code==403){
                 message.error("登陆已过期，请重新登陆")
-                localStorage.removeItem('user');
-                window.location.href = '/login';
+                 setTimeout(()=>{
+                     localStorage.removeItem('user');
+                     window.location.href = '/login';
+                         },500);
             }else{
                 message.error(JSON.stringify(res.data.message))
             }
