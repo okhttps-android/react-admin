@@ -20,7 +20,7 @@ export default class CRouter extends Component {
     requireLogin = (component, permission) => {
         let user = localStorage.getItem("user");
         console.log("user:", user);
-        if (user!=null) {
+        if (user != null) {
             return permission ? this.requireAuth(permission, component) : component;
         } else {
             return <Redirect to={'/login'}/>;
@@ -77,6 +77,9 @@ export default class CRouter extends Component {
                         }
                     )
                 }
+
+                <Route exact
+                       path={"/app/userInfo"} component={AllComponents["UserInfoPage"]}/>
                 <Route component={NotFound}/>
                 <Route render={() => <Redirect to="/app/404"/>}/>
             </Switch>
