@@ -3,31 +3,47 @@
  */
 import React from 'react';
 import { Table } from 'antd';
-import {get_account_list,limit} from '../../http/index'
+import {get_account_list} from '../../http/index'
 import {Toast} from "antd-mobile";
 
-
+let limit=10;
 class SelectTable extends React.Component {
-    state = {
-        selectedRowKeys: [],
-        pageSize:0,
-        pagination: {showQuickJumper:true},
-        columns : [{
-            title: 'APP账号ID',
-            dataIndex: 'id',
-        }, {
-            title: '昵称',
-            dataIndex: 'nick_name',
-        }, {
-            title: 'APP账号手机号',
-            dataIndex: 'user_tel',
-        },{
-            title: '绑定时间',
-            dataIndex: 'create_time',
-        }
-        ],
-        data:[]
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedRowKeys: [],
+            pageSize:0,
+            pagination: {
+                showQuickJumper:true,
+                showSizeChanger:true,
+                onShowSizeChange:this.onShowSizeChange.bind(this),
+                showTotal:(total)=>(`共 ${total} 条`),
+                pageSizeOptions:[
+                    '10','20','30','40','50'
+                ]},
+            columns : [{
+                title: 'APP账号ID',
+                dataIndex: 'id',
+            }, {
+                title: '昵称',
+                dataIndex: 'nick_name',
+            }, {
+                title: 'APP账号手机号',
+                dataIndex: 'user_tel',
+            },{
+                title: '绑定时间',
+                dataIndex: 'create_time',
+            }
+            ],
+            data:[]
+        };
+    }
+
+
+    onShowSizeChange=(current,size)=>{
+        console.log("onShowSizeChange() current:",current,"size:",size);
+        limit=size;
+    }
     onSelectChange = (selectedRowKeys) => {
 
         this.setState({ selectedRowKeys });
@@ -113,7 +129,9 @@ class SelectTable extends React.Component {
             onSelection: this.onSelection,
         };
         return (
-            <Table rowSelection={rowSelection}
+            <Table
+                   className="margin_bottom_50"
+                   rowSelection={rowSelection}
                    columns={this.state.columns}
                    dataSource={this.state.data}
                    pagination={this.state.pagination}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {get_withdaw_list, update_bank, update_alipay, update_wechat,limit} from "../../http";
+import {get_withdaw_list, update_bank, update_alipay, update_wechat} from "../../http";
 import {Toast} from "antd-mobile";
 import {Row, Col, Button, Card, Select, Form, message, Input, Modal} from 'antd';
 import {connectAlita} from "redux-alita";
@@ -10,7 +10,7 @@ import UpdateAlipayForm from "../forms/UpdateAlipayForm";
 import UpdateWechatForm from "../forms/UpdateWechatForm";
 
 const Option = Select.Option;
-
+let limit=10;
 class WithDrawAccountTable extends React.Component{
     constructor(props){
         super(props);
@@ -21,7 +21,14 @@ class WithDrawAccountTable extends React.Component{
             modalVisibleByWechat: false,
             selectedRowKeys: [],
             data: [],
-            pagination: {showQuickJumper:true},
+            pagination: {
+                showQuickJumper:true,
+                showSizeChanger:true,
+                onShowSizeChange:this.onShowSizeChange.bind(this),
+                showTotal:(total)=>(`共 ${total} 条`),
+                pageSizeOptions:[
+                    '10','20','30','40','50'
+                ]},
             columns:[ {
                 title: '账号类型',
                 dataIndex: 'id',
@@ -40,8 +47,13 @@ class WithDrawAccountTable extends React.Component{
             }],
         };
     }
-    
-    
+
+    onShowSizeChange=(current,size)=>{
+        console.log("onShowSizeChange() current:",current,"size:",size);
+        limit=size;
+    }
+
+
     componentDidMount(){
         this.loadData({page: 0});
     }
