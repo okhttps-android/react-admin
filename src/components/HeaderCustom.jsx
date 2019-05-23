@@ -138,7 +138,7 @@ class HeaderCustom extends Component {
         console.log("render() 用户信息 user:",this.props.user);
         const { agent={agent:{}}} = this.props.user;
         return (
-            <Header className="custom-theme header" >
+            <Header className="custom-theme header " >
                 {
                     responsive.data.isMobile ? (
                         <Popover content={<SiderCustom path={path} popoverHide={this.popoverHide} />} trigger="click" placement="bottomLeft" visible={this.state.visible} onVisibleChange={this.handleVisibleChange}>
@@ -152,13 +152,19 @@ class HeaderCustom extends Component {
                         />
                     )
                 }
+
                 <Menu
                     mode="horizontal"
+
                     style={{ lineHeight: '64px', float: 'right' }}
                     onClick={this.menuClick}
                 >
-                    <Menu.Item key="pwa">
-                        <PwaInstaller />
+
+                    <Menu.Item key="userInfo"  >
+                        <div className=" flex">
+                            <span className="span_16">【{agent.agent_level}级代理】</span>
+                            <span className="span_14">{agent.username}</span>
+                        </div>
                     </Menu.Item>
                   {/*  <Menu.Item key="full" onClick={this.screenFull} >
                         <Icon type="arrows-alt" onClick={this.screenFull} />
@@ -168,7 +174,7 @@ class HeaderCustom extends Component {
                             <Icon type="notification" />
                         </Badge>
                     </Menu.Item>*/}
-                    <SubMenu title={<span className="avatar"><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1361467273,3482588863&fm=27&gp=0.jpg" alt="头像" /><i className="on bottom b-white" /></span>}>
+                    <SubMenu  title={<span className="avatar"><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1361467273,3482588863&fm=27&gp=0.jpg" alt="头像" /><i className="on bottom b-white" /></span>}>
                         <MenuItemGroup title="用户中心">
                             <Menu.Item key="setting:1">你好 - {agent.username}</Menu.Item>
                             <Menu.Item key="setting:2">个人信息</Menu.Item>
@@ -198,4 +204,4 @@ class HeaderCustom extends Component {
     }
 }
 
-export default withRouter(connectAlita(['responsive'])(HeaderCustom));
+export default withRouter(connectAlita(['responsive',"auth"])(HeaderCustom));
