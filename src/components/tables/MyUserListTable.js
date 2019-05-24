@@ -1,17 +1,24 @@
 import React from 'react';
 import {Toast} from "antd-mobile";
-import {get_client_list, limit} from "../../http";
+import {get_client_list} from "../../http";
 import {Card, Col, Row, Table} from "antd";
 import BreadcrumbCustom from "../BreadcrumbCustom";
 import {get_thousand_num} from "../../utils/index";
-
+let limit=10;
 class MyUserListTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             name: 'MyUserListTable',
             selectedRowKeys: [],
-            pagination: {showQuickJumper:true},
+            pagination: {
+                showQuickJumper:true,
+                showSizeChanger:true,
+                onShowSizeChange:this.onShowSizeChange.bind(this),
+                showTotal:(total)=>(`共 ${total} 条`),
+                pageSizeOptions:[
+                    '10','20','30','40','50'
+                ]},
             data: [],
             columns: [{
                 title: 'APP账号ID',
@@ -39,6 +46,11 @@ class MyUserListTable extends React.Component {
             }
             ]
         };
+    }
+
+    onShowSizeChange=(current,size)=>{
+        console.log("onShowSizeChange() current:",current,"size:",size);
+        limit=size;
     }
 
     onSelectChange = (selectedRowKeys) => {
@@ -132,7 +144,9 @@ class MyUserListTable extends React.Component {
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="用户列表" bordered={false}>
-                                <Table rowSelection={rowSelection}
+                                <Table
+                                    className="margin_bottom_50"
+                                    rowSelection={rowSelection}
                                        columns={this.state.columns}
                                        dataSource={this.state.data}
                                        pagination={this.state.pagination}

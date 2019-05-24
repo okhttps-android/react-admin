@@ -1,13 +1,13 @@
 import React from 'react';
 import {Toast} from "antd-mobile";
-import {get_agent_list, agent_add,update_agent_profit_rate,limit} from "../../http";
+import {get_agent_list, agent_add,update_agent_profit_rate} from "../../http";
 import {Button, Card, Col, Row, Table,message} from "antd";
 import BreadcrumbCustom from "../BreadcrumbCustom";
 import {get_thousand_num} from "../../utils/index";
 import UpdateProfitRateForm from "../forms/UpdateProfitRateForm";
 import AddAgentForm from "../forms/AddAgentForm";
 
-
+let limit=10;
 
 class MyAgentListTable extends React.Component {
     constructor(props) {
@@ -18,7 +18,14 @@ class MyAgentListTable extends React.Component {
             selectId:null,
             modalVisibleByProfitRate:false,
             modalVisibleByAddAgent:false,
-            pagination: {showQuickJumper:true},
+            pagination: {
+                showQuickJumper:true,
+                showSizeChanger:true,
+                onShowSizeChange:this.onShowSizeChange.bind(this),
+                showTotal:(total)=>(`共 ${total} 条`),
+                pageSizeOptions:[
+                    '10','20','30','40','50'
+                ]},
             data: [],
             columns: [{
                 title: '代理账号ID',
@@ -64,6 +71,11 @@ class MyAgentListTable extends React.Component {
             ]
         };
     }
+    onShowSizeChange=(current,size)=>{
+        console.log("onShowSizeChange() current:",current,"size:",size);
+        limit=size;
+    }
+
 
     onSelectChange = (selectedRowKeys) => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
@@ -87,15 +99,15 @@ class MyAgentListTable extends React.Component {
                 this.state.data=[];
                 for (let i = 0; i < res.data.data.length; i++) {
                     let model = {
-                        id: res.data.data[i].subordinate_agent.id + "",
-                        nick_name: res.data.data[i].subordinate_agent.username,
-                        create_time: res.data.data[i].subordinate_agent.create_time,
-                        user_money:get_thousand_num(res.data.data[i].subordinate_agent.user_money),
-                        recharge_amount_all:get_thousand_num(res.data.data[i].recharge_amount_all),
-                        profit_amount_all:get_thousand_num(res.data.data[i]. profit_amount_all),
+                        id: res.data.data[i].id + "",
+                        nick_name: res.data.data[i].username,
+                        create_time: res.data.data[i].create_time,
+                        user_money:get_thousand_num(res.data.data[i].user_money),
+                        recharge_amount_all:get_thousand_num(res.data.data[i].summary_info.recharge_amount_all),
+                        profit_amount_all:get_thousand_num(res.data.data[i].summary_info. profit_amount_all),
                         // profit_rate_remain:res.data.data[i].profit_rate_remain,
-                        profit_rate_present_for_parent:res.data.data[i].subordinate_agent.profit_rate_present_for_parent,
-                        profit_rate:res.data.data[i].subordinate_agent.profit_rate
+                        profit_rate_present_for_parent:res.data.data[i].profit_rate_present_for_parent,
+                        profit_rate:res.data.data[i].profit_rate
 
                     }
                     this.state.data.push(model);
@@ -260,7 +272,9 @@ class MyAgentListTable extends React.Component {
                                 }>
                                     修改分成比例
                                 </Button>
-                                <Table rowSelection={rowSelection}
+                                <Table
+                                    className="margin_bottom_50"
+                                    rowSelection={rowSelection}
                                        columns={this.state.columns}
                                        dataSource={this.state.data}
                                        pagination={this.state.pagination}

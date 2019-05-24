@@ -1,8 +1,6 @@
-import WithDrawRequestTable from "../components/tables/WithDrawRequestTable";
-
 export default {
     menus: [
-        { key: '/app/dashboard/index', title: '首页', icon: 'mobile', component: 'Dashboard' },
+
 
         {
             key: '/app/user', title: '用户管理', icon: 'copy',
@@ -17,6 +15,7 @@ export default {
             subs: [
                 { key: '/app/money/all', title: '收益统计', component: 'ProfitListTable'},
                 { key: '/app/money/day', title: '收益统计-明细', component: 'ProfitDetailTable',
+                    noShow:true
                    }
             ],
 
@@ -32,7 +31,10 @@ export default {
 
                 }
             ]
-       }
+       },
+        {
+            key:'/app/userInfo',component:'UserInfoPage',noShow:true
+        }
 
     ],
     others: [] // 非菜单相关路由

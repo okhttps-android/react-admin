@@ -9,12 +9,14 @@ class BreadcrumbCustom extends React.Component {
     render() {
         const first = <Breadcrumb.Item>{this.props.first}</Breadcrumb.Item> || '';
         const second = <Breadcrumb.Item>{this.props.second}</Breadcrumb.Item> || '';
+        const three = <Breadcrumb.Item>{this.props.three}</Breadcrumb.Item> || '';
         return (
             <span>
                 <Breadcrumb style={{ margin: '12px 0' }}>
-                    <Breadcrumb.Item><Link to={'/app/dashboard/index'}>首页</Link></Breadcrumb.Item>
+                    <Breadcrumb.Item><Link to={'/app/money/all'}>首页</Link></Breadcrumb.Item>
                         {first}
                         {second}
+                        {three}
                 </Breadcrumb>
             </span>
         )

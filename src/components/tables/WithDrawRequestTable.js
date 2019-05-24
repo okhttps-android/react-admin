@@ -1,6 +1,6 @@
 import React from 'react';
 import {Toast} from "antd-mobile";
-import {get_sms_code,get_withdaw_list,get_withdraw_request_add, get_withdraw_request_list, update_withdraw_password,limit} from "../../http";
+import {get_sms_code,get_withdaw_list,get_withdraw_request_add, get_withdraw_request_list, update_withdraw_password} from "../../http";
 import BreadcrumbCustom from "../BreadcrumbCustom";
 import {Button, Card, Col, Row, Table, Modal, Form, Input, Icon, Select, InputNumber, message} from "antd";
 import {connectAlita} from "redux-alita";
@@ -15,6 +15,8 @@ const formItemLayout = {
 };
 const Option = Select.Option;
 
+let limit=10;
+
 class WithDrawRequestTable extends React.Component{
     constructor(props){
         super(props);
@@ -26,7 +28,14 @@ class WithDrawRequestTable extends React.Component{
             selectedRowKeys: [],
             children : [],
             data: [],
-            pagination: {showQuickJumper:true},
+            pagination: {
+                showQuickJumper:true,
+                showSizeChanger:true,
+                onShowSizeChange:this.onShowSizeChange.bind(this),
+                showTotal:(total)=>(`共 ${total} 条`),
+                pageSizeOptions:[
+                    '10','20','30','40','50'
+                ]},
             columns:[ {
                 title: 'ID',
                 dataIndex: 'id',
@@ -45,6 +54,12 @@ class WithDrawRequestTable extends React.Component{
             }],
         };
     }
+
+    onShowSizeChange=(current,size)=>{
+        console.log("onShowSizeChange() current:",current,"size:",size);
+        limit=size;
+    }
+
     onSelectChange = (selectedRowKeys) => {
         this.setState({selectedRowKeys});
     };
@@ -265,6 +280,7 @@ class WithDrawRequestTable extends React.Component{
                                 </Button>
                             </div>
                             <Table rowSelection={rowSelection}
+                                   className="margin_bottom_50"
                                    columns={this.state.columns}
                                    dataSource={this.state.data}
                                    pagination={this.state.pagination}

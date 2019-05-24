@@ -1,5 +1,5 @@
 import React from 'react';
-import {get_withdaw_list, update_bank, update_alipay, update_wechat,limit} from "../../http";
+import {get_withdaw_list, update_bank, update_alipay, update_wechat} from "../../http";
 import {Toast} from "antd-mobile";
 import {Row, Col, Button, Card, Select, Form, message, Input, Modal} from 'antd';
 import {connectAlita} from "redux-alita";
@@ -10,7 +10,7 @@ import UpdateAlipayForm from "../forms/UpdateAlipayForm";
 import UpdateWechatForm from "../forms/UpdateWechatForm";
 
 const Option = Select.Option;
-
+let limit=10;
 class WithDrawAccountTable extends React.Component{
     constructor(props){
         super(props);
@@ -21,7 +21,14 @@ class WithDrawAccountTable extends React.Component{
             modalVisibleByWechat: false,
             selectedRowKeys: [],
             data: [],
-            pagination: {showQuickJumper:true},
+            pagination: {
+                showQuickJumper:true,
+                showSizeChanger:true,
+                onShowSizeChange:this.onShowSizeChange.bind(this),
+                showTotal:(total)=>(`共 ${total} 条`),
+                pageSizeOptions:[
+                    '10','20','30','40','50'
+                ]},
             columns:[ {
                 title: '账号类型',
                 dataIndex: 'id',
@@ -40,8 +47,13 @@ class WithDrawAccountTable extends React.Component{
             }],
         };
     }
-    
-    
+
+    onShowSizeChange=(current,size)=>{
+        console.log("onShowSizeChange() current:",current,"size:",size);
+        limit=size;
+    }
+
+
     componentDidMount(){
         this.loadData({page: 0});
     }
@@ -196,7 +208,7 @@ class WithDrawAccountTable extends React.Component{
                             <Button size={"small"} onClick={()=>{
                             this.setModalVisibleBank(true)}
                             }>修改</Button></div>
-                        {this.state.data.length!=0?(<div>
+                        {this.state.data[0]!=null?(<div>
                             <div>银行账户：{this.state.data[0].content_display}</div>
                         </div>):(<div>
                                 暂无银行账户信息
@@ -211,7 +223,7 @@ class WithDrawAccountTable extends React.Component{
                             <Button size={"small"} onClick={()=>{
                             this.setModalVisibleAlipay(true)}}>修改</Button>
                         </div>
-                        {this.state.data.length!=0?(<div>
+                        {this.state.data[1]!=null?(<div>
                             <div>支付宝账户：{this.state.data[1].content_display}</div>
                         </div>):(<div>
                             暂无支付宝账户信息
@@ -228,7 +240,7 @@ class WithDrawAccountTable extends React.Component{
                                         this.setModalVisibleWechat(true)}}
                             >修改</Button>
                         </div>
-                        {this.state.data.length!=0?(<div>
+                        {this.state.data[2]!=null?(<div>
                             <div>微信账户：{this.state.data[2].content_display}</div>
                         </div>):(<div>
                             暂无微信账户信息

@@ -21,7 +21,7 @@ class Login extends React.Component {
                 if (nextAuth!=null&&nextAuth.data!=null) {
                     if (nextAuth.data.success &&nextAuth.data.code==0) { // 判断是否登陆
                         localStorage.setItem('user', JSON.stringify(nextAuth.data));
-                        history.push('/app/dashboard/index');
+                        history.push('/app/money/all');
                     }
                 }
         }
@@ -76,7 +76,7 @@ class Login extends React.Component {
                             })(
                                 <Checkbox>记住我</Checkbox>
                             )}
-                            <span className="login-form-forgot" href="" style={{float: 'right'}}>忘记密码</span>
+                            {/*<span className="login-form-forgot" href="" style={{float: 'right'}}>忘记密码</span>*/}
                             <Button type="primary" htmlType="submit" className="login-form-button" style={{width: '100%'}}>
                                 登录
                             </Button>

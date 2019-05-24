@@ -34,6 +34,7 @@ import ProfitDetailTable from "./tables/ProfitDetailTable";
 import ProfitListTable from "./tables/ProfitListTable";
 import WithDrawRequestTable from "./tables/WithDrawRequestTable";
 import WithDrawAccountTable from "./tables/WithDrawAccountTable";
+import UserInfoPage from "./UserInfoPage";
 
 const WysiwygBundle = Loadable({ // 按需加载富文本配置
     loader: () => import('./ui/Wysiwyg'),
@@ -41,6 +42,7 @@ const WysiwygBundle = Loadable({ // 按需加载富文本配置
 });
 
 export default {
+    UserInfoPage,
     WithDrawAccountTable,
     WithDrawRequestTable,
     ProfitDetailTable,

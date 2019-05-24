@@ -4,16 +4,25 @@
 import React from 'react';
 
 import {Toast} from "antd-mobile";
-import {get_profit_detail_list, limit} from "../../http";
+import {get_profit_detail_list} from "../../http";
 import BreadcrumbCustom from "../BreadcrumbCustom";
 import {Card, Col, Row, Table} from "antd";
 import {get_thousand_num} from "../../utils/index";
+import { Link } from 'react-router-dom';
+let limit=10;
 class ProfitDetailTable extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
             selectedRowKeys: [],
-            pagination: {showQuickJumper:true},
+            pagination: {
+                showQuickJumper:true,
+                showSizeChanger:true,
+                onShowSizeChange:this.onShowSizeChange.bind(this),
+                showTotal:(total)=>(`共 ${total} 条`),
+                pageSizeOptions:[
+                    '10','20','30','40','50'
+                ]},
             data: [],
             columns: [{
                 title: 'ID',
@@ -42,7 +51,10 @@ class ProfitDetailTable extends React.Component{
             ]
         };
     }
-
+    onShowSizeChange=(current,size)=>{
+        console.log("onShowSizeChange() current:",current,"size:",size);
+        limit=size;
+    }
 
     onSelectChange = (selectedRowKeys) => {
         this.setState({selectedRowKeys});
@@ -97,6 +109,8 @@ class ProfitDetailTable extends React.Component{
     render() {
 
         const {selectedRowKeys} = this.state;
+        const query=this.props.query;
+        console.log("render() query:",query);
         const rowSelection = {
             selectedRowKeys,
             onChange: this.onSelectChange,
@@ -131,12 +145,13 @@ class ProfitDetailTable extends React.Component{
         };
         return (
             <div className="gutter-example">
-                <BreadcrumbCustom first="收益管理" second="收益统计-明细"/>
+                <BreadcrumbCustom first="收益管理" second={<Link to={'/app/money/all'}>收益统计</Link>} three={`收益明细-${query.day}`}/>
                 <Row gutter={16}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="收益统计-明细" bordered={false}>
                                 <Table rowSelection={rowSelection}
+                                       className="margin_bottom_50"
                                        columns={this.state.columns}
                                        dataSource={this.state.data}
                                        pagination={this.state.pagination}
