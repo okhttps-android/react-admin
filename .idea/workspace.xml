@@ -393,7 +393,7 @@
       <workItem from="1558503337166" duration="13055000" />
       <workItem from="1558572310023" duration="187000" />
       <workItem from="1558594505481" duration="9876000" />
-      <workItem from="1558948132276" duration="1124000" />
+      <workItem from="1558948132276" duration="2180000" />
     </task>
     <task id="LOCAL-00001" summary="添加三級菜單">
       <created>1554285967288</created>
@@ -717,11 +717,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558949268249</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="解决了根据网络接口请求判断token失效的问题。">
+      <created>1558949299424</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1558949299424</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172665000" />
+    <option name="totallyTimeSpent" value="173721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
