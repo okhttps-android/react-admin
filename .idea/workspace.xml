@@ -393,7 +393,7 @@
       <workItem from="1558503337166" duration="13055000" />
       <workItem from="1558572310023" duration="187000" />
       <workItem from="1558594505481" duration="9876000" />
-      <workItem from="1558948132276" duration="2180000" />
+      <workItem from="1558948132276" duration="2570000" />
     </task>
     <task id="LOCAL-00001" summary="添加三級菜單">
       <created>1554285967288</created>
@@ -728,7 +728,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173721000" />
+    <option name="totallyTimeSpent" value="174111000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
