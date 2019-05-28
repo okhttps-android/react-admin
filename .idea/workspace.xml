@@ -397,14 +397,7 @@
       <workItem from="1558572310023" duration="187000" />
       <workItem from="1558594505481" duration="9876000" />
       <workItem from="1558948132276" duration="3301000" />
-      <workItem from="1559038575489" duration="184000" />
-    </task>
-    <task id="LOCAL-00002" summary="添加三級菜單">
-      <created>1554286044089</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1554286044089</updated>
+      <workItem from="1559038575489" duration="219000" />
     </task>
     <task id="LOCAL-00003" summary="解决好左侧菜单路径传参问题！">
       <created>1554372657154</created>
@@ -742,11 +735,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558951310562</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="解决了根据网络接口请求判断token失效的问题。">
+      <created>1559038763059</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1559038763060</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175026000" />
+    <option name="totallyTimeSpent" value="175061000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
