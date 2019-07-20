@@ -54,7 +54,8 @@ export const sendPost = ({url, params, headers}) => { // post 请求
     return api.creatAxios1.post(url, params, headers)
         .then(res => {
             Toast.hide();
-            //console.log("sendPost():",res);
+            console.log("sendPost() url:",url);
+            console.log("sendPost() res:",res);
         if(res.data.code==0){
         }else if(0<res.data.code<1000){
             if(res.data.code==403){

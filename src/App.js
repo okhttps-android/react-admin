@@ -8,6 +8,7 @@ import { ThemePicker } from './components/widget';
 import { connectAlita } from 'redux-alita';
 import {Redirect} from "react-router-dom";
 import {user_info} from "./http/index";
+import {message} from 'antd'
 
 const { Content, Footer } = Layout;
 
@@ -29,21 +30,13 @@ class App extends Component {
         }
     }
     componentDidMount() {
-        const { setAlitaState } = this.props;
-        //console.log("componentDidMount() user_info");
-        setAlitaState({funcName:'user_info',stateName:'userData'});
+        const user = JSON.parse(localStorage.getItem('user'));
+        if(user!=null){
+            const { setAlitaState } = this.props;
+            setAlitaState({funcName:'user_info',stateName:'userData'});
+        }
 
         const openNotification = () => {
-            // notification.open({
-            //   message: '',
-            //   description: (
-            //       <div>
-            //
-            //       </div>
-            //   ),
-            //   icon: <Icon type="smile-circle" style={{ color: 'red' }} />,
-            //   duration: 0,
-            // });
             localStorage.setItem('isFirst', JSON.stringify(true));
         };
         const isFirst = JSON.parse(localStorage.getItem('isFirst'));
@@ -66,9 +59,11 @@ class App extends Component {
         const { title } = this.state;
         const { auth = { data: {} }, responsive = { data: {} },userInfo={data:{}} } = this.props;
         if (auth==null){
-            return <Redirect to={'/login'} />;
+           // message.info("重定向登录界面！12")
+           return <Redirect to={'/login'} />;
         }
         if (auth.data==null){
+          // message.info("重定向登录界面！")
             return <Redirect to={'/login'} />;
         }
         return (
@@ -80,9 +75,7 @@ class App extends Component {
                         {/*auth.data.data || {}*/}
                         {/* user={this.state.user||{}} */}
                         <HeaderCustom toggle={this.toggle}
-                                      collapsed={this.state.collapsed}
-                                      user={auth.data.data || {}}
-                                     />
+                                      collapsed={this.state.collapsed}/>
                         <Content style={{ margin: '0 16px', overflow: 'initial', flex: '1 1 0' }}>
                             <Routes auth={auth} />
                         </Content>
