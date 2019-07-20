@@ -54,13 +54,13 @@ class HeaderCustom extends Component {
     sendMsg = () => {
         this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
             let user_tel = values.user_tel;
-            console.log("user_tel:", user_tel);
+            //console.log("user_tel:", user_tel);
             if (user_tel != null && user_tel != "" && user_tel != " ") {
                 this.child.countDown();
                 get_sms_code({user_tel: this.state.user_tel, auth_type: 1}).then(res => {
-                    console.log("get_sms_code result()", res.data);
+                    //console.log("get_sms_code result()", res.data);
                 }).catch(err => {
-                    console.log(err)
+                    //console.log(err)
                 })
             }
         });
@@ -68,7 +68,7 @@ class HeaderCustom extends Component {
     }
 
     onChangeInputByPhone = (e) => {
-        console.log("onChangeInputByPhone():", e.target.value);
+        //console.log("onChangeInputByPhone():", e.target.value);
         this.state.user_tel = e.target.value;
         this.setState({user_tel: e.target.value})
     }
@@ -86,16 +86,16 @@ class HeaderCustom extends Component {
         e.preventDefault();
         this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log("tel ()", values.user_tel);
-                console.log("tel ()", values.password);
-                console.log("tel ()", values.code);
+                //console.log("tel ()", values.user_tel);
+                //console.log("tel ()", values.password);
+                //console.log("tel ()", values.code);
                 update_user_password({
                     user_tel: values.user_tel,
                     password: values.password,
                     code: values.code
                 })
                     .then(res => {
-                        console.log("result()", res);
+                        //console.log("result()", res);
                         if (res.message == 'success' && res.code == 0) {
                             message.success("登录密码修改成功！");
                             this.setModalVisibleWithDrawPassword(false);
@@ -103,7 +103,7 @@ class HeaderCustom extends Component {
                             message.error("修改失败！" + res.data.message);
                         }
                     }).catch(err => {
-                    console.log(err)
+                    //console.log(err)
                 })
             }
         })
@@ -116,7 +116,7 @@ class HeaderCustom extends Component {
 
     };
     menuClick = e => {
-        console.log(e);
+        //console.log(e);
         // e.key === 'logout' && this.logout();
     };
 
@@ -137,9 +137,18 @@ class HeaderCustom extends Component {
     };
 
     render() {
-        const {responsive = {data: {}}, path} = this.props;
-        console.log("render() 用户信息 user:", this.props.user);
-        const {agent = {agent: {}}} = this.props.user;
+        const {responsive = {data: {}}, path,userData} = this.props;
+        // console.log("render() 用户信息 user:", this.props.userData);
+        let agent={};
+        if (this.props.userData!=null){
+            if(this.props.userData.data!=null){
+                if(!this.props.userData.isFetching){
+                    agent = this.props.userData.data.data;
+                    // message.info("用户信息刷新了...");
+                }
+            }
+        }
+
         return (
             <Header className="custom-theme header ">
                 {
@@ -187,6 +196,7 @@ class HeaderCustom extends Component {
                         <MenuItemGroup title="用户中心">
                             <Menu.Item key="setting:1">你好 - {agent.username}</Menu.Item>
                             <Menu.Item key="setting:2" onClick={()=>{
+                                this.props.setAlitaState({funcName:'user_info',stateName:'userData'});
                                 this.props.history.push('/app/userInfo')
                             }}>个人信息</Menu.Item>
                             <Menu.Item key="logout" onClick={this.logout}><span >退出登录</span></Menu.Item>
@@ -215,4 +225,4 @@ class HeaderCustom extends Component {
     }
 }
 
-export default withRouter(connectAlita(['responsive', "auth"])(HeaderCustom));
+export default withRouter(connectAlita(['responsive', "auth","userData"])(HeaderCustom));

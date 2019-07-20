@@ -56,7 +56,7 @@ class WithDrawRequestTable extends React.Component{
     }
 
     onShowSizeChange=(current,size)=>{
-        console.log("onShowSizeChange() current:",current,"size:",size);
+        //console.log("onShowSizeChange() current:",current,"size:",size);
         limit=size;
     }
 
@@ -65,7 +65,7 @@ class WithDrawRequestTable extends React.Component{
     };
 
    handleChange=(value)  => {
-        console.log(`selected ${value}`);
+        //console.log(`selected ${value}`);
     }
 
     handleTableChange = (pagination, filters, sorter) => {
@@ -78,6 +78,7 @@ class WithDrawRequestTable extends React.Component{
     componentDidMount(){
         this.loadData({page: 0});
         this.loadSelectData();
+        this.props.setAlitaState({funcName:'user_info',stateName:'userData'});
     }
 
     loadSelectData=()=>{
@@ -91,7 +92,7 @@ class WithDrawRequestTable extends React.Component{
 
             }).catch(err => {
             Toast.hide()
-            console.log("err:", err);
+            //console.log("err:", err);
         })
     }
 
@@ -121,7 +122,7 @@ class WithDrawRequestTable extends React.Component{
 
             }).catch(err => {
             Toast.hide()
-            console.log("err:", err);
+            //console.log("err:", err);
         })
 
 
@@ -129,14 +130,14 @@ class WithDrawRequestTable extends React.Component{
 
     setModalVisible(modalVisible) {
         const { moneyAccount } = this.props;
-        console.log("setModalVisible moneyAccount:" ,moneyAccount);
+        //console.log("setModalVisible moneyAccount:" ,moneyAccount);
         if(moneyAccount!=null){
             this.state.children=[];
             for (let i = 0; i < moneyAccount.data.length; i++) {
                 this.state.children.push(<Option key={moneyAccount.data[i].id+""}>{moneyAccount.data[i].content_display}</Option>);
             }
         }
-        console.log("setModalVisible children:" ,this.state.children);
+        //console.log("setModalVisible children:" ,this.state.children);
         this.setState({ modalVisible ,children:this.state.children});
     }
 
@@ -144,9 +145,9 @@ class WithDrawRequestTable extends React.Component{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log("values() money",values.money);
-                console.log("values() password",values.password);
-                console.log("values() moneyAccount",values.moneyAccount);
+                //console.log("values() money",values.money);
+                //console.log("values() password",values.password);
+                //console.log("values() moneyAccount",values.moneyAccount);
                 this.setModalVisible(false);
                 Toast.loading("");
                 get_withdraw_request_add({
@@ -155,7 +156,8 @@ class WithDrawRequestTable extends React.Component{
                     withdraw_password:values.password})
                     .then(res=>{
                         Toast.hide();
-                        console.log("res data:", res.data);
+                        this.props.setAlitaState({funcName:'user_info',stateName:'userData'});
+                        //console.log("res data:", res.data);
                         this.loadData({page: 0});
                     }).catch(err=>{
                     Toast.hide();
@@ -173,7 +175,7 @@ class WithDrawRequestTable extends React.Component{
     }
 
     onChangeInputByPhone=(e)=>{
-        console.log("onChangeInputByPhone():",e.target.value);
+        //console.log("onChangeInputByPhone():",e.target.value);
         this.state.user_tel=e.target.value;
         this.setState({user_tel:e.target.value})
     }
@@ -181,14 +183,14 @@ class WithDrawRequestTable extends React.Component{
     sendMsg=()=>{
         this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
               let user_tel=  values.user_tel;
-              console.log("user_tel:",user_tel);
+              //console.log("user_tel:",user_tel);
               if(user_tel!=null&&user_tel!=""&&user_tel!=" "){
                   this.child.countDown();
                   get_sms_code({user_tel: this.state.user_tel, auth_type: 3}).
                   then(res=>{
-                      console.log("get_sms_code result()",res.data);
+                      //console.log("get_sms_code result()",res.data);
                   }).catch(err=>{
-                      console.log(err)
+                      //console.log(err)
                   })
               }
         });
@@ -204,12 +206,12 @@ class WithDrawRequestTable extends React.Component{
         e.preventDefault();
         this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log("tel ()",values.user_tel);
-                console.log("tel ()",values.password);
-                console.log("tel ()",values.code);
+                //console.log("tel ()",values.user_tel);
+                //console.log("tel ()",values.password);
+                //console.log("tel ()",values.code);
                 update_withdraw_password({user_tel: values.user_tel, password: values.password,code:values.code})
                     .then(res=>{
-                     console.log("result()",res);
+                     //console.log("result()",res);
                         if(res.message=='success'&&res.code==0){
                             message.success("提现密码修改成功！");
                             this.setModalVisibleWithDrawPassword(false);
@@ -217,7 +219,7 @@ class WithDrawRequestTable extends React.Component{
                             message.error("修改失败！"+res.data.message);
                         }
                 }).catch(err=>{
-                    console.log(err)
+                    //console.log(err)
                 })
             }})
     }
@@ -349,4 +351,4 @@ class WithDrawRequestTable extends React.Component{
     }
 }
 
-export  default connectAlita(['auth','moneyAccount'])(Form.create()(WithDrawRequestTable));
+export  default connectAlita(['auth','moneyAccount',"userData"])(Form.create()(WithDrawRequestTable));

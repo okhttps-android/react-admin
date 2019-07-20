@@ -24,19 +24,19 @@ class ActionEnter extends React.Component{
     }
 
     componentWillMount(){
-        console.log("componentWillMount()");
+        //console.log("componentWillMount()");
         //获取问号参数
         const reg = /\?\S*/g;
         const queryParams = window.location.hash.match(reg);
-        console.log("componentWillMount()  问号参数：",queryParams);
+        //console.log("componentWillMount()  问号参数：",queryParams);
 
 
     }
 
     componentDidMount=()=>{
-        console.log("componentDidMount()");
-        console.log("componentWillMount() props参数 name：",this.props.match.params.name);
-        console.log("componentWillMount() props参数：age：",this.props.match.params.age);
+        //console.log("componentDidMount()");
+        //console.log("componentWillMount() props参数 name：",this.props.match.params.name);
+        //console.log("componentWillMount() props参数：age：",this.props.match.params.age);
     }
     
 

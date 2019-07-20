@@ -7,14 +7,15 @@ import { Layout, notification, Icon } from 'antd';
 import { ThemePicker } from './components/widget';
 import { connectAlita } from 'redux-alita';
 import {Redirect} from "react-router-dom";
-import {get_withdaw_list} from "./http/index";
+import {user_info} from "./http/index";
 
 const { Content, Footer } = Layout;
 
 class App extends Component {
     state = {
         collapsed: false,
-        title: ''
+        title: '',
+        user:{}
     };
 
     componentWillMount() {
@@ -23,11 +24,15 @@ class App extends Component {
         user && setAlitaState({ stateName: 'auth', data: user });
         this.getClientWidth();
         window.onresize = () => {
-            console.log('屏幕变化了');
+            //console.log('屏幕变化了');
             this.getClientWidth();
         }
     }
     componentDidMount() {
+        const { setAlitaState } = this.props;
+        //console.log("componentDidMount() user_info");
+        setAlitaState({funcName:'user_info',stateName:'userData'});
+
         const openNotification = () => {
             // notification.open({
             //   message: '',
@@ -47,7 +52,7 @@ class App extends Component {
     getClientWidth = () => { // 获取当前浏览器宽度并设置responsive管理响应式
         const { setAlitaState } = this.props;
         const clientWidth = window.innerWidth;
-        console.log(clientWidth);
+        //console.log(clientWidth);
         setAlitaState({ stateName: 'responsive', data: { isMobile: clientWidth <= 992 } });
         // receiveData({isMobile: clientWidth <= 992}, 'responsive');
 
@@ -72,7 +77,12 @@ class App extends Component {
                     {!responsive.data.isMobile && <SiderCustom collapsed={this.state.collapsed} />}
                     <ThemePicker />
                     <Layout style={{flexDirection: 'column'}}>
-                        <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data.data || {}} />
+                        {/*auth.data.data || {}*/}
+                        {/* user={this.state.user||{}} */}
+                        <HeaderCustom toggle={this.toggle}
+                                      collapsed={this.state.collapsed}
+                                      user={auth.data.data || {}}
+                                     />
                         <Content style={{ margin: '0 16px', overflow: 'initial', flex: '1 1 0' }}>
                             <Routes auth={auth} />
                         </Content>
@@ -86,4 +96,4 @@ class App extends Component {
     }
 }
 
-export default connectAlita(['auth', 'responsive','userInfo'])(App);
+export default connectAlita(['auth', 'responsive','userInfo',"userData"])(App);

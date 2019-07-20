@@ -47,7 +47,7 @@ class ProfitListTable extends React.Component {
         };
     }
     onShowSizeChange=(current,size)=>{
-        console.log("onShowSizeChange() current:",current,"size:",size);
+        //console.log("onShowSizeChange() current:",current,"size:",size);
         limit=size;
     }
 
@@ -92,7 +92,7 @@ class ProfitListTable extends React.Component {
 
             }).catch(err => {
             Toast.hide()
-            console.log("err:", err);
+            //console.log("err:", err);
         })
     }
 

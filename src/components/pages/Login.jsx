@@ -16,7 +16,7 @@ class Login extends React.Component {
     }
     componentDidUpdate(prevProps) { // React 16.3+弃用componentWillReceiveProps
         const { auth: nextAuth = {}, history } = this.props;
-        console.log("componentDidUpdate() nextAuth:",nextAuth);
+        //console.log("componentDidUpdate() nextAuth:",nextAuth);
         if(nextAuth.isFetching!=true){
                 if (nextAuth!=null&&nextAuth.data!=null) {
                     if (nextAuth.data.success &&nextAuth.data.code==0) { // 判断是否登陆
@@ -33,7 +33,7 @@ class Login extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                //console.log('Received values of form: ', values);
                 const { setAlitaState } = this.props;
                 setAlitaState({funcName:'login',stateName:'auth',
                     params:{username:values.userName,password:values.password}})

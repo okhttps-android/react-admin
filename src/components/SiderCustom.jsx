@@ -56,7 +56,7 @@ class SiderCustom extends Component {
         popoverHide && popoverHide();
     };
     openMenu = v => {
-        console.log("openMenu()",v);
+        //console.log("openMenu()",v);
         this.setState({
             openKey: v[v.length - 1],
             firstHide: false,

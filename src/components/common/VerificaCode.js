@@ -37,7 +37,7 @@ class VerificaCode extends React.Component{
         if (!liked) {
             return;
         }
-        console.log("phone:",phone);
+        //console.log("phone:",phone);
         sendMsg();
         // if(phone!=null){
         //     this.countDown();

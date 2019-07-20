@@ -14,23 +14,31 @@ class UserInfoPage extends React.Component{
     
     
     componentDidMount(){
-        
+
     }
    
     render(){
         const {auth:userInfo={}}=this.props
-            console.log("render() userInfo:",userInfo);
+            //console.log("render() userInfo:",userInfo);
+        let agent={};
+        if (this.props.userData!=null){
+            if(this.props.userData.data!=null){
+                if(!this.props.userData.isFetching){
+                    agent = this.props.userData.data.data;
+                }
+            }
+        }
         return <div>
             <BreadcrumbCustom first="用户信息" />
             <Row>
                 <Col span={24}>
                     <Card>
-                        {userInfo.data!=null?(<div>
-                            <div><span className="span_16  margin_right_10 text_color_gray">  &nbsp;&nbsp; &nbsp;用户名:</span>{userInfo.data.data.agent.username} </div>
-                            <div><span className="span_16  margin_right_10 text_color_gray">代理级别:</span>{userInfo.data.data.agent.agent_level}级代理 </div>
-                            <div><span className="span_16  margin_right_10 text_color_gray">  &nbsp;&nbsp;&nbsp;手机号:</span>{userInfo.data.data.agent.user_tel} </div>
-                            <div><span className="span_16  margin_right_10 text_color_gray">创建时间:</span>{userInfo.data.data.agent.create_time} </div>
-                            <div><span className="span_16  margin_right_10 text_color_gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;余 额:</span>￥ { get_thousand_num(userInfo.data.data.agent.user_money_all)} </div>
+                        {agent!=null?(<div>
+                            <div><span className="span_16  margin_right_10 text_color_gray">  &nbsp;&nbsp; &nbsp;用户名:</span>{agent.username} </div>
+                            <div><span className="span_16  margin_right_10 text_color_gray">代理级别:</span>{agent.agent_level}级代理 </div>
+                            <div><span className="span_16  margin_right_10 text_color_gray">  &nbsp;&nbsp;&nbsp;手机号:</span>{agent.user_tel} </div>
+                            <div><span className="span_16  margin_right_10 text_color_gray">创建时间:</span>{agent.create_time} </div>
+                            <div><span className="span_16  margin_right_10 text_color_gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;余 额:</span>￥ { get_thousand_num(agent.user_money_all)} </div>
                         </div>):(<div></div>)}
 
                     </Card>
@@ -40,4 +48,4 @@ class UserInfoPage extends React.Component{
     }
 }
 
-export  default  connectAlita(['auth'])(UserInfoPage);
+export  default  connectAlita(['auth',"userData"])(UserInfoPage);

@@ -16,7 +16,7 @@ class Buttons extends React.Component {
         this.setState({ size: e.target.value });
     };
     handleMenuClick = (e) => {
-        console.log('click', e);
+        //console.log('click', e);
     };
     enterLoading = () => {
         this.setState({ loading: true });

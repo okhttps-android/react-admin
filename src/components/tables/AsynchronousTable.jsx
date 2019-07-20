@@ -44,7 +44,7 @@ class AsynchronousTable extends React.Component {
         });
     };
     onSelectChange = (selectedRowKeys) => {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
+        //console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({ selectedRowKeys });
     };
     render() {

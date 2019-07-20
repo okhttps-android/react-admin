@@ -19,7 +19,7 @@ export default class CRouter extends Component {
     };
     requireLogin = (component, permission) => {
         let user = localStorage.getItem("user");
-        console.log("user:", user);
+        //console.log("user:", user);
         if (user != null) {
             return permission ? this.requireAuth(permission, component) : component;
         } else {

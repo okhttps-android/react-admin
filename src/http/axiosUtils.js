@@ -54,7 +54,7 @@ export const sendPost = ({url, params, headers}) => { // post 请求
     return api.creatAxios1.post(url, params, headers)
         .then(res => {
             Toast.hide();
-            console.log("sendPost():",res);
+            //console.log("sendPost():",res);
         if(res.data.code==0){
         }else if(0<res.data.code<1000){
             if(res.data.code==403){
@@ -72,7 +72,7 @@ export const sendPost = ({url, params, headers}) => { // post 请求
         return res.data
     }).catch(err => {
          Toast.hide();
-        console.log(err);
+        //console.log(err);
         message.error(JSON.stringify(err));
         if(err.code==500){
             message.error('服务器没有响应!');

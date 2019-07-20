@@ -14,6 +14,10 @@ export const user_logout = () => sendPost({
     params: {}
 })
 
+export const user_info=()=>sendGet({
+    url:API.APP_USER_INFO
+})
+
 //修改用户登录密码
 export const update_user_password = ({user_tel,password,code}) => sendPost({
     url: API.APP_USER_UPDATE,

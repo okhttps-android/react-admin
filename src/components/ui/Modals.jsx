@@ -22,13 +22,13 @@ class S extends Component {
         });
     };
     handleOk = (e) => {
-        console.log(e);
+        //console.log(e);
         this.setState({
             visible: false,
         });
     };
     handleCancel = (e) => {
-        console.log(e);
+        //console.log(e);
         this.setState({
             visible: false,
         });
@@ -57,7 +57,7 @@ class S extends Component {
         this.setState({ modal2Visible });
     };
     handleCancel2 = () => {
-        console.log('Clicked cancel button');
+        //console.log('Clicked cancel button');
         this.setState({
             visible2: false,
         });

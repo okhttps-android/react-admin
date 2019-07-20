@@ -24,7 +24,7 @@ class BasicTables extends React.Component{
     }
 
     onChangeInputByPhone=(e)=>{
-        console.log("onChangeInputByPhone():",e.target.value);
+        //console.log("onChangeInputByPhone():",e.target.value);
         this.state.user_tel=e.target.value;
         this.setState({user_tel:e.target.value})
     }
@@ -32,8 +32,8 @@ class BasicTables extends React.Component{
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                  console.log("tel ()",values.tel);
-                  console.log("tel ()",values.code);
+                  //console.log("tel ()",values.tel);
+                  //console.log("tel ()",values.code);
                 account_bind({tel: values.tel, code: values.code}).then(res=>{
                     if(res.message=='success'&&res.code==0){
                         message.success("账号绑定成功！");
@@ -57,14 +57,14 @@ class BasicTables extends React.Component{
     sendMsg=()=>{
         this.props.form.validateFields((err, values) => {
             let user_tel=  values.tel;
-            console.log("user_tel:",user_tel);
+            //console.log("user_tel:",user_tel);
             if(user_tel!=null&&user_tel!=""&&user_tel!=" "){
                 this.child.countDown();
                 get_sms_code({user_tel: this.state.user_tel, auth_type: 2}).
                 then(res=>{
-                    console.log("get_sms_code result()",res.data);
+                    //console.log("get_sms_code result()",res.data);
                 }).catch(err=>{
-                    console.log(err)
+                    //console.log(err)
                 })
             }
         });

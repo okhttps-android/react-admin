@@ -49,12 +49,12 @@ class MyUserListTable extends React.Component {
     }
 
     onShowSizeChange=(current,size)=>{
-        console.log("onShowSizeChange() current:",current,"size:",size);
+        //console.log("onShowSizeChange() current:",current,"size:",size);
         limit=size;
     }
 
     onSelectChange = (selectedRowKeys) => {
-        console.log('selectedRowKeys changed: ', selectedRowKeys);
+        //console.log('selectedRowKeys changed: ', selectedRowKeys);
         this.setState({selectedRowKeys});
     };
 
@@ -86,7 +86,7 @@ class MyUserListTable extends React.Component {
                     }
                     this.state.data.push(model);
                 }
-                console.log("state data：", this.state.data);
+                //console.log("state data：", this.state.data);
                 this.setState({
                     data: this.state.data,
                     pagination
@@ -94,7 +94,7 @@ class MyUserListTable extends React.Component {
 
             }).catch(err => {
             Toast.hide()
-            console.log("err:", err);
+            //console.log("err:", err);
         })
     }
 
