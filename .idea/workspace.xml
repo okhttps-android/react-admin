@@ -3,37 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0d62bbf8-76a0-4842-8c08-9db6413f073e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/build.js" afterPath="$PROJECT_DIR$/scripts/build.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/axios/tools.js" afterPath="$PROJECT_DIR$/src/axios/tools.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HeaderCustom.jsx" afterPath="$PROJECT_DIR$/src/components/HeaderCustom.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/SiderCustom.jsx" afterPath="$PROJECT_DIR$/src/components/SiderCustom.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/UserInfoPage.js" afterPath="$PROJECT_DIR$/src/components/UserInfoPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/auth/ActionEnter.js" afterPath="$PROJECT_DIR$/src/components/auth/ActionEnter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/auth/RouterEnter.js" afterPath="$PROJECT_DIR$/src/components/auth/RouterEnter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/common/VerificaCode.js" afterPath="$PROJECT_DIR$/src/components/common/VerificaCode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/forms/BasicForm.jsx" afterPath="$PROJECT_DIR$/src/components/forms/BasicForm.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/forms/HorizontalForm.jsx" afterPath="$PROJECT_DIR$/src/components/forms/HorizontalForm.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/forms/LoginForm.jsx" afterPath="$PROJECT_DIR$/src/components/forms/LoginForm.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/forms/ModalForm.jsx" afterPath="$PROJECT_DIR$/src/components/forms/ModalForm.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/pages/Login.jsx" afterPath="$PROJECT_DIR$/src/components/pages/Login.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tables/AsynchronousTable.jsx" afterPath="$PROJECT_DIR$/src/components/tables/AsynchronousTable.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tables/BasicTables.jsx" afterPath="$PROJECT_DIR$/src/components/tables/BasicTables.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tables/MyAgentListTable.js" afterPath="$PROJECT_DIR$/src/components/tables/MyAgentListTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tables/MyUserListTable.js" afterPath="$PROJECT_DIR$/src/components/tables/MyUserListTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tables/ProfitDetailTable.js" afterPath="$PROJECT_DIR$/src/components/tables/ProfitDetailTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tables/ProfitListTable.js" afterPath="$PROJECT_DIR$/src/components/tables/ProfitListTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tables/SelectTable.jsx" afterPath="$PROJECT_DIR$/src/components/tables/SelectTable.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tables/SortTable.jsx" afterPath="$PROJECT_DIR$/src/components/tables/SortTable.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tables/WithDrawAccountTable.js" afterPath="$PROJECT_DIR$/src/components/tables/WithDrawAccountTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/tables/WithDrawRequestTable.js" afterPath="$PROJECT_DIR$/src/components/tables/WithDrawRequestTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/Buttons.jsx" afterPath="$PROJECT_DIR$/src/components/ui/Buttons.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/Modals.jsx" afterPath="$PROJECT_DIR$/src/components/ui/Modals.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ui/Notifications.jsx" afterPath="$PROJECT_DIR$/src/components/ui/Notifications.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/http/api.config.js" afterPath="$PROJECT_DIR$/src/http/api.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/http/axiosUtils.js" afterPath="$PROJECT_DIR$/src/http/axiosUtils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/http/index.js" afterPath="$PROJECT_DIR$/src/http/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/index.js" afterPath="$PROJECT_DIR$/src/routes/index.js" />
     </list>
     <list id="056623c2-9574-43d1-98f6-e380f189ab3a" name="loadSelectData" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -106,40 +75,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="61" column="59" lean-forward="false" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="59" />
-              <folding>
-                <element signature="e#39#78#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scripts/test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/react-document-title/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-567">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -334,128 +270,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="http" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="axios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lqdb-agent-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -602,14 +416,7 @@
       <workItem from="1559184618201" duration="492000" />
       <workItem from="1559285730887" duration="6670000" />
       <workItem from="1560822495700" duration="310000" />
-      <workItem from="1563592931410" duration="11974000" />
-    </task>
-    <task id="LOCAL-00004" summary="解决好左侧菜单路径传参问题！">
-      <created>1554372834393</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1554372834393</updated>
+      <workItem from="1563592931410" duration="12240000" />
     </task>
     <task id="LOCAL-00005" summary="解决好左侧菜单路径传参问题！">
       <created>1554373590040</created>
@@ -947,11 +754,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559542742681</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="修复用户状态信息更新检测">
+      <created>1563611338624</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1563611338625</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196039000" />
+    <option name="totallyTimeSpent" value="196305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -1017,7 +831,8 @@
     <MESSAGE value="- 添加代理和修改分成比例" />
     <MESSAGE value="解决了根据网络接口请求判断token失效的问题。" />
     <MESSAGE value="Merge branch 'developer' of https://github.com/idobao8/lqdb-agent-web&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'developer' of https://github.com/idobao8/lqdb-agent-web&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="修复用户状态信息更新检测" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复用户状态信息更新检测" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1426,9 +1241,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-document-title/index.js">
+    <entry file="file://$PROJECT_DIR$/scripts/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-567">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1444,9 +1259,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/test.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-document-title/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-567">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
