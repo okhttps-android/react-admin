@@ -187,7 +187,7 @@ class HeaderCustom extends Component {
 
                     <Menu.Item key="userInfo">
                         <div className=" flex">
-                            <span className="span_16 text_color_red">余额：￥ {get_thousand_num(agent.user_money_all)}
+                            <span className="span_16 text_color_red">余额：￥ {get_thousand_num(agent.user_money)}
                             &nbsp;&nbsp;&nbsp;&nbsp;</span>
                             <span className="span_16">【{agent.agent_level}级代理】</span>
                             <span className="span_14">{agent.username}</span>

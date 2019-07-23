@@ -42,7 +42,7 @@ class UserInfoPage extends React.Component{
                                 </div>
                             <div><span className="span_16  margin_right_10 text_color_gray">  &nbsp;&nbsp;&nbsp;手机号:</span>{agent.user_tel} </div>
                             <div><span className="span_16  margin_right_10 text_color_gray">创建时间:</span>{agent.create_time} </div>
-                            <div><span className="span_16  margin_right_10 text_color_gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;余 额:</span>￥ { get_thousand_num(agent.user_money_all)} </div>
+                            <div><span className="span_16  margin_right_10 text_color_gray">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;余 额:</span>￥ { get_thousand_num(agent.user_money)} </div>
                              </div>
                         ):(<div></div>)}
 
