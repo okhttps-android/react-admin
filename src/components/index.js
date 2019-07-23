@@ -42,16 +42,35 @@ const WysiwygBundle = Loadable({ // 按需加载富文本配置
 });
 
 export default {
-    UserInfoPage,
+    UserInfoPage,//用户信息展示
     WithDrawAccountTable,
     WithDrawRequestTable,
     ProfitDetailTable,
     ProfitListTable,
     MyAgentListTable,
     MyUserListTable,
-    BasicForm, BasicTable, AdvancedTable, AsynchronousTable,
-    Echarts, Recharts, Icons, Buttons, Spins, Modals, Notifications,
-    Tabs, Banners, Drags, Dashboard, Gallery, BasicAnimations,
-    ExampleAnimations, AuthBasic, RouterEnter, WysiwygBundle,
-    Cssmodule, MapUi, QueryParams,ActionEnter
+    BasicForm,
+    BasicTable,
+    AdvancedTable,
+    AsynchronousTable,
+    Echarts,
+    Recharts,
+    Icons,
+    Buttons,
+    Spins,
+    Modals,
+    Notifications,
+    Tabs,
+    Banners,
+    Drags,
+    Dashboard,
+    Gallery,
+    BasicAnimations,
+    ExampleAnimations,
+    AuthBasic,
+    RouterEnter,
+    WysiwygBundle,
+    Cssmodule,
+    MapUi,
+    QueryParams,ActionEnter
 }

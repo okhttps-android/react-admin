@@ -171,6 +171,9 @@ class WithDrawRequestTable extends React.Component{
     };
 
     setModalVisibleWithDrawPassword(modalVisibleByWithDrawPassword) {
+        this.formRefWithDrawPassword.props.form.setFieldsValue({
+            user_tel: this.props.userData.data.data.user_tel,
+        });
         this.setState({ modalVisibleByWithDrawPassword });
     }
 
@@ -185,9 +188,12 @@ class WithDrawRequestTable extends React.Component{
               let user_tel=  values.user_tel;
               //console.log("user_tel:",user_tel);
               if(user_tel!=null&&user_tel!=""&&user_tel!=" "){
-                  this.child.countDown();
-                  get_sms_code({user_tel: this.state.user_tel, auth_type: 3}).
+                  get_sms_code({user_tel: user_tel, auth_type: 3}).
                   then(res=>{
+                      if(res.code==0){
+                          message.info("短信验证码发送成功！")
+                          this.child.countDown();
+                      }
                       //console.log("get_sms_code result()",res.data);
                   }).catch(err=>{
                       //console.log(err)

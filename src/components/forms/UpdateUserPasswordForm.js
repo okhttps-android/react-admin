@@ -27,7 +27,7 @@ class UpdateUserPasswordForm extends React.Component{
                         {getFieldDecorator('user_tel', {
                             rules: [{ required: true, message: '请输入手机号!' }],
                         })(
-                            <Input    placeholder="请输入手机号" onChange={onChangeInputByPhone}/>
+                            <Input    placeholder="请输入手机号" onChange={onChangeInputByPhone} disabled={true}/>
                         )}
                     </FormItem>
                     <FormItem label="新登录密码" {...formItemLayout}>

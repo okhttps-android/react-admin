@@ -27,7 +27,7 @@ class UpdateWithDrawPasswordForm extends React.Component{
                         {getFieldDecorator('user_tel', {
                             rules: [{ required: true, message: '请输入手机号!' }],
                         })(
-                            <Input    placeholder="请输入手机号" onChange={onChangeInputByPhone}/>
+                            <Input  disabled={true}   placeholder="请输入手机号" onChange={onChangeInputByPhone}/>
                         )}
                     </FormItem>
                     <FormItem label="提现密码" {...formItemLayout}>

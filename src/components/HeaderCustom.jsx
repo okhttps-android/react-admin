@@ -44,6 +44,7 @@ class HeaderCustom extends Component {
                 user: _user
             });
         }
+
     };
 
     saveFormRefWithDrawPassword = formRef => {
@@ -54,13 +55,14 @@ class HeaderCustom extends Component {
     sendMsg = () => {
         this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
             let user_tel = values.user_tel;
-            //console.log("user_tel:", user_tel);
+            console.log("user_tel:", user_tel);
             if (user_tel != null && user_tel != "" && user_tel != " ") {
-                this.child.countDown();
-                get_sms_code({user_tel: this.state.user_tel, auth_type: 1}).then(res => {
-                    //console.log("get_sms_code result()", res.data);
+                get_sms_code({user_tel: user_tel, auth_type: 1}).then(res => {
+                    if(res.code==0){
+                        message.info("短信验证码发送成功！")
+                        this.child.countDown();
+                    }
                 }).catch(err => {
-                    //console.log(err)
                 })
             }
         });
@@ -79,6 +81,18 @@ class HeaderCustom extends Component {
 
 
     setModalVisibleWithDrawPassword(modalVisibleByWithDrawPassword) {
+        // let agent={};
+        // if (this.props.userData!=null){
+        //     if(this.props.userData.data!=null){
+        //         if(!this.props.userData.isFetching){
+        //             agent = this.props.userData.data.data;
+        //         }
+        //     }
+        // }
+        // console.log("componentDidMount() this.props.userData：",agent);
+        this.formRefWithDrawPassword.props.form.setFieldsValue({
+            user_tel: this.props.userData.data.data.user_tel,
+        });
         this.setState({modalVisibleByWithDrawPassword});
     }
 
@@ -86,16 +100,12 @@ class HeaderCustom extends Component {
         e.preventDefault();
         this.formRefWithDrawPassword.props.form.validateFields((err, values) => {
             if (!err) {
-                //console.log("tel ()", values.user_tel);
-                //console.log("tel ()", values.password);
-                //console.log("tel ()", values.code);
                 update_user_password({
                     user_tel: values.user_tel,
                     password: values.password,
                     code: values.code
                 })
                     .then(res => {
-                        //console.log("result()", res);
                         if (res.message == 'success' && res.code == 0) {
                             message.success("登录密码修改成功！");
                             this.setModalVisibleWithDrawPassword(false);
@@ -148,6 +158,7 @@ class HeaderCustom extends Component {
                 }
             }
         }
+
 
         return (
             <Header className="custom-theme header ">
