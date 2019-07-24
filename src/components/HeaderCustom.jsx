@@ -148,7 +148,7 @@ class HeaderCustom extends Component {
 
     render() {
         const {responsive = {data: {}}, path,userData} = this.props;
-        // console.log("render() 用户信息 user:", this.props.userData);
+       console.log("render() headerLayout:", this.props.userData);
         let agent={};
         if (this.props.userData!=null){
             if(this.props.userData.data!=null){
@@ -180,19 +180,19 @@ class HeaderCustom extends Component {
 
                 <Menu
                     mode="horizontal"
-
                     style={{lineHeight: '64px', float: 'right'}}
                     onClick={this.menuClick}
                 >
 
                     <Menu.Item key="userInfo">
-                        <div className=" flex">
+                        <div className="flex">
                             <span className="span_16 text_color_red">余额：￥ {get_thousand_num(agent.user_money_all)}
-                            &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;</span>
                             <span className="span_16">【{agent.agent_level}级代理】</span>
                             <span className="span_14">{agent.username}</span>
                         </div>
-                    </Menu.Item>
+                  </Menu.Item>
+
                     {/*  <Menu.Item key="full" onClick={this.screenFull} >
                      <Icon type="arrows-alt" onClick={this.screenFull} />
                      </Menu.Item>*/}

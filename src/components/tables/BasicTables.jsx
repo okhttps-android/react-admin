@@ -6,6 +6,7 @@ import {Row, Col, Card, Modal, Form, InputNumber, Input, Select, message, Button
 import SelectTable from './SelectTable';
 import BreadcrumbCustom from '../BreadcrumbCustom';
 import VerificaCode from "../common/VerificaCode";
+import {connectAlita} from "redux-alita";
 import {account_bind, get_sms_code} from "../../http";
 const FormItem = Form.Item;
 const formItemLayout = {
@@ -51,6 +52,9 @@ class BasicTables extends React.Component{
     }
 
     setModalVisible(modalVisible) {
+        this.props.form.setFieldsValue({
+            tel: this.props.userData.data.data.user_tel,
+        });
         this.setState({ modalVisible});
     }
 
@@ -59,9 +63,13 @@ class BasicTables extends React.Component{
             let user_tel=  values.tel;
             //console.log("user_tel:",user_tel);
             if(user_tel!=null&&user_tel!=""&&user_tel!=" "){
-                this.child.countDown();
-                get_sms_code({user_tel: this.state.user_tel, auth_type: 2}).
+
+                get_sms_code({user_tel: user_tel, auth_type: 2}).
                 then(res=>{
+                    if(res.code==0){
+                        message.info("短信验证码发送成功！")
+                        this.child.countDown();
+                    }
                     //console.log("get_sms_code result()",res.data);
                 }).catch(err=>{
                     //console.log(err)
@@ -116,7 +124,7 @@ class BasicTables extends React.Component{
                         {getFieldDecorator('tel', {
                             rules: [{ required: true, message: '请输入手机号!' }],
                         })(
-                            <Input    placeholder="请输入手机号" onChange={this.onChangeInputByPhone}/>
+                            <Input  disabled={true}  placeholder="请输入手机号" onChange={this.onChangeInputByPhone}/>
                         )}
                     </FormItem>
 
@@ -138,4 +146,4 @@ class BasicTables extends React.Component{
     }
 }
 
-export  default Form.create()(BasicTables);
+export  default connectAlita(["userData"])(Form.create()(BasicTables));
