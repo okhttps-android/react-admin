@@ -25,11 +25,13 @@ export const fetchData = ({funcName, params, stateName}) => dispatch => {
 
 export const asynData = () => {
     return (dispatch) => {
+        console.log("arison:开始执行异步函数asynData");
         dispatch(requestData("appState"));
         setTimeout(() => {
             let data = {
                 curDate: new Date().toString()
             };
+            console.log("arison:执行异步函数asynData结束");
             dispatch(receiveData(data, "appState"));
         }, 5000);
     }

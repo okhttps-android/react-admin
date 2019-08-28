@@ -27,7 +27,10 @@ class ReduxThunk extends React.Component{
        console.log("render()",this.props);
         return <div>
                  <Button type={'primary'}
-                         onClick={this.props.startAsyn1} block> 执行异步请求1</Button>
+                         onClick={()=>{
+                             console.log("arison() 点击1");
+                             this.props.startAsyn1();
+                         }} block> 执行异步请求1</Button>
 
             <Button type={'primary'}
                     onClick={this.props.startAsyn2} block> 执行异步请求2</Button>

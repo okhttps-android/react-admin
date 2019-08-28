@@ -11,9 +11,7 @@ import './style/lib/animate.css';
 import './style/antd/index.less';
 import './style/index.less';
 import {Provider} from "react-redux";
-import {createStore} from 'redux'
-import reducers from './reducer/index'
-const store = createStore(reducers)
+import store from "./store/index"
 // setConfig(apis);
 
 ReactDOM.render(

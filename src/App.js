@@ -88,3 +88,4 @@ class App extends Component {
 }
 
 export default connectAlita(['auth', 'responsive','userInfo',"userData"])(App);
+
