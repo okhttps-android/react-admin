@@ -26,7 +26,29 @@ const httpData = (state = {}, action) => {
             return {...state};
     }
 };
+//模拟异步Action
 
-export default combineReducers({
-    httpData
-});
+const asynData = (state = {}, action) => {
+    switch (action.type) {
+        case type.RECEIVE_DATA:
+        case type.REQUEST_DATA:
+            return {
+                ...state,
+                [action.category]: handleData(state[action.category], action)
+            };
+        default:
+            return {...state};
+    }
+};
+
+
+
+// export default const reducers=combineReducers({
+//     httpData,
+//     asynData
+// });
+
+const reducers = combineReducers({ httpData,
+    asynData})
+
+export default reducers

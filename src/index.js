@@ -10,19 +10,19 @@ import zhCN from 'antd/lib/locale-provider/zh_CN';
 import './style/lib/animate.css';
 import './style/antd/index.less';
 import './style/index.less';
-
-setConfig(apis);
+import {Provider} from "react-redux";
+import {createStore} from 'redux'
+import reducers from './reducer/index'
+const store = createStore(reducers)
+// setConfig(apis);
 
 ReactDOM.render(
-    <LocaleProvider locale={zhCN}>
-        <AppContainer>
-            <AlitaProvider>
-                <Page />
-            </AlitaProvider>
-        </AppContainer>
-    </LocaleProvider>
- ,
+     <Provider store={store}>
+         <Page/>
+     </Provider>,
   document.getElementById('root')
 );
 
 serviceWorker.register();
+
+

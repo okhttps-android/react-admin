@@ -1,6 +1,3 @@
-/**
- * Created by 叶子 on 2017/7/30.
- */
 import * as type from './type';
 import * as http from '../axios/index';
 
@@ -22,4 +19,19 @@ export const fetchData = ({funcName, params, stateName}) => dispatch => {
     !stateName && (stateName = funcName);
     dispatch(requestData(stateName));
     return http[funcName](params).then(res => dispatch(receiveData(res, stateName)));
+};
+
+//模拟异步请求
+
+export const asynData = () => {
+    return (dispatch) => {
+        dispatch(requestData("appState"));
+        setTimeout(() => {
+            let data = {
+                curDate: new Date().toString()
+            };
+            dispatch(receiveData(data, "appState"));
+        }, 5000);
+    }
+
 };

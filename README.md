@@ -142,3 +142,13 @@ yarn build or npm run build
 - 修改左侧菜单栏支持三级甚至多级菜单展示。
 - 左侧菜单栏点击URL设置和支持参数传参（问号形式和匹配符形式）
 
+
+````
+<LocaleProvider locale={zhCN}>
+    <AppContainer>
+        <AlitaProvider>
+            <Page />
+        </AlitaProvider>
+    </AppContainer>
+</LocaleProvider>
+````

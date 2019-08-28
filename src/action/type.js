@@ -1,6 +1,8 @@
-/**
- * Created by 叶子 on 2017/7/30.
- */
-export const REQUEST_DATA = 'REQUEST_DATA';
 
+
+//请求数据
+export const REQUEST_DATA = 'REQUEST_DATA';
+//接收请求数据
 export const RECEIVE_DATA = 'RECEIVE_DATA';
+
+
