@@ -1,7 +1,7 @@
 import * as type from './type';
 import * as http from '../axios/index';
 
-const requestData = category => ({
+export const requestData = category => ({
     type: type.REQUEST_DATA,
     category
 });
@@ -24,7 +24,7 @@ export const fetchData = ({funcName, params, stateName}) => dispatch => {
 //模拟异步请求
 
 export const asynData = () => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
         console.log("arison:开始执行异步函数asynData");
         dispatch(requestData("appState"));
         setTimeout(() => {
@@ -35,5 +35,16 @@ export const asynData = () => {
             dispatch(receiveData(data, "appState"));
         }, 5000);
     }
-
 };
+
+// 异步 ACTION  示例
+export const delayAdd = () => (dispatch, getState) =>　{
+    dispatch(requestData("appState"));
+    setTimeout(() => {
+        let data = {
+            curDate: new Date().toString()
+        };
+        console.log("arison:执行异步函数asynData结束");
+        dispatch(receiveData(data, "appState"));
+    }, 1000);
+}

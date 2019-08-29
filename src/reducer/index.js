@@ -41,14 +41,11 @@ const asynData = (state = {}, action) => {
     }
 };
 
-
-
-// export default const reducers=combineReducers({
+// export default const  reducers=combineReducers({
 //     httpData,
 //     asynData
 // });
 
-const reducers = combineReducers({ httpData,
-    asynData})
+const reducers = combineReducers({ httpData,asynData})
 
 export default reducers
