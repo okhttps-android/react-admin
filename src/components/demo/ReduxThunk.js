@@ -13,14 +13,13 @@ class ReduxThunk extends React.Component {
     }
 
     render() {
-        const {startAsyn1, startAsyn2,appState} = this.props;
+        const {startAsyn1, startAsyn2,appState={}} = this.props;
         console.log("render()", this.props);
         let data="";
         let isLoad;
-        if(appState!=null){
-            data =appState.data;
-            isLoad=appState.isFetching;
-        }
+        console.log("render() appState=",appState);
+        data =appState.data;
+        isLoad=appState.isFetching;
         return <div>
             <Button
                 style={{margin: "10px"}}
