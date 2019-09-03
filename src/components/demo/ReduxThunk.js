@@ -2,6 +2,7 @@ import React from 'react';
 import {Button} from "antd";
 import {connect} from 'react-redux'
 import {asynData, delayAdd, receiveData, requestData} from "../../action/index";
+import {objectIsNull} from "../../utils/index";
 
 class ReduxThunk extends React.Component {
     constructor(props) {
@@ -12,17 +13,13 @@ class ReduxThunk extends React.Component {
     }
 
     render() {
-        const {startAsyn1, startAsyn2} = this.props;
+        const {startAsyn1, startAsyn2,appState} = this.props;
         console.log("render()", this.props);
         let data="";
         let isLoad;
-        if(this.props.httpData.httpData!=null){
-         if( this.props.httpData.httpData.appState!=null){
-             if(this.props.httpData.httpData.appState.data!=null){
-                data =this.props.httpData.httpData.appState.data;
-                 isLoad=this.props.httpData.httpData.appState.isFetching;
-             }
-         }
+        if(appState!=null){
+            data =appState.data;
+            isLoad=appState.isFetching;
         }
         return <div>
             <Button
@@ -42,12 +39,32 @@ class ReduxThunk extends React.Component {
                 {isLoad?(<div>数据加载中</div>):(<div>数据加载完毕！</div>)}
 
             </div>
+
+            <div>
+                <div> objectIsNull("")={objectIsNull("")}</div>
+                <div> objectIsNull("{}")={objectIsNull("{}")}</div>
+                <div> undefined:{objectIsNull(undefined)}</div>
+                <div> false:{objectIsNull(false)}</div>
+                <div> true:{objectIsNull(true)}</div>
+                <div> null:{objectIsNull(null)}</div>
+                <div> " ":{objectIsNull(" ")}</div>
+                <div> "{}":{objectIsNull({})}</div>
+                <div></div>
+
+
+
+
+
+
+
+
+            </div>
         </div>
     }
 }
 
 let mapStateToProps = (state) => ({
-    httpData: state
+    appState: state.httpData.appState
 })
 
 let mapDispatchToProps = (dispatch) => ({

@@ -1,4 +1,14 @@
 
+//对象判空
+
+export const objectIsNull=(val )=>{
+    if (val == undefined || val == null || val == "" || val == ''
+        || val == "undefined" || val == "null" || val == "NULL") {
+        return true+"";
+    }
+    return false+"";
+
+}
 
 export function getNowFormatDate() {//获取当前时间
     let date = new Date();
