@@ -15,7 +15,7 @@ class ReduxThunk extends React.Component {
     render() {
         const {startAsyn1, startAsyn2,appState={}} = this.props;
         console.log("render()", this.props);
-        let data="";
+        let data;
         let isLoad;
         console.log("render() appState=",appState);
         data =appState.data;
@@ -36,7 +36,6 @@ class ReduxThunk extends React.Component {
             <div>
                 httpData:{JSON.stringify(data)}
                 {isLoad?(<div>数据加载中</div>):(<div>数据加载完毕！</div>)}
-
             </div>
 
             <div>
@@ -49,14 +48,6 @@ class ReduxThunk extends React.Component {
                 <div> " ":{objectIsNull(" ")}</div>
                 <div> "{}":{objectIsNull({})}</div>
                 <div></div>
-
-
-
-
-
-
-
-
             </div>
         </div>
     }
