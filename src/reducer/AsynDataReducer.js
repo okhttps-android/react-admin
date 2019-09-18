@@ -6,7 +6,7 @@ const handleData = (state = {isFetching: true, data: {}}, action) => {
         case type.REQUEST_DATA:
             return {...state, isFetching: true};
         case type.RECEIVE_DATA:
-            return {...state, isFetching: false, data: action.data};
+            return {...state, isFetching: false, data: action.payload};
         default:
             return {...state};
     }

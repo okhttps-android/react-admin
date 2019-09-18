@@ -7,6 +7,7 @@ import VerificaCode from "./components/common/VerificaCode";
 import ComponseDemo from "./components/demo/ComponseDemo";
 import ReduxThunk from "./components/demo/ReduxThunk";
 import ReduxActions from "./components/demo/ReduxActions";
+import ReduxPromise from "./components/demo/ReduxPromise";
 
 export default () => (
     <Router>
@@ -16,6 +17,7 @@ export default () => (
             <Route path="/404" component={NotFound} />
             <Route path="/login" component={Login} />
             <Route path="/demo" component={ReduxActions}/>
+            <Route path="/promise" component={ReduxPromise}/>
             <Route component={NotFound} />
         </Switch>
     </Router>

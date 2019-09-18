@@ -49,3 +49,16 @@ export const delayAdd = () => (dispatch, getState) =>　{
         dispatch(receiveData(data, "appState"));
     }, 1000);
 }
+
+
+export  const asynDataPromise=()=>{
+    // dispatch(requestData("appState"));
+    return new Promise((succ,err)=>{
+             setTimeout(()=>{
+                 let data = {
+                     curDate: new Date().toString()
+                 };
+                 succ(receiveData(data, "appState"));
+                     },5000);
+    })
+}

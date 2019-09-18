@@ -4,10 +4,12 @@
 import {createStore, applyMiddleware} from 'redux'
 import reducers from '../reducer/index'
 import thunkMiddleware from 'redux-thunk'
+import promiseMiddleware from 'redux-promise'
 // import loggerMiddleware from 'redux-logger'
 
 const middlewares=[
-    thunkMiddleware
+    thunkMiddleware,
+    promiseMiddleware
 ]
 
 const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore)

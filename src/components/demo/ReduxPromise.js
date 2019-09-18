@@ -1,4 +1,8 @@
 import React from 'react';
+import {connect} from "react-redux";
+import {asynDataPromise} from "../../action/index";
+import {Button} from "antd";
+import {asynDataPromiseAction} from "../../action/promise/index";
 
 class ReduxPromise extends React.Component{
     constructor(props){
@@ -14,10 +18,24 @@ class ReduxPromise extends React.Component{
     }
 
     render(){
+        const {page={},getAsynData}=this.props;
         return <div>
-
+            <Button type={'primary'}  onClick={getAsynData} > 执行异步任务-Promise </Button>
+            {JSON.stringify(page)}
         </div>
     }
 }
 
-export  default ReduxPromise;
+
+
+let mapStateToProps = (state) => ({
+    page:state,
+})
+
+let mapDispatchToProps = (dispatch) => ({
+    getAsynData:()=>{
+        dispatch(asynDataPromiseAction());
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReduxPromise)
