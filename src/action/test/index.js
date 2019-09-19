@@ -3,24 +3,24 @@ import { createAction } from 'redux-actions';
 import { createActions } from 'redux-actions';
 
 //同步action
-// const getTestList=()=>{
-//     const testList=[
-//         {
-//             id:'1',
-//             name:'test1',
-//             description: 'test1-description',
-//         },
-//         {
-//             id:'2',
-//             name:'test2',
-//             description: 'test2-description',
-//         }
-//     ]
-//     return {
-//         type:actionTypes.GET_LIST_TEST,
-//         data:testList
-//     }
-// }
+export  const getTestListOrigin=()=>{
+    const testList=[
+        {
+            id:'1',
+            name:'test1',
+            description: 'test1-description',
+        },
+        {
+            id:'2',
+            name:'test2',
+            description: 'test2-description',
+        }
+    ]
+    return {
+        type:actionTypes.GET_LIST_TEST,
+        data:testList
+    }
+}
 
 const getTestList=createAction(actionTypes.GET_LIST_TEST,()=>{
     const testList=[

@@ -12,13 +12,14 @@ const handleData = (state = {isFetching: true, data: {}}, action) => {
     }
 };
 //模拟异步Action
-const asynData = (state = {}, action) => {
+const asynData = (state = {}, action={}) => {
+    const  {meta={}}=action;
+    const  {category={}}=meta;
     switch (action.type) {
         case type.RECEIVE_DATA:
         case type.REQUEST_DATA:
             return {
-                ...state,
-                [action.category]: handleData(state[action.category], action)
+                ...state, [category]: handleData(state[category], action)
             };
         default:
             return {...state};

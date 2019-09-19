@@ -7,7 +7,7 @@ export const requestData = category => ({
 });
 export const receiveData = (data, category) => ({
     type: type.RECEIVE_DATA,
-    data,
+    payload:data,
     category
 });
 /**
@@ -51,14 +51,14 @@ export const delayAdd = () => (dispatch, getState) =>　{
 }
 
 
-export  const asynDataPromise=()=>{
-    // dispatch(requestData("appState"));
-    return new Promise((succ,err)=>{
-             setTimeout(()=>{
-                 let data = {
-                     curDate: new Date().toString()
-                 };
-                 succ(receiveData(data, "appState"));
-                     },5000);
-    })
-}
+// export  const asynDataPromise=()=>{
+//     // dispatch(requestData("appState"));
+//     return new Promise((succ,err)=>{
+//              setTimeout(()=>{
+//                  let data = {
+//                      curDate: new Date().toString()
+//                  };
+//                  succ(receiveData(data, "appState"));
+//                      },5000);
+//     })
+// }

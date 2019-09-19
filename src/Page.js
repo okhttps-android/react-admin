@@ -12,7 +12,7 @@ import ReduxPromise from "./components/demo/ReduxPromise";
 export default () => (
     <Router>
         <Switch>
-            <Route exact path="/" render={() => <Redirect to="/demo" push />} />
+            <Route exact path="/" render={() => <Redirect to="/promise" push />} />
             <Route path="/app" component={App} />
             <Route path="/404" component={NotFound} />
             <Route path="/login" component={Login} />
