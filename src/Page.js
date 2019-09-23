@@ -9,16 +9,18 @@ import ReduxThunk from "./components/demo/ReduxThunk";
 import ReduxActions from "./components/demo/ReduxActions";
 import ReduxPromise from "./components/demo/ReduxPromise";
 import ReduxConnect from "./components/demo/ReduxConnect";
+import PureApp from "./components/demo/PureApp";
 export default () => (
     <Router>
         <Switch>
-            <Route exact path="/" render={() => <Redirect to="/connect" push />} />
+            <Route exact path="/" render={() => <Redirect to="/pure" push />} />
             <Route path="/app" component={App} />
             <Route path="/404" component={NotFound} />
             <Route path="/login" component={Login} />
             <Route path="/demo" component={ReduxActions}/>
             <Route path="/promise" component={ReduxPromise}/>
             <Route path="/connect" component={ReduxConnect}/>
+            <Route path="/pure" component={PureApp}/>
             <Route component={NotFound} />
         </Switch>
     </Router>
